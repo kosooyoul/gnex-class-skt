@@ -1,0 +1,799 @@
+S,	&rank,	Rank
+M,	Rank, point, 0, 1, 0
+M,	Rank, date, 0, 1, 1
+F,	DrawInt,	.\Functions.h,  4,	340
+L,	.\Functions.h,  4,	344
+L,	.\Functions.h,  5,	345
+L,	.\Functions.h,  6,	346
+L,	.\Functions.h,  7,	350
+L,	.\Functions.h,  8,	355
+L,	.\Functions.h, 11,	357
+F,	Power,	.\Functions.h, 11,	358
+L,	.\Functions.h, 12,	361
+L,	.\Functions.h, 13,	362
+L,	.\Functions.h, 14,	365
+L,	.\Functions.h, 15,	373
+L,	.\Functions.h, 16,	383
+L,	.\Functions.h, 17,	385
+L,	.\Functions.h, 18,	388
+L,	.\Functions.h, 21,	389
+F,	DateToInt,	.\Functions.h, 21,	390
+L,	.\Functions.h, 22,	392
+L,	.\Functions.h, 24,	395
+L,	.\Functions.h, 25,	405
+L,	.\Functions.h, 26,	415
+L,	.\Functions.h, 28,	423
+L,	.\Functions.h, 29,	426
+L,	.\Functions.h, 32,	427
+F,	IntToDate,	.\Functions.h, 32,	428
+L,	.\Functions.h, 33,	431
+L,	.\Functions.h, 34,	439
+L,	.\Functions.h, 35,	449
+L,	.\Functions.h, 36,	457
+L,	.\Functions.h, 39,	459
+F,	GetDateToInt,	.\Functions.h, 39,	460
+L,	.\Functions.h, 40,	461
+L,	.\Functions.h, 42,	462
+L,	.\Functions.h, 44,	465
+L,	.\Functions.h, 45,	469
+F,	DrawBlueBox,	.\Design.h,  3,	470
+L,	.\Design.h,  3,	475
+L,	.\Design.h,  4,	476
+L,	.\Design.h,  5,	479
+L,	.\Design.h,  6,	485
+L,	.\Design.h,  7,	488
+L,	.\Design.h,  8,	502
+L,	.\Design.h, 10,	504
+F,	DrawPinkBox,	.\Design.h, 10,	505
+L,	.\Design.h, 11,	510
+L,	.\Design.h, 12,	513
+L,	.\Design.h, 13,	519
+L,	.\Design.h, 14,	522
+L,	.\Design.h, 15,	536
+L,	.\Design.h, 17,	538
+F,	DrawNoticeBox,	.\Design.h, 17,	539
+L,	.\Design.h, 18,	540
+L,	.\Design.h, 19,	543
+L,	.\Design.h, 20,	549
+L,	.\Design.h, 21,	552
+L,	.\Design.h, 22,	558
+L,	.\Design.h, 24,	560
+F,	DrawBack1,	.\Design.h, 24,	561
+L,	.\Design.h, 25,	562
+L,	.\Design.h, 26,	565
+L,	.\Design.h, 27,	571
+L,	.\Design.h, 28,	577
+L,	.\Design.h, 29,	580
+L,	.\Design.h, 30,	585
+L,	.\Design.h, 31,	590
+L,	.\Design.h, 33,	592
+F,	DrawBack2,	.\Design.h, 33,	593
+L,	.\Design.h, 34,	594
+L,	.\Design.h, 35,	597
+L,	.\Design.h, 36,	603
+L,	.\Design.h, 37,	609
+L,	.\Design.h, 39,	611
+F,	DrawBack3,	.\Design.h, 39,	612
+L,	.\Design.h, 40,	613
+L,	.\Design.h, 41,	616
+L,	.\Design.h, 42,	622
+L,	.\Design.h, 43,	628
+L,	.\Design.h, 45,	630
+F,	DrawQuestion,	.\Design.h, 45,	631
+L,	.\Design.h, 46,	632
+L,	.\Design.h, 47,	634
+L,	.\Design.h, 48,	637
+L,	.\Design.h, 49,	642
+L,	.\Design.h, 50,	647
+L,	.\Design.h, 52,	652
+L,	.\Design.h, 53,	657
+L,	.\Design.h, 54,	664
+L,	.\Design.h, 55,	665
+L,	.\Design.h, 56,	670
+L,	.\Design.h, 57,	672
+L,	.\Design.h, 59,	674
+F,	DrawHistory,	.\Design.h, 59,	675
+L,	.\Design.h, 60,	678
+L,	.\Design.h, 61,	687
+L,	.\Design.h, 62,	692
+L,	.\Design.h, 63,	703
+L,	.\Design.h, 64,	704
+L,	.\Design.h, 65,	713
+L,	.\Design.h, 66,	715
+F,	InitTimer,	.\States.h, 24,	717
+L,	.\States.h, 24,	718
+L,	.\States.h, 25,	719
+L,	.\States.h, 26,	721
+L,	.\States.h, 27,	724
+L,	.\States.h, 29,	726
+F,	PauseTimer,	.\States.h, 29,	727
+L,	.\States.h, 30,	728
+L,	.\States.h, 31,	730
+L,	.\States.h, 33,	732
+F,	PlayTimer,	.\States.h, 33,	733
+L,	.\States.h, 34,	734
+L,	.\States.h, 35,	738
+L,	.\States.h, 38,	740
+L,	.\States.h, 41,	741
+L,	.\States.h, 44,	742
+F,	AddHistory,	.\States.h, 44,	743
+L,	.\States.h, 46,	745
+L,	.\States.h, 47,	752
+L,	.\States.h, 48,	759
+L,	.\States.h, 49,	760
+L,	.\States.h, 50,	763
+L,	.\States.h, 53,	765
+L,	.\States.h, 54,	771
+L,	.\States.h, 56,	773
+F,	InitHistory,	.\States.h, 56,	774
+L,	.\States.h, 57,	775
+L,	.\States.h, 58,	782
+L,	.\States.h, 65,	784
+L,	.\States.h, 72,	785
+F,	error,	.\States.h, 72,	786
+L,	.\States.h, 73,	788
+L,	.\States.h, 74,	791
+L,	.\States.h, 77,	793
+F,	PointUp,	.\States.h, 77,	794
+L,	.\States.h, 79,	795
+L,	.\States.h, 81,	802
+L,	.\States.h, 82,	807
+L,	.\States.h, 85,	809
+F,	GetBonusPoint,	.\States.h, 85,	810
+L,	.\States.h, 86,	811
+L,	.\States.h, 87,	812
+L,	.\States.h, 88,	821
+L,	.\States.h, 89,	829
+L,	.\States.h, 90,	842
+L,	.\States.h, 91,	845
+L,	.\States.h, 94,	846
+F,	GetAidChance,	.\States.h, 94,	847
+L,	.\States.h, 95,	848
+L,	.\States.h, 96,	855
+L,	.\States.h,103,	856
+L,	.\States.h,104,	857
+L,	.\States.h,105,	858
+L,	.\States.h,106,	859
+L,	.\States.h,109,	860
+F,	AddRank,	.\States.h,109,	861
+L,	.\States.h,110,	863
+L,	.\States.h,111,	866
+L,	.\States.h,114,	867
+L,	.\States.h,115,	875
+L,	.\States.h,116,	887
+L,	.\States.h,117,	891
+L,	.\States.h,118,	892
+L,	.\States.h,119,	899
+L,	.\States.h,122,	901
+L,	.\States.h,124,	906
+L,	.\States.h,125,	916
+L,	.\States.h,126,	935
+L,	.\States.h,127,	959
+L,	.\States.h,130,	961
+L,	.\States.h,131,	971
+L,	.\States.h,134,	981
+L,	.\States.h,135,	983
+L,	.\States.h,137,	985
+L,	.\States.h,138,	988
+L,	.\States.h,152,	989
+L,	.\States.h,153,	990
+L,	.\States.h,156,	991
+F,	LoadROM,	.\States.h,156,	992
+L,	.\States.h,157,	993
+L,	.\States.h,159,	996
+L,	.\States.h,160,	1002
+L,	.\States.h,163,	1006
+L,	.\States.h,164,	1014
+L,	.\States.h,165,	1020
+L,	.\States.h,166,	1026
+L,	.\States.h,167,	1030
+L,	.\States.h,169,	1032
+L,	.\States.h,170,	1040
+L,	.\States.h,171,	1045
+L,	.\States.h,172,	1058
+L,	.\States.h,173,	1078
+L,	.\States.h,176,	1080
+L,	.\States.h,178,	1086
+L,	.\States.h,181,	1088
+F,	SaveRank,	.\States.h,181,	1089
+L,	.\States.h,182,	1090
+L,	.\States.h,184,	1093
+L,	.\States.h,185,	1101
+L,	.\States.h,186,	1106
+L,	.\States.h,187,	1119
+L,	.\States.h,188,	1139
+L,	.\States.h,189,	1141
+L,	.\States.h,191,	1145
+L,	.\States.h,194,	1147
+F,	SaveOption,	.\States.h,194,	1148
+L,	.\States.h,195,	1149
+L,	.\States.h,196,	1155
+L,	.\States.h,197,	1159
+F,	ChangeMode,	.\ModeManager.h,  3,	1161
+L,	.\ModeManager.h,  3,	1163
+L,	.\ModeManager.h,  4,	1164
+L,	.\ModeManager.h,  5,	1167
+L,	.\ModeManager.h,  8,	1170
+L,	.\ModeManager.h,  9,	1209
+L,	.\ModeManager.h, 10,	1210
+L,	.\ModeManager.h, 11,	1211
+L,	.\ModeManager.h, 12,	1212
+L,	.\ModeManager.h, 13,	1213
+L,	.\ModeManager.h, 14,	1214
+L,	.\ModeManager.h, 15,	1215
+L,	.\ModeManager.h, 16,	1216
+L,	.\ModeManager.h, 17,	1217
+L,	.\ModeManager.h, 18,	1218
+L,	.\ModeManager.h, 19,	1224
+L,	.\ModeManager.h, 20,	1231
+L,	.\ModeManager.h, 21,	1232
+L,	.\ModeManager.h, 22,	1233
+L,	.\ModeManager.h, 23,	1235
+L,	.\ModeManager.h, 25,	1237
+F,	InitMode,	.\ModeManager.h, 25,	1238
+L,	.\ModeManager.h, 27,	1239
+L,	.\ModeManager.h, 28,	1272
+L,	.\ModeManager.h, 29,	1273
+L,	.\ModeManager.h, 30,	1274
+L,	.\ModeManager.h, 31,	1275
+L,	.\ModeManager.h, 32,	1276
+L,	.\ModeManager.h, 33,	1277
+L,	.\ModeManager.h, 34,	1280
+L,	.\ModeManager.h, 35,	1282
+L,	.\ModeManager.h, 36,	1284
+L,	.\ModeManager.h, 37,	1287
+L,	.\ModeManager.h, 38,	1290
+L,	.\ModeManager.h, 39,	1293
+L,	.\ModeManager.h, 40,	1296
+L,	.\ModeManager.h, 41,	1307
+L,	.\ModeManager.h, 42,	1308
+L,	.\ModeManager.h, 43,	1309
+L,	.\ModeManager.h, 44,	1310
+L,	.\ModeManager.h, 45,	1311
+L,	.\ModeManager.h, 46,	1315
+L,	.\ModeManager.h, 47,	1316
+F,	ChangePlayMode,	.\ControlPlay.h,  3,	1318
+L,	.\ControlPlay.h,  3,	1320
+L,	.\ControlPlay.h,  4,	1321
+L,	.\ControlPlay.h,  5,	1324
+L,	.\ControlPlay.h,  7,	1327
+L,	.\ControlPlay.h,  8,	1362
+L,	.\ControlPlay.h, 10,	1363
+L,	.\ControlPlay.h, 11,	1379
+L,	.\ControlPlay.h, 12,	1380
+L,	.\ControlPlay.h, 13,	1381
+L,	.\ControlPlay.h, 14,	1382
+L,	.\ControlPlay.h, 15,	1383
+L,	.\ControlPlay.h, 16,	1384
+L,	.\ControlPlay.h, 17,	1385
+L,	.\ControlPlay.h, 18,	1398
+L,	.\ControlPlay.h, 19,	1399
+L,	.\ControlPlay.h, 20,	1400
+L,	.\ControlPlay.h, 21,	1401
+L,	.\ControlPlay.h, 22,	1402
+L,	.\ControlPlay.h, 23,	1403
+L,	.\ControlPlay.h, 24,	1404
+L,	.\ControlPlay.h, 25,	1409
+L,	.\ControlPlay.h, 26,	1411
+L,	.\ControlPlay.h, 27,	1418
+L,	.\ControlPlay.h, 28,	1422
+L,	.\ControlPlay.h, 29,	1423
+L,	.\ControlPlay.h, 30,	1424
+L,	.\ControlPlay.h, 32,	1426
+L,	.\ControlPlay.h, 34,	1428
+F,	InitPlayMode,	.\ControlPlay.h, 34,	1429
+L,	.\ControlPlay.h, 36,	1430
+L,	.\ControlPlay.h, 37,	1465
+L,	.\ControlPlay.h, 38,	1466
+L,	.\ControlPlay.h, 39,	1468
+L,	.\ControlPlay.h, 40,	1473
+L,	.\ControlPlay.h, 41,	1474
+L,	.\ControlPlay.h, 43,	1475
+L,	.\ControlPlay.h, 44,	1478
+L,	.\ControlPlay.h, 45,	1483
+L,	.\ControlPlay.h, 46,	1484
+L,	.\ControlPlay.h, 47,	1485
+L,	.\ControlPlay.h, 49,	1487
+L,	.\ControlPlay.h, 51,	1492
+L,	.\ControlPlay.h, 52,	1506
+L,	.\ControlPlay.h, 53,	1507
+L,	.\ControlPlay.h, 54,	1508
+L,	.\ControlPlay.h, 55,	1509
+L,	.\ControlPlay.h, 56,	1510
+L,	.\ControlPlay.h, 57,	1511
+L,	.\ControlPlay.h, 59,	1512
+L,	.\ControlPlay.h, 60,	1515
+L,	.\ControlPlay.h, 61,	1520
+L,	.\ControlPlay.h, 62,	1521
+L,	.\ControlPlay.h, 63,	1522
+L,	.\ControlPlay.h, 64,	1526
+L,	.\ControlPlay.h, 65,	1527
+L,	.\ControlPlay.h, 67,	1528
+L,	.\ControlPlay.h, 69,	1530
+F,	ControlPlayReady,	.\ControlPlay.h, 69,	1531
+L,	.\ControlPlay.h, 70,	1533
+L,	.\ControlPlay.h, 71,	1548
+L,	.\ControlPlay.h, 72,	1549
+L,	.\ControlPlay.h, 74,	1550
+L,	.\ControlPlay.h, 75,	1554
+L,	.\ControlPlay.h, 76,	1555
+L,	.\ControlPlay.h, 78,	1557
+F,	ControlPlayInput,	.\ControlPlay.h, 78,	1558
+L,	.\ControlPlay.h, 80,	1560
+L,	.\ControlPlay.h, 82,	1591
+L,	.\ControlPlay.h, 83,	1592
+L,	.\ControlPlay.h, 84,	1593
+L,	.\ControlPlay.h, 85,	1594
+L,	.\ControlPlay.h, 86,	1595
+L,	.\ControlPlay.h, 87,	1600
+L,	.\ControlPlay.h, 88,	1605
+L,	.\ControlPlay.h, 89,	1606
+L,	.\ControlPlay.h, 90,	1609
+L,	.\ControlPlay.h, 91,	1614
+L,	.\ControlPlay.h, 92,	1615
+L,	.\ControlPlay.h, 93,	1616
+L,	.\ControlPlay.h, 95,	1631
+L,	.\ControlPlay.h, 96,	1632
+L,	.\ControlPlay.h, 97,	1639
+L,	.\ControlPlay.h, 99,	1640
+L,	.\ControlPlay.h,100,	1641
+L,	.\ControlPlay.h,102,	1646
+L,	.\ControlPlay.h,103,	1651
+L,	.\ControlPlay.h,104,	1652
+L,	.\ControlPlay.h,105,	1656
+L,	.\ControlPlay.h,106,	1662
+L,	.\ControlPlay.h,107,	1663
+L,	.\ControlPlay.h,108,	1664
+L,	.\ControlPlay.h,109,	1665
+L,	.\ControlPlay.h,110,	1669
+L,	.\ControlPlay.h,111,	1670
+L,	.\ControlPlay.h,113,	1672
+F,	ControlPlayCompared,	.\ControlPlay.h,113,	1673
+L,	.\ControlPlay.h,114,	1675
+L,	.\ControlPlay.h,115,	1686
+L,	.\ControlPlay.h,116,	1687
+L,	.\ControlPlay.h,118,	1692
+L,	.\ControlPlay.h,119,	1697
+L,	.\ControlPlay.h,121,	1698
+L,	.\ControlPlay.h,123,	1703
+L,	.\ControlPlay.h,124,	1706
+L,	.\ControlPlay.h,125,	1711
+L,	.\ControlPlay.h,127,	1712
+L,	.\ControlPlay.h,128,	1715
+L,	.\ControlPlay.h,129,	1717
+L,	.\ControlPlay.h,130,	1720
+L,	.\ControlPlay.h,131,	1721
+L,	.\ControlPlay.h,133,	1723
+F,	ControlPlayOver,	.\ControlPlay.h,133,	1724
+L,	.\ControlPlay.h,134,	1726
+L,	.\ControlPlay.h,135,	1737
+L,	.\ControlPlay.h,136,	1738
+L,	.\ControlPlay.h,137,	1742
+L,	.\ControlPlay.h,138,	1743
+L,	.\ControlPlay.h,140,	1745
+F,	ControlPlayRecord,	.\ControlPlay.h,140,	1746
+L,	.\ControlPlay.h,141,	1748
+L,	.\ControlPlay.h,142,	1759
+L,	.\ControlPlay.h,143,	1760
+L,	.\ControlPlay.h,144,	1764
+L,	.\ControlPlay.h,145,	1765
+L,	.\ControlPlay.h,147,	1767
+F,	ControlPlayGiveup,	.\ControlPlay.h,147,	1768
+L,	.\ControlPlay.h,148,	1770
+L,	.\ControlPlay.h,150,	1797
+L,	.\ControlPlay.h,151,	1798
+L,	.\ControlPlay.h,152,	1799
+L,	.\ControlPlay.h,153,	1800
+L,	.\ControlPlay.h,154,	1801
+L,	.\ControlPlay.h,155,	1806
+L,	.\ControlPlay.h,156,	1811
+L,	.\ControlPlay.h,157,	1812
+L,	.\ControlPlay.h,158,	1815
+L,	.\ControlPlay.h,159,	1820
+L,	.\ControlPlay.h,160,	1821
+L,	.\ControlPlay.h,161,	1822
+L,	.\ControlPlay.h,163,	1837
+L,	.\ControlPlay.h,164,	1838
+L,	.\ControlPlay.h,165,	1844
+L,	.\ControlPlay.h,167,	1845
+L,	.\ControlPlay.h,168,	1846
+L,	.\ControlPlay.h,169,	1851
+L,	.\ControlPlay.h,170,	1852
+L,	.\ControlPlay.h,171,	1853
+L,	.\ControlPlay.h,173,	1855
+F,	ControlPlayNextquest,	.\ControlPlay.h,173,	1856
+L,	.\ControlPlay.h,174,	1858
+L,	.\ControlPlay.h,176,	1885
+L,	.\ControlPlay.h,177,	1886
+L,	.\ControlPlay.h,178,	1887
+L,	.\ControlPlay.h,179,	1888
+L,	.\ControlPlay.h,180,	1889
+L,	.\ControlPlay.h,181,	1894
+L,	.\ControlPlay.h,182,	1899
+L,	.\ControlPlay.h,183,	1900
+L,	.\ControlPlay.h,184,	1903
+L,	.\ControlPlay.h,185,	1908
+L,	.\ControlPlay.h,186,	1909
+L,	.\ControlPlay.h,187,	1910
+L,	.\ControlPlay.h,189,	1925
+L,	.\ControlPlay.h,190,	1926
+L,	.\ControlPlay.h,191,	1932
+L,	.\ControlPlay.h,193,	1933
+L,	.\ControlPlay.h,194,	1934
+L,	.\ControlPlay.h,195,	1939
+L,	.\ControlPlay.h,196,	1940
+L,	.\ControlPlay.h,197,	1941
+F,	DrawPlayBase,	.\DrawPlay.h,  3,	1943
+L,	.\DrawPlay.h,  3,	1944
+L,	.\DrawPlay.h,  4,	1945
+L,	.\DrawPlay.h,  5,	1946
+L,	.\DrawPlay.h,  6,	1949
+L,	.\DrawPlay.h,  9,	1950
+L,	.\DrawPlay.h, 10,	1952
+L,	.\DrawPlay.h, 11,	1958
+L,	.\DrawPlay.h, 12,	1964
+L,	.\DrawPlay.h, 13,	1970
+L,	.\DrawPlay.h, 14,	1976
+L,	.\DrawPlay.h, 15,	1982
+L,	.\DrawPlay.h, 16,	1988
+L,	.\DrawPlay.h, 19,	1994
+L,	.\DrawPlay.h, 20,	1997
+L,	.\DrawPlay.h, 21,	2002
+L,	.\DrawPlay.h, 22,	2010
+L,	.\DrawPlay.h, 23,	2011
+L,	.\DrawPlay.h, 24,	2017
+L,	.\DrawPlay.h, 27,	2019
+L,	.\DrawPlay.h, 28,	2022
+L,	.\DrawPlay.h, 29,	2027
+L,	.\DrawPlay.h, 30,	2032
+L,	.\DrawPlay.h, 31,	2041
+L,	.\DrawPlay.h, 34,	2046
+L,	.\DrawPlay.h, 35,	2055
+L,	.\DrawPlay.h, 36,	2065
+L,	.\DrawPlay.h, 37,	2072
+L,	.\DrawPlay.h, 38,	2082
+L,	.\DrawPlay.h, 39,	2093
+L,	.\DrawPlay.h, 40,	2103
+L,	.\DrawPlay.h, 41,	2110
+L,	.\DrawPlay.h, 42,	2120
+L,	.\DrawPlay.h, 45,	2122
+L,	.\DrawPlay.h, 46,	2125
+L,	.\DrawPlay.h, 47,	2130
+L,	.\DrawPlay.h, 50,	2135
+L,	.\DrawPlay.h, 51,	2138
+L,	.\DrawPlay.h, 52,	2147
+L,	.\DrawPlay.h, 53,	2152
+L,	.\DrawPlay.h, 54,	2157
+L,	.\DrawPlay.h, 55,	2176
+L,	.\DrawPlay.h, 56,	2177
+L,	.\DrawPlay.h, 57,	2185
+L,	.\DrawPlay.h, 58,	2186
+L,	.\DrawPlay.h, 59,	2194
+L,	.\DrawPlay.h, 60,	2195
+L,	.\DrawPlay.h, 61,	2201
+L,	.\DrawPlay.h, 62,	2202
+L,	.\DrawPlay.h, 64,	2204
+F,	DrawPlayReady,	.\DrawPlay.h, 64,	2205
+L,	.\DrawPlay.h, 65,	2206
+L,	.\DrawPlay.h, 67,	2207
+L,	.\DrawPlay.h, 68,	2209
+L,	.\DrawPlay.h, 70,	2211
+L,	.\DrawPlay.h, 71,	2214
+L,	.\DrawPlay.h, 72,	2221
+L,	.\DrawPlay.h, 73,	2226
+L,	.\DrawPlay.h, 75,	2231
+L,	.\DrawPlay.h, 77,	2233
+F,	DrawPlayInput,	.\DrawPlay.h, 77,	2234
+L,	.\DrawPlay.h, 78,	2235
+L,	.\DrawPlay.h, 79,	2237
+L,	.\DrawPlay.h, 81,	2239
+F,	DrawPlayCompared,	.\DrawPlay.h, 81,	2240
+L,	.\DrawPlay.h, 82,	2241
+L,	.\DrawPlay.h, 83,	2243
+L,	.\DrawPlay.h, 85,	2245
+L,	.\DrawPlay.h, 87,	2248
+L,	.\DrawPlay.h, 88,	2253
+L,	.\DrawPlay.h, 90,	2260
+L,	.\DrawPlay.h, 91,	2265
+L,	.\DrawPlay.h, 93,	2272
+L,	.\DrawPlay.h, 94,	2273
+L,	.\DrawPlay.h, 95,	2278
+L,	.\DrawPlay.h, 96,	2281
+L,	.\DrawPlay.h, 98,	2283
+F,	DrawPlayOver,	.\DrawPlay.h, 98,	2284
+L,	.\DrawPlay.h, 99,	2285
+L,	.\DrawPlay.h,100,	2287
+L,	.\DrawPlay.h,101,	2290
+L,	.\DrawPlay.h,102,	2295
+L,	.\DrawPlay.h,104,	2297
+F,	DrawPlayRecord,	.\DrawPlay.h,104,	2298
+L,	.\DrawPlay.h,105,	2299
+L,	.\DrawPlay.h,106,	2301
+L,	.\DrawPlay.h,108,	2307
+L,	.\DrawPlay.h,109,	2310
+L,	.\DrawPlay.h,110,	2315
+L,	.\DrawPlay.h,111,	2318
+L,	.\DrawPlay.h,112,	2332
+L,	.\DrawPlay.h,113,	2339
+L,	.\DrawPlay.h,114,	2340
+L,	.\DrawPlay.h,115,	2345
+L,	.\DrawPlay.h,117,	2347
+L,	.\DrawPlay.h,119,	2349
+F,	DrawPlayGiveup,	.\DrawPlay.h,119,	2350
+L,	.\DrawPlay.h,120,	2351
+L,	.\DrawPlay.h,121,	2353
+L,	.\DrawPlay.h,122,	2355
+L,	.\DrawPlay.h,124,	2357
+F,	DrawPlayNextquest,	.\DrawPlay.h,124,	2358
+L,	.\DrawPlay.h,125,	2359
+L,	.\DrawPlay.h,126,	2361
+L,	.\DrawPlay.h,127,	2363
+F,	ControlIndex,	.\ControlNumberGuess.h,  3,	2365
+L,	.\ControlNumberGuess.h,  3,	2367
+L,	.\ControlNumberGuess.h,  4,	2368
+L,	.\ControlNumberGuess.h,  5,	2379
+L,	.\ControlNumberGuess.h,  6,	2380
+L,	.\ControlNumberGuess.h,  7,	2384
+L,	.\ControlNumberGuess.h,  8,	2385
+L,	.\ControlNumberGuess.h, 10,	2387
+F,	ControlMain,	.\ControlNumberGuess.h, 10,	2388
+L,	.\ControlNumberGuess.h, 11,	2390
+L,	.\ControlNumberGuess.h, 13,	2417
+L,	.\ControlNumberGuess.h, 14,	2418
+L,	.\ControlNumberGuess.h, 15,	2419
+L,	.\ControlNumberGuess.h, 16,	2424
+L,	.\ControlNumberGuess.h, 17,	2431
+L,	.\ControlNumberGuess.h, 18,	2432
+L,	.\ControlNumberGuess.h, 19,	2435
+L,	.\ControlNumberGuess.h, 20,	2440
+L,	.\ControlNumberGuess.h, 22,	2441
+L,	.\ControlNumberGuess.h, 23,	2442
+L,	.\ControlNumberGuess.h, 24,	2443
+L,	.\ControlNumberGuess.h, 25,	2448
+L,	.\ControlNumberGuess.h, 26,	2455
+L,	.\ControlNumberGuess.h, 27,	2456
+L,	.\ControlNumberGuess.h, 28,	2459
+L,	.\ControlNumberGuess.h, 29,	2464
+L,	.\ControlNumberGuess.h, 31,	2465
+L,	.\ControlNumberGuess.h, 32,	2466
+L,	.\ControlNumberGuess.h, 33,	2485
+L,	.\ControlNumberGuess.h, 34,	2486
+L,	.\ControlNumberGuess.h, 35,	2492
+L,	.\ControlNumberGuess.h, 36,	2493
+L,	.\ControlNumberGuess.h, 37,	2494
+L,	.\ControlNumberGuess.h, 38,	2500
+L,	.\ControlNumberGuess.h, 39,	2501
+L,	.\ControlNumberGuess.h, 40,	2502
+L,	.\ControlNumberGuess.h, 41,	2507
+L,	.\ControlNumberGuess.h, 42,	2508
+L,	.\ControlNumberGuess.h, 43,	2509
+L,	.\ControlNumberGuess.h, 45,	2511
+F,	ControlPlay,	.\ControlNumberGuess.h, 45,	2512
+L,	.\ControlNumberGuess.h, 46,	2514
+L,	.\ControlNumberGuess.h, 47,	2549
+L,	.\ControlNumberGuess.h, 48,	2550
+L,	.\ControlNumberGuess.h, 49,	2556
+L,	.\ControlNumberGuess.h, 50,	2557
+L,	.\ControlNumberGuess.h, 51,	2558
+L,	.\ControlNumberGuess.h, 52,	2564
+L,	.\ControlNumberGuess.h, 53,	2565
+L,	.\ControlNumberGuess.h, 54,	2566
+L,	.\ControlNumberGuess.h, 55,	2572
+L,	.\ControlNumberGuess.h, 56,	2573
+L,	.\ControlNumberGuess.h, 57,	2574
+L,	.\ControlNumberGuess.h, 58,	2580
+L,	.\ControlNumberGuess.h, 59,	2581
+L,	.\ControlNumberGuess.h, 60,	2582
+L,	.\ControlNumberGuess.h, 61,	2588
+L,	.\ControlNumberGuess.h, 62,	2589
+L,	.\ControlNumberGuess.h, 63,	2590
+L,	.\ControlNumberGuess.h, 64,	2596
+L,	.\ControlNumberGuess.h, 65,	2597
+L,	.\ControlNumberGuess.h, 66,	2598
+L,	.\ControlNumberGuess.h, 67,	2602
+L,	.\ControlNumberGuess.h, 68,	2603
+L,	.\ControlNumberGuess.h, 70,	2605
+F,	ControlRank,	.\ControlNumberGuess.h, 70,	2606
+L,	.\ControlNumberGuess.h, 71,	2608
+L,	.\ControlNumberGuess.h, 73,	2623
+L,	.\ControlNumberGuess.h, 74,	2624
+L,	.\ControlNumberGuess.h, 75,	2625
+L,	.\ControlNumberGuess.h, 76,	2629
+L,	.\ControlNumberGuess.h, 77,	2630
+L,	.\ControlNumberGuess.h, 79,	2632
+F,	ControlOption,	.\ControlNumberGuess.h, 79,	2633
+L,	.\ControlNumberGuess.h, 82,	2635
+L,	.\ControlNumberGuess.h, 84,	2666
+L,	.\ControlNumberGuess.h, 85,	2667
+L,	.\ControlNumberGuess.h, 86,	2668
+L,	.\ControlNumberGuess.h, 87,	2673
+L,	.\ControlNumberGuess.h, 88,	2680
+L,	.\ControlNumberGuess.h, 89,	2681
+L,	.\ControlNumberGuess.h, 90,	2684
+L,	.\ControlNumberGuess.h, 92,	2686
+L,	.\ControlNumberGuess.h, 93,	2689
+L,	.\ControlNumberGuess.h, 95,	2695
+L,	.\ControlNumberGuess.h, 97,	2696
+L,	.\ControlNumberGuess.h, 98,	2697
+L,	.\ControlNumberGuess.h, 99,	2698
+L,	.\ControlNumberGuess.h,100,	2703
+L,	.\ControlNumberGuess.h,101,	2710
+L,	.\ControlNumberGuess.h,102,	2711
+L,	.\ControlNumberGuess.h,103,	2714
+L,	.\ControlNumberGuess.h,105,	2716
+L,	.\ControlNumberGuess.h,106,	2719
+L,	.\ControlNumberGuess.h,108,	2725
+L,	.\ControlNumberGuess.h,110,	2726
+L,	.\ControlNumberGuess.h,111,	2727
+L,	.\ControlNumberGuess.h,113,	2730
+L,	.\ControlNumberGuess.h,115,	2734
+L,	.\ControlNumberGuess.h,116,	2735
+L,	.\ControlNumberGuess.h,117,	2739
+L,	.\ControlNumberGuess.h,118,	2740
+F,	DrawGame,	.\DrawNumberGuess.h,  3,	2742
+L,	.\DrawNumberGuess.h,  3,	2743
+L,	.\DrawNumberGuess.h,  4,	2744
+L,	.\DrawNumberGuess.h,  5,	2770
+L,	.\DrawNumberGuess.h,  6,	2771
+L,	.\DrawNumberGuess.h,  7,	2776
+L,	.\DrawNumberGuess.h,  8,	2777
+L,	.\DrawNumberGuess.h,  9,	2778
+L,	.\DrawNumberGuess.h, 10,	2783
+L,	.\DrawNumberGuess.h, 11,	2784
+L,	.\DrawNumberGuess.h, 12,	2785
+L,	.\DrawNumberGuess.h, 13,	2790
+L,	.\DrawNumberGuess.h, 14,	2791
+L,	.\DrawNumberGuess.h, 15,	2792
+L,	.\DrawNumberGuess.h, 16,	2797
+L,	.\DrawNumberGuess.h, 17,	2798
+L,	.\DrawNumberGuess.h, 18,	2799
+L,	.\DrawNumberGuess.h, 19,	2804
+L,	.\DrawNumberGuess.h, 20,	2805
+L,	.\DrawNumberGuess.h, 21,	2806
+L,	.\DrawNumberGuess.h, 22,	2810
+L,	.\DrawNumberGuess.h, 23,	2811
+L,	.\DrawNumberGuess.h, 25,	2813
+F,	DrawIndex,	.\DrawNumberGuess.h, 25,	2814
+L,	.\DrawNumberGuess.h, 26,	2815
+L,	.\DrawNumberGuess.h, 27,	2817
+L,	.\DrawNumberGuess.h, 28,	2820
+L,	.\DrawNumberGuess.h, 29,	2825
+L,	.\DrawNumberGuess.h, 31,	2827
+F,	DrawMain,	.\DrawNumberGuess.h, 31,	2828
+L,	.\DrawNumberGuess.h, 32,	2829
+L,	.\DrawNumberGuess.h, 33,	2831
+L,	.\DrawNumberGuess.h, 34,	2834
+L,	.\DrawNumberGuess.h, 35,	2839
+L,	.\DrawNumberGuess.h, 36,	2847
+L,	.\DrawNumberGuess.h, 37,	2855
+L,	.\DrawNumberGuess.h, 39,	2863
+L,	.\DrawNumberGuess.h, 40,	2877
+L,	.\DrawNumberGuess.h, 42,	2879
+F,	DrawPlay,	.\DrawNumberGuess.h, 42,	2880
+L,	.\DrawNumberGuess.h, 43,	2881
+L,	.\DrawNumberGuess.h, 44,	2916
+L,	.\DrawNumberGuess.h, 45,	2917
+L,	.\DrawNumberGuess.h, 46,	2922
+L,	.\DrawNumberGuess.h, 47,	2923
+L,	.\DrawNumberGuess.h, 48,	2924
+L,	.\DrawNumberGuess.h, 49,	2929
+L,	.\DrawNumberGuess.h, 50,	2930
+L,	.\DrawNumberGuess.h, 51,	2931
+L,	.\DrawNumberGuess.h, 52,	2936
+L,	.\DrawNumberGuess.h, 53,	2937
+L,	.\DrawNumberGuess.h, 54,	2938
+L,	.\DrawNumberGuess.h, 55,	2943
+L,	.\DrawNumberGuess.h, 56,	2944
+L,	.\DrawNumberGuess.h, 57,	2945
+L,	.\DrawNumberGuess.h, 58,	2950
+L,	.\DrawNumberGuess.h, 59,	2951
+L,	.\DrawNumberGuess.h, 60,	2952
+L,	.\DrawNumberGuess.h, 61,	2956
+L,	.\DrawNumberGuess.h, 62,	2957
+L,	.\DrawNumberGuess.h, 63,	2960
+L,	.\DrawNumberGuess.h, 64,	2961
+L,	.\DrawNumberGuess.h, 66,	2963
+F,	DrawRank,	.\DrawNumberGuess.h, 66,	2964
+L,	.\DrawNumberGuess.h, 67,	2965
+L,	.\DrawNumberGuess.h, 68,	2966
+L,	.\DrawNumberGuess.h, 69,	2967
+L,	.\DrawNumberGuess.h, 71,	2968
+L,	.\DrawNumberGuess.h, 74,	2970
+L,	.\DrawNumberGuess.h, 75,	2973
+L,	.\DrawNumberGuess.h, 76,	2981
+L,	.\DrawNumberGuess.h, 77,	2988
+L,	.\DrawNumberGuess.h, 79,	2997
+L,	.\DrawNumberGuess.h, 80,	3009
+L,	.\DrawNumberGuess.h, 81,	3020
+L,	.\DrawNumberGuess.h, 82,	3044
+L,	.\DrawNumberGuess.h, 83,	3055
+L,	.\DrawNumberGuess.h, 84,	3056
+L,	.\DrawNumberGuess.h, 85,	3065
+L,	.\DrawNumberGuess.h, 86,	3072
+L,	.\DrawNumberGuess.h, 87,	3074
+L,	.\DrawNumberGuess.h, 89,	3076
+F,	DrawOption,	.\DrawNumberGuess.h, 89,	3077
+L,	.\DrawNumberGuess.h, 92,	3078
+L,	.\DrawNumberGuess.h, 94,	3080
+L,	.\DrawNumberGuess.h, 95,	3083
+L,	.\DrawNumberGuess.h, 96,	3088
+L,	.\DrawNumberGuess.h, 97,	3093
+L,	.\DrawNumberGuess.h, 98,	3098
+L,	.\DrawNumberGuess.h, 99,	3103
+L,	.\DrawNumberGuess.h,101,	3108
+L,	.\DrawNumberGuess.h,102,	3113
+L,	.\DrawNumberGuess.h,103,	3128
+L,	.\DrawNumberGuess.h,104,	3136
+L,	.\DrawNumberGuess.h,105,	3142
+L,	.\DrawNumberGuess.h,106,	3146
+L,	.\DrawNumberGuess.h,107,	3148
+F,	TEST,	.\NumberGuess.mc, 53,	3150
+L,	.\NumberGuess.mc, 53,	3151
+L,	.\NumberGuess.mc, 54,	3152
+L,	.\NumberGuess.mc, 55,	3155
+L,	.\NumberGuess.mc, 56,	3160
+L,	.\NumberGuess.mc, 57,	3165
+L,	.\NumberGuess.mc, 58,	3170
+L,	.\NumberGuess.mc, 59,	3175
+L,	.\NumberGuess.mc, 61,	3177
+F,	EVENT_START,	.\NumberGuess.mc, 61,	3178
+L,	.\NumberGuess.mc, 62,	3179
+L,	.\NumberGuess.mc, 63,	3181
+L,	.\NumberGuess.mc, 64,	3185
+L,	.\NumberGuess.mc, 66,	3187
+F,	EVENT_TIMEOUT,	.\NumberGuess.mc, 66,	3188
+L,	.\NumberGuess.mc, 67,	3189
+L,	.\NumberGuess.mc, 68,	3204
+L,	.\NumberGuess.mc, 69,	3205
+L,	.\NumberGuess.mc, 70,	3212
+L,	.\NumberGuess.mc, 71,	3213
+L,	.\NumberGuess.mc, 72,	3216
+L,	.\NumberGuess.mc, 73,	3218
+L,	.\NumberGuess.mc, 74,	3221
+L,	.\NumberGuess.mc, 75,	3222
+L,	.\NumberGuess.mc, 77,	3224
+F,	EVENT_KEYPRESS,	.\NumberGuess.mc, 77,	3225
+L,	.\NumberGuess.mc, 79,	3226
+L,	.\NumberGuess.mc, 80,	3229
+L,	.\NumberGuess.mc, 81,	3231
+L,	.\NumberGuess.mc, 83,	3233
+L,	.\NumberGuess.mc, 84,	3260
+L,	.\NumberGuess.mc, 85,	3261
+L,	.\NumberGuess.mc, 86,	3267
+L,	.\NumberGuess.mc, 87,	3268
+L,	.\NumberGuess.mc, 88,	3269
+L,	.\NumberGuess.mc, 89,	3275
+L,	.\NumberGuess.mc, 90,	3276
+L,	.\NumberGuess.mc, 91,	3277
+L,	.\NumberGuess.mc, 92,	3283
+L,	.\NumberGuess.mc, 93,	3284
+L,	.\NumberGuess.mc, 94,	3285
+L,	.\NumberGuess.mc, 95,	3291
+L,	.\NumberGuess.mc, 96,	3292
+L,	.\NumberGuess.mc, 97,	3293
+L,	.\NumberGuess.mc, 98,	3297
+L,	.\NumberGuess.mc, 99,	3298
+L,	.\NumberGuess.mc,101,	3300
+F,	EVENT_RESULT,	.\NumberGuess.mc,101,	3301
+L,	.\NumberGuess.mc,102,	3302
+L,	.\NumberGuess.mc,104,	3313
+L,	.\NumberGuess.mc,105,	3314
+L,	.\NumberGuess.mc,107,	3325
+L,	.\NumberGuess.mc,108,	3326
+L,	.\NumberGuess.mc,110,	3337
+L,	.\NumberGuess.mc,112,	3338
+L,	.\NumberGuess.mc,113,	3344
+L,	.\NumberGuess.mc,114,	3349
+L,	.\NumberGuess.mc,115,	3350
+L,	.\NumberGuess.mc,116,	3354
+L,	.\NumberGuess.mc,117,	3359
+L,	.\NumberGuess.mc,118,	3364
+L,	.\NumberGuess.mc,119,	3371
+L,	.\NumberGuess.mc,120,	3376
+L,	.\NumberGuess.mc,121,	3377
+L,	.\NumberGuess.mc,122,	3380
+L,	.\NumberGuess.mc,123,	3383
+L,	.\NumberGuess.mc,124,	3388
+L,	.\NumberGuess.mc,125,	3389
+L,	.\NumberGuess.mc,126,	3390
+L,	.\NumberGuess.mc,128,	3391

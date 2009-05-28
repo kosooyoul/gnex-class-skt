@@ -1,0 +1,3392 @@
+@HEADER_SECTION
+	#DEFINE PLAYERVER	4
+	#DEFINE LCDCLASS	255
+	#DEFINE IMAGETYPE	255
+	#DEFINE AUDIOTYPE	255
+	#DEFINE APPTYPE		1
+	#DEFINE APPCPID		60000
+	#DEFINE APPID		1
+	#DEFINE APPNAME		"NumberGuess GNEX App"
+	#DEFINE COMPTYPE	0
+	#DEFINE AGENTTYPE	0
+	#DEFINE VALIDCOUNT	255
+	#DEFINE VALIDTERM	255
+	#DEFINE DIRECTRUN	0
+	#DEFINE APPVER		1
+@DATA_SECTION
+@GLOBAL_INTSYMBOL_TABLE
+.sym 	&swData 	    0     1
+.sym 	&swData2 	    1     1
+.sym 	&swData3 	    2     1
+.sym 	&swData4 	    3     1
+.sym 	&swWidth 	    4     1
+.sym 	&swHeight 	    5     1
+.sym 	&swFrame 	    6     1
+.sym 	&swFrame2 	    7     1
+.sym 	&swFrame3 	    8     1
+.sym 	&swFrame6 	    9     1
+.syma 	&swVMver 	   10     3     0
+.syma 	&swModel 	   11     8     0
+.syma 	&swSmsRcvBuf 	   12    41     0
+.syma 	&swRsRcvBuf 	   13   128     0
+.syma 	&swRcvBuf 	   14   256     0
+.sym 	&swReserved1 	   15     1
+.sym 	&swReserved2 	   16     1
+.sym 	&swReserved3 	   17     1
+.sym 	&swReserved4 	   18     1
+.sym 	&swSbuf 	   19     1
+.equ 	&LABEL_TITLE 	   20   %%0     1
+.equa 	&LABEL_MENU 	   21     3
+ %%1 %%2 %%3
+.equ 	&currentMode 	   22     0     0
+.equ 	&currentMenu 	   23     0     0
+.sym 	&chance 	   24     1
+.sym 	&gamePoint 	   25     1
+.sym 	&questNumber 	   26     1
+.sym 	&answeredNumber 	   27     1
+.syma 	&historyNumber 	   28     5     0
+.equ 	&lastHistoryIndex 	   29     0     0
+.sym 	&gameRank 	   30     1
+.sym 	&gameTurn 	   31     1
+.sym 	&playCount 	   32     1
+.sym 	&currentPlayMode 	   33     1
+.sym 	&prevPlayMode 	   34     1
+.equ 	&inputedString 	   35   %%41     1
+.equ 	&timeValue 	   36     0     0
+.equ 	&numberSize 	   37     2     0
+.sym 	&selectedValue 	   38     1
+.equ 	&errorType 	   39     0     0
+.syma 	&rank 	   40    10     0
+.syma 	&NVROM 	   41    12     0
+.equ 	&gOutStr 	   42   %%42     1
+.sym 	&delayTime 	   43     1
+.sym 	&delayKey 	   44     1
+.equ 	&testString 	   45   %%43     1
+.sym 	DrawInt&x 	   46     1
+.sym 	DrawInt&y 	   47     1
+.sym 	DrawInt&value 	   48     1
+.equ 	DrawInt&str 	   49   %%44     1
+.sym 	Power&n 	   50     1
+.sym 	Power&exp 	   51     1
+.sym 	Power&i 	   52     1
+.sym 	Power&result 	   53     1
+.sym 	DateToInt&sourceDate 	   54     1
+.sym 	DateToInt&result 	   55     1
+.sym 	IntToDate&result 	   56     1
+.sym 	IntToDate&sourceDate 	   57     1
+.syma 	GetDateToInt&tempDate 	   58     3     0
+.sym 	DrawBlueBox&x1 	   59     1
+.sym 	DrawBlueBox&y1 	   60     1
+.sym 	DrawBlueBox&x2 	   61     1
+.sym 	DrawBlueBox&y2 	   62     1
+.sym 	DrawPinkBox&x1 	   63     1
+.sym 	DrawPinkBox&y1 	   64     1
+.sym 	DrawPinkBox&x2 	   65     1
+.sym 	DrawPinkBox&y2 	   66     1
+.sym 	DrawHistory&rowIndex 	   67     1
+.sym 	DrawHistory&historyNum 	   68     1
+.sym 	AddHistory&value 	   69     1
+.sym 	error&error 	   70     1
+.sym 	GetBonusPoint&bonus 	   71     1
+.sym 	AddRank&point 	   72     1
+.sym 	AddRank&rankNumber 	   73     1
+.sym 	AddRank&i 	   74     1
+.sym 	LoadROM&i 	   75     1
+.sym 	LoadROM&j 	   76     1
+.sym 	SaveRank&i 	   77     1
+.sym 	SaveRank&j 	   78     1
+.sym 	ChangeMode&mode 	   79     1
+.sym 	ChangeMode&prevMode 	   80     1
+.sym 	ChangePlayMode&mode 	   81     1
+.sym 	ControlPlayReady&key 	   82     1
+.sym 	ControlPlayInput&key 	   83     1
+.sym 	ControlPlayCompared&key 	   84     1
+.sym 	ControlPlayOver&key 	   85     1
+.sym 	ControlPlayRecord&key 	   86     1
+.sym 	ControlPlayGiveup&key 	   87     1
+.sym 	ControlPlayNextquest&key 	   88     1
+.equ 	DrawPlayBase&tempString 	   89   %%45     1
+.sym 	DrawPlayBase&rowIndex 	   90     1
+.sym 	DrawPlayBase&i 	   91     1
+.equ 	DrawPlayReady&tempString 	   92   %%46     1
+.sym 	ControlIndex&key 	   93     1
+.sym 	ControlMain&key 	   94     1
+.sym 	ControlPlay&key 	   95     1
+.sym 	ControlRank&key 	   96     1
+.sym 	ControlOption&key 	   97     1
+.sym 	DrawRank&i 	   98     1
+.syma 	DrawRank&rankTime 	   99     3     0
+.equ 	DrawRank&printFormat 	  100   %%47     1
+@EXTERN_INTSYMBOL_TABLE
+@STATIC_FUNC_TABLE
+.func     DrawInt 	3	// .\NumberGuess.mc,101
+.func     Power 	2	// .\NumberGuess.mc,101
+.func     DateToInt 	1	// .\NumberGuess.mc,101
+.func     IntToDate 	2	// .\NumberGuess.mc,101
+.func     GetDateToInt 	0	// .\NumberGuess.mc,101
+.func     DrawBlueBox 	4	// .\NumberGuess.mc,101
+.func     DrawPinkBox 	4	// .\NumberGuess.mc,101
+.func     DrawNoticeBox 	0	// .\NumberGuess.mc,101
+.func     DrawBack1 	0	// .\NumberGuess.mc,101
+.func     DrawBack2 	0	// .\NumberGuess.mc,101
+.func     DrawBack3 	0	// .\NumberGuess.mc,101
+.func     DrawQuestion 	0	// .\NumberGuess.mc,101
+.func     DrawHistory 	2	// .\NumberGuess.mc,101
+.func     InitTimer 	0	// .\NumberGuess.mc,101
+.func     PauseTimer 	0	// .\NumberGuess.mc,101
+.func     PlayTimer 	0	// .\NumberGuess.mc,101
+.func     AddHistory 	1	// .\NumberGuess.mc,101
+.func     InitHistory 	0	// .\NumberGuess.mc,101
+.func     error 	1	// .\NumberGuess.mc,101
+.func     PointUp 	0	// .\NumberGuess.mc,101
+.func     GetBonusPoint 	0	// .\NumberGuess.mc,101
+.func     GetAidChance 	0	// .\NumberGuess.mc,101
+.func     AddRank 	1	// .\NumberGuess.mc,101
+.func     LoadROM 	0	// .\NumberGuess.mc,101
+.func     SaveRank 	0	// .\NumberGuess.mc,101
+.func     SaveOption 	0	// .\NumberGuess.mc,101
+.func     ChangeMode 	1	// .\NumberGuess.mc,101
+.func     InitMode 	0	// .\NumberGuess.mc,101
+.func     ChangePlayMode 	1	// .\NumberGuess.mc,101
+.func     InitPlayMode 	0	// .\NumberGuess.mc,101
+.func     ControlPlayReady 	1	// .\NumberGuess.mc,101
+.func     ControlPlayInput 	1	// .\NumberGuess.mc,101
+.func     ControlPlayCompared 	1	// .\NumberGuess.mc,101
+.func     ControlPlayOver 	1	// .\NumberGuess.mc,101
+.func     ControlPlayRecord 	1	// .\NumberGuess.mc,101
+.func     ControlPlayGiveup 	1	// .\NumberGuess.mc,101
+.func     ControlPlayNextquest 	1	// .\NumberGuess.mc,101
+.func     DrawPlayBase 	0	// .\NumberGuess.mc,101
+.func     DrawPlayReady 	0	// .\NumberGuess.mc,101
+.func     DrawPlayInput 	0	// .\NumberGuess.mc,101
+.func     DrawPlayCompared 	0	// .\NumberGuess.mc,101
+.func     DrawPlayOver 	0	// .\NumberGuess.mc,101
+.func     DrawPlayRecord 	0	// .\NumberGuess.mc,101
+.func     DrawPlayGiveup 	0	// .\NumberGuess.mc,101
+.func     DrawPlayNextquest 	0	// .\NumberGuess.mc,101
+.func     ControlIndex 	1	// .\NumberGuess.mc,101
+.func     ControlMain 	1	// .\NumberGuess.mc,101
+.func     ControlPlay 	1	// .\NumberGuess.mc,101
+.func     ControlRank 	1	// .\NumberGuess.mc,101
+.func     ControlOption 	1	// .\NumberGuess.mc,101
+.func     DrawGame 	0	// .\NumberGuess.mc,101
+.func     DrawIndex 	0	// .\NumberGuess.mc,101
+.func     DrawMain 	0	// .\NumberGuess.mc,101
+.func     DrawPlay 	0	// .\NumberGuess.mc,101
+.func     DrawRank 	0	// .\NumberGuess.mc,101
+.func     DrawOption 	0	// .\NumberGuess.mc,101
+.func     TEST 	0	// .\NumberGuess.mc,101
+.func     EVENT_START 	0	// .\NumberGuess.mc,101
+.func     EVENT_TIMEOUT 	0	// .\NumberGuess.mc,101
+.func     EVENT_KEYPRESS 	0	// .\NumberGuess.mc,101
+.func     EVENT_RESULT 	0	// .\NumberGuess.mc,101
+@EXTERN_FUNC_TABLE
+@IMPORT_FUNC_TABLE
+@EXPORT_FUNC_TABLE
+@MEDIA_SYMBOL_TABLE
+.equm 	%%0 	    0     0    13
+// string form = "찍기능력시험"
+    0xc2 0xef 0xb1 0xe2 0xb4 0xc9 0xb7 0xc2 0xbd 0xc3 0xc7 0xe8 
+    0x00
+.equm 	%%1 	    1     0     9
+// string form = "게임시작"
+    0xb0 0xd4 0xc0 0xd3 0xbd 0xc3 0xc0 0xdb 0x00
+.equm 	%%2 	    2     0     9
+// string form = "기록보기"
+    0xb1 0xe2 0xb7 0xcf 0xba 0xb8 0xb1 0xe2 0x00
+.equm 	%%3 	    3     0     9
+// string form = "게임설정"
+    0xb0 0xd4 0xc0 0xd3 0xbc 0xb3 0xc1 0xa4 0x00
+.equm 	%%4 	    4     0    22
+// string form = "게임 포기 안하실거죠?"
+    0xb0 0xd4 0xc0 0xd3 0x20 0xc6 0xf7 0xb1 0xe2 0x20 0xbe 0xc8 
+    0xc7 0xcf 0xbd 0xc7 0xb0 0xc5 0xc1 0xd2 0x3f 0x00
+.equm 	%%5 	    5     0     3
+// string form = "네"
+    0xb3 0xd7 0x00
+.equm 	%%6 	    6     0     7
+// string form = "아니오"
+    0xbe 0xc6 0xb4 0xcf 0xbf 0xc0 0x00
+.equm 	%%7 	    7     0     3
+// string form = "__"
+    0x5f 0x5f 0x00
+.equm 	%%8 	    8     0     7
+// string form = "______"
+    0x5f 0x5f 0x5f 0x5f 0x5f 0x5f 0x00
+.equm 	%%9 	    9     0     2
+// string form = "<"
+    0x3c 0x00
+.equm 	%%10 	   10     0     2
+// string form = ">"
+    0x3e 0x00
+.equm 	%%11 	   11     0    16
+// string form = "수를 입력하세요"
+    0xbc 0xf6 0xb8 0xa6 0x20 0xc0 0xd4 0xb7 0xc2 0xc7 0xcf 0xbc 
+    0xbc 0xbf 0xe4 0x00
+.equm 	%%12 	   12     0    21
+// string form = "수를 다시 입력하세요"
+    0xbc 0xf6 0xb8 0xa6 0x20 0xb4 0xd9 0xbd 0xc3 0x20 0xc0 0xd4 
+    0xb7 0xc2 0xc7 0xcf 0xbc 0xbc 0xbf 0xe4 0x00
+.equm 	%%13 	   13     0     5
+// string form = "점수"
+    0xc1 0xa1 0xbc 0xf6 0x00
+.equm 	%%14 	   14     0     5
+// string form = "기회"
+    0xb1 0xe2 0xc8 0xb8 0x00
+.equm 	%%15 	   15     0    10
+// string form = "범위 0~%d"
+    0xb9 0xfc 0xc0 0xa7 0x20 0x30 0x7e 0x25 0x64 0x00
+.equm 	%%16 	   16     0     5
+// string form = "입력"
+    0xc0 0xd4 0xb7 0xc2 0x00
+.equm 	%%17 	   17     0     5
+// string form = "확정"
+    0xc8 0xae 0xc1 0xa4 0x00
+.equm 	%%18 	   18     0    18
+// string form = "수치를 입력하세요"
+    0xbc 0xf6 0xc4 0xa1 0xb8 0xa6 0x20 0xc0 0xd4 0xb7 0xc2 0xc7 
+    0xcf 0xbc 0xbc 0xbf 0xe4 0x00
+.equm 	%%19 	   19     0    25
+// string form = "자연수로 다시 입력하세요"
+    0xc0 0xda 0xbf 0xac 0xbc 0xf6 0xb7 0xce 0x20 0xb4 0xd9 0xbd 
+    0xc3 0x20 0xc0 0xd4 0xb7 0xc2 0xc7 0xcf 0xbc 0xbc 0xbf 0xe4 
+    0x00
+.equm 	%%20 	   20     0    26
+// string form = "범위 내의 수로 입력하세요"
+    0xb9 0xfc 0xc0 0xa7 0x20 0xb3 0xbb 0xc0 0xc7 0x20 0xbc 0xf6 
+    0xb7 0xce 0x20 0xc0 0xd4 0xb7 0xc2 0xc7 0xcf 0xbc 0xbc 0xbf 
+    0xe4 0x00
+.equm 	%%21 	   21     0    18
+// string form = "%d번째 문제입니다"
+    0x25 0x64 0xb9 0xf8 0xc2 0xb0 0x20 0xb9 0xae 0xc1 0xa6 0xc0 
+    0xd4 0xb4 0xcf 0xb4 0xd9 0x00
+.equm 	%%22 	   22     0    11
+// string form = "준비하세요"
+    0xc1 0xd8 0xba 0xf1 0xc7 0xcf 0xbc 0xbc 0xbf 0xe4 0x00
+.equm 	%%23 	   23     0    18
+// string form = "그 수보다 큽니다."
+    0xb1 0xd7 0x20 0xbc 0xf6 0xba 0xb8 0xb4 0xd9 0x20 0xc5 0xae 
+    0xb4 0xcf 0xb4 0xd9 0x2e 0x00
+.equm 	%%24 	   24     0    20
+// string form = "그 수보다 작습니다."
+    0xb1 0xd7 0x20 0xbc 0xf6 0xba 0xb8 0xb4 0xd9 0x20 0xc0 0xdb 
+    0xbd 0xc0 0xb4 0xcf 0xb4 0xd9 0x2e 0x00
+.equm 	%%25 	   25     0    13
+// string form = "맞았습니다!!"
+    0xb8 0xc2 0xbe 0xd2 0xbd 0xc0 0xb4 0xcf 0xb4 0xd9 0x21 0x21 
+    0x00
+.equm 	%%26 	   26     0    18
+// string form = "게임이 끝났습니다"
+    0xb0 0xd4 0xc0 0xd3 0xc0 0xcc 0x20 0xb3 0xa1 0xb3 0xb5 0xbd 
+    0xc0 0xb4 0xcf 0xb4 0xd9 0x00
+.equm 	%%27 	   27     0    31
+// string form = "축하합니다. 순위에 올랐습니다."
+    0xc3 0xe0 0xc7 0xcf 0xc7 0xd5 0xb4 0xcf 0xb4 0xd9 0x2e 0x20 
+    0xbc 0xf8 0xc0 0xa7 0xbf 0xa1 0x20 0xbf 0xc3 0xb6 0xfa 0xbd 
+    0xc0 0xb4 0xcf 0xb4 0xd9 0x2e 0x00
+.equm 	%%28 	   28     0    31
+// string form = "안타깝습니다. 순위권 밖입니다."
+    0xbe 0xc8 0xc5 0xb8 0xb1 0xf5 0xbd 0xc0 0xb4 0xcf 0xb4 0xd9 
+    0x2e 0x20 0xbc 0xf8 0xc0 0xa7 0xb1 0xc7 0x20 0xb9 0xdb 0xc0 
+    0xd4 0xb4 0xcf 0xb4 0xd9 0x2e 0x00
+.equm 	%%29 	   29     0     6
+// string form = "%2d등"
+    0x25 0x32 0x64 0xb5 0xee 0x00
+.equm 	%%30 	   30     0    20
+// string form = "%4d점   %4d.%2d.%2d"
+    0x25 0x34 0x64 0xc1 0xa1 0x20 0x20 0x20 0x25 0x34 0x64 0x2e 
+    0x25 0x32 0x64 0x2e 0x25 0x32 0x64 0x00
+.equm 	%%31 	   31     0    16
+// string form = "기록이 없습니다"
+    0xb1 0xe2 0xb7 0xcf 0xc0 0xcc 0x20 0xbe 0xf8 0xbd 0xc0 0xb4 
+    0xcf 0xb4 0xd9 0x00
+.equm 	%%32 	   32     0     5
+// string form = "옵션"
+    0xbf 0xc9 0xbc 0xc7 0x00
+.equm 	%%33 	   33     0    12
+// string form = "문제 자릿수"
+    0xb9 0xae 0xc1 0xa6 0x20 0xc0 0xda 0xb8 0xb4 0xbc 0xf6 0x00
+.equm 	%%34 	   34     0     3
+// string form = "◁"
+    0xa2 0xb7 0x00
+.equm 	%%35 	   35     0     3
+// string form = "▷"
+    0xa2 0xb9 0x00
+.equm 	%%36 	   36     0     3
+// string form = "◀"
+    0xa2 0xb8 0x00
+.equm 	%%37 	   37     0     3
+// string form = "▶"
+    0xa2 0xba 0x00
+.equm 	%%38 	   38     0     7
+// string form = "QUEST_"
+    0x51 0x55 0x45 0x53 0x54 0x5f 0x00
+.equm 	%%39 	   39     0     7
+// string form = "TIMER_"
+    0x54 0x49 0x4d 0x45 0x52 0x5f 0x00
+.equm 	%%40 	   40     0     2
+// string form = "0"
+    0x30 0x00
+.symm 	%%41 	   41     0     0
+.symm 	%%42 	   42     0     0
+.symm 	%%43 	   43     0     0
+.symm 	%%44 	   44     0     0
+.symm 	%%45 	   45     0     0
+.symm 	%%46 	   46     0     0
+.symm 	%%47 	   47     0     0
+@CODE_SECTION
+           nop      
+           ret      
+DrawInt:   nop      
+           popz     DrawInt&value   
+           popz     DrawInt&y   
+           popz     DrawInt&x   
+//(.\Functions.h,  4): void DrawInt(int x, int y, int value){
+//(.\Functions.h,  5): 	string str;
+//(.\Functions.h,  6): 	IntToAscii(str, value);
+           pushz    DrawInt&str   
+           pushz    DrawInt&value   
+           calls    IntToAscii
+//(.\Functions.h,  7): 	DrawStr(x, y, str);
+           pushz    DrawInt&x   
+           pushz    DrawInt&y   
+           pushz    DrawInt&str   
+           calls    DrawStr
+//(.\Functions.h,  8): }
+           ret      
+//(.\Functions.h, 11): int Power(int n, int exp){
+Power:     nop      
+           popz     Power&exp   
+           popz     Power&n   
+//(.\Functions.h, 12): 	int i;
+//(.\Functions.h, 13): 	int result = n;
+           pushz    Power&n   
+           popz     Power&result   
+//(.\Functions.h, 14): 	for(i = 1; i < exp; i++){
+           pushc    1   
+           popz     Power&i   
+$$0:       nop      
+           pushz    Power&i   
+           pushz    Power&exp   
+           lt       
+           fjp      $$1:
+//(.\Functions.h, 15): 		result *= n;
+           pushz    Power&result   
+           pushz    Power&n   
+           mult     
+           popz     Power&result   
+           nop      
+           pushz    Power&i   
+           inc      
+           popz     Power&i   
+           ujp      $$0:
+//(.\Functions.h, 16): 	}
+$$1:       nop      
+//(.\Functions.h, 17): 	return result;
+           pushz    Power&result   
+           ret      
+//(.\Functions.h, 18): }
+//(.\Functions.h, 21): int DateToInt(int *sourceDate){
+DateToInt: nop      
+           popz     DateToInt&sourceDate   
+//(.\Functions.h, 22): 	int result = 0;
+           pushc    0   
+           popz     DateToInt&result   
+//(.\Functions.h, 24): 	result += *(sourceDate) * 12 * 31;
+           pushz    DateToInt&result   
+           pushz    DateToInt&sourceDate   
+           ixa      
+           pushc    12   
+           mult     
+           pushc    31   
+           mult     
+           add      
+           popz     DateToInt&result   
+//(.\Functions.h, 25): 	result += *(sourceDate + 1) * 31;
+           pushz    DateToInt&result   
+           pushz    DateToInt&sourceDate   
+           pushc    1   
+           add      
+           ixa      
+           pushc    31   
+           mult     
+           add      
+           popz     DateToInt&result   
+//(.\Functions.h, 26): 	result += *(sourceDate + 2);
+           pushz    DateToInt&result   
+           pushz    DateToInt&sourceDate   
+           pushc    2   
+           add      
+           ixa      
+           add      
+           popz     DateToInt&result   
+//(.\Functions.h, 28): 	return result;
+           pushz    DateToInt&result   
+           ret      
+//(.\Functions.h, 29): }
+//(.\Functions.h, 32): void IntToDate(int *result, int sourceDate){
+IntToDate: nop      
+           popz     IntToDate&sourceDate   
+           popz     IntToDate&result   
+//(.\Functions.h, 33): 	*(result)		= sourceDate / 31 / 12;
+           pushz    IntToDate&result   
+           pushz    IntToDate&sourceDate   
+           pushc    31   
+           div      
+           pushc    12   
+           div      
+           sta      
+//(.\Functions.h, 34): 	*(result + 1)	= sourceDate / 31 % 12;
+           pushz    IntToDate&result   
+           pushc    1   
+           add      
+           pushz    IntToDate&sourceDate   
+           pushc    31   
+           div      
+           pushc    12   
+           mod      
+           sta      
+//(.\Functions.h, 35): 	*(result + 2)	= sourceDate % 31;
+           pushz    IntToDate&result   
+           pushc    2   
+           add      
+           pushz    IntToDate&sourceDate   
+           pushc    31   
+           mod      
+           sta      
+//(.\Functions.h, 36): }
+           ret      
+//(.\Functions.h, 39): int GetDateToInt(){
+GetDateToInt: nop   
+//(.\Functions.h, 40): 	int tempDate[3];
+//(.\Functions.h, 42): 	GetDate(tempDate);
+           ldrz     GetDateToInt&tempDate   
+           calls    GetDate
+//(.\Functions.h, 44): 	return DateToInt(tempDate);
+           ldrz     GetDateToInt&tempDate   
+           call     DateToInt:
+           ret      
+//(.\Functions.h, 45): }
+DrawBlueBox: nop    
+           popz     DrawBlueBox&y2   
+           popz     DrawBlueBox&x2   
+           popz     DrawBlueBox&y1   
+           popz     DrawBlueBox&x1   
+//(.\Design.h,  3): void DrawBlueBox(int x1, int y1, int x2, int y2){
+//(.\Design.h,  4): 	SetColor(20);
+           pushc    20   
+           calls    SetColor
+//(.\Design.h,  5): 	FillRect(x1, y1, x2, y2);
+           pushz    DrawBlueBox&x1   
+           pushz    DrawBlueBox&y1   
+           pushz    DrawBlueBox&x2   
+           pushz    DrawBlueBox&y2   
+           calls    FillRect
+//(.\Design.h,  6): 	SetColor(0x00);
+           pushc    0   
+           calls    SetColor
+//(.\Design.h,  7): 	FillRect(x1+5, y1+5, x2-5, y2-5);
+           pushz    DrawBlueBox&x1   
+           pushc    5   
+           add      
+           pushz    DrawBlueBox&y1   
+           pushc    5   
+           add      
+           pushz    DrawBlueBox&x2   
+           pushc    5   
+           sub      
+           pushz    DrawBlueBox&y2   
+           pushc    5   
+           sub      
+           calls    FillRect
+//(.\Design.h,  8): }
+           ret      
+//(.\Design.h, 10): void DrawPinkBox(int x1, int y1, int x2, int y2){
+DrawPinkBox: nop    
+           popz     DrawPinkBox&y2   
+           popz     DrawPinkBox&x2   
+           popz     DrawPinkBox&y1   
+           popz     DrawPinkBox&x1   
+//(.\Design.h, 11): 	SetColor(119);
+           pushc    119   
+           calls    SetColor
+//(.\Design.h, 12): 	FillRect(x1, y1, x2, y2);
+           pushz    DrawPinkBox&x1   
+           pushz    DrawPinkBox&y1   
+           pushz    DrawPinkBox&x2   
+           pushz    DrawPinkBox&y2   
+           calls    FillRect
+//(.\Design.h, 13): 	SetColor(0x00);
+           pushc    0   
+           calls    SetColor
+//(.\Design.h, 14): 	FillRect(x1+5, y1+5, x2-5, y2-5);
+           pushz    DrawPinkBox&x1   
+           pushc    5   
+           add      
+           pushz    DrawPinkBox&y1   
+           pushc    5   
+           add      
+           pushz    DrawPinkBox&x2   
+           pushc    5   
+           sub      
+           pushz    DrawPinkBox&y2   
+           pushc    5   
+           sub      
+           calls    FillRect
+//(.\Design.h, 15): }
+           ret      
+//(.\Design.h, 17): void DrawNoticeBox(){
+DrawNoticeBox: nop  
+//(.\Design.h, 18): 	SetColor(117);
+           pushc    117   
+           calls    SetColor
+//(.\Design.h, 19): 	FillRect(10, 120, 230, 180);
+           pushc    10   
+           pushc    120   
+           pushc    230   
+           pushc    180   
+           calls    FillRect
+//(.\Design.h, 20): 	SetColor(0x00);
+           pushc    0   
+           calls    SetColor
+//(.\Design.h, 21): 	FillRect(15, 125, 225, 175);
+           pushc    15   
+           pushc    125   
+           pushc    225   
+           pushc    175   
+           calls    FillRect
+//(.\Design.h, 22): }
+           ret      
+//(.\Design.h, 24): void DrawBack1(){
+DrawBack1: nop      
+//(.\Design.h, 25): 	SetColor(20);
+           pushc    20   
+           calls    SetColor
+//(.\Design.h, 26): 	FillRect(0, 0, 240, 120);
+           pushc    0   
+           pushc    0   
+           pushc    240   
+           pushc    120   
+           calls    FillRect
+//(.\Design.h, 27): 	FillRect(0, 160, 240, 320);
+           pushc    0   
+           pushc    160   
+           pushc    240   
+           pushc    320   
+           calls    FillRect
+//(.\Design.h, 28): 	SetColor(0x00);
+           pushc    0   
+           calls    SetColor
+//(.\Design.h, 29): 	DrawHLine(0, 240, 117);
+           pushc    0   
+           pushc    240   
+           pushc    117   
+           calls    DrawHLine
+//(.\Design.h, 30): 	DrawHLine(0, 240, 163);
+           pushc    0   
+           pushc    240   
+           pushc    163   
+           calls    DrawHLine
+//(.\Design.h, 31): }
+           ret      
+//(.\Design.h, 33): void DrawBack2(){
+DrawBack2: nop      
+//(.\Design.h, 34): 	SetColor(20);
+           pushc    20   
+           calls    SetColor
+//(.\Design.h, 35): 	FillRect(0, 0, 240, 120);
+           pushc    0   
+           pushc    0   
+           pushc    240   
+           pushc    120   
+           calls    FillRect
+//(.\Design.h, 36): 	FillRect(0, 160, 240, 320);
+           pushc    0   
+           pushc    160   
+           pushc    240   
+           pushc    320   
+           calls    FillRect
+//(.\Design.h, 37): }
+           ret      
+//(.\Design.h, 39): void DrawBack3(){
+DrawBack3: nop      
+//(.\Design.h, 40): 	SetColor(20);
+           pushc    20   
+           calls    SetColor
+//(.\Design.h, 41): 	FillRect(0, 0, 240, 50);
+           pushc    0   
+           pushc    0   
+           pushc    240   
+           pushc    50   
+           calls    FillRect
+//(.\Design.h, 42): 	FillRect(0, 250, 240, 320);
+           pushc    0   
+           pushc    250   
+           pushc    240   
+           pushc    320   
+           calls    FillRect
+//(.\Design.h, 43): }
+           ret      
+//(.\Design.h, 45): void DrawQuestion(){
+DrawQuestion: nop   
+//(.\Design.h, 46): 	DrawNoticeBox();
+           call     DrawNoticeBox:
+//(.\Design.h, 47): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\Design.h, 48): 	DrawStr(120, 135, "게임 포기 안하실거죠?");
+           pushc    120   
+           pushc    135   
+           pushmi   %%4   
+           calls    DrawStr
+//(.\Design.h, 49): 	DrawStr(100, 155, "네");
+           pushc    100   
+           pushc    155   
+           pushmi   %%5   
+           calls    DrawStr
+//(.\Design.h, 50): 	DrawStr(160, 155, "아니오");
+           pushc    160   
+           pushc    155   
+           pushmi   %%6   
+           calls    DrawStr
+//(.\Design.h, 52): 	if(selectedValue == 0){
+           pushz    &selectedValue   
+           pushc    0   
+           eq       
+           fjp      $$3:
+//(.\Design.h, 53): 		DrawStr(100, 157, "__");
+           pushc    100   
+           pushc    157   
+           pushmi   %%7   
+           calls    DrawStr
+           ujp      $$4:
+$$3:       nop      
+//(.\Design.h, 54): 	}else{
+//(.\Design.h, 55): 		DrawStr(160, 157, "______");
+           pushc    160   
+           pushc    157   
+           pushmi   %%8   
+           calls    DrawStr
+//(.\Design.h, 56): 	}
+$$4:       nop      
+//(.\Design.h, 57): }
+           ret      
+//(.\Design.h, 59): void DrawHistory(int rowIndex, int historyNum){
+DrawHistory: nop    
+           popz     DrawHistory&historyNum   
+           popz     DrawHistory&rowIndex   
+//(.\Design.h, 60): 	DrawInt(165, 115 + 15 * rowIndex, historyNum);
+           pushc    165   
+           pushc    115   
+           pushc    15   
+           pushz    DrawHistory&rowIndex   
+           mult     
+           add      
+           pushz    DrawHistory&historyNum   
+           call     DrawInt:
+//(.\Design.h, 61): 	if(historyNum > questNumber){
+           pushz    DrawHistory&historyNum   
+           pushz    &questNumber   
+           gt       
+           fjp      $$5:
+//(.\Design.h, 62): 		DrawStr(155, 115 + 15 * rowIndex, "<");
+           pushc    155   
+           pushc    115   
+           pushc    15   
+           pushz    DrawHistory&rowIndex   
+           mult     
+           add      
+           pushmi   %%9   
+           calls    DrawStr
+           ujp      $$6:
+$$5:       nop      
+//(.\Design.h, 63): 	}else{
+//(.\Design.h, 64): 		DrawStr(155, 115 + 15 * rowIndex, ">");
+           pushc    155   
+           pushc    115   
+           pushc    15   
+           pushz    DrawHistory&rowIndex   
+           mult     
+           add      
+           pushmi   %%10   
+           calls    DrawStr
+//(.\Design.h, 65): 	}
+$$6:       nop      
+//(.\Design.h, 66): }
+           ret      
+InitTimer: nop      
+//(.\States.h, 24): void InitTimer(){
+//(.\States.h, 25): 	ResetTimer1();
+           calls    ResetTimer1
+//(.\States.h, 26): 	timeValue = 0;
+           pushc    0   
+           popz     &timeValue   
+//(.\States.h, 27): }
+           ret      
+//(.\States.h, 29): void PauseTimer(){
+PauseTimer: nop     
+//(.\States.h, 30): 	ResetTimer1();
+           calls    ResetTimer1
+//(.\States.h, 31): }
+           ret      
+//(.\States.h, 33): void PlayTimer(){
+PlayTimer: nop      
+//(.\States.h, 34): 	SetTimer1(50,1);
+           pushc    50   
+           pushc    1   
+           calls    SetTimer1
+//(.\States.h, 35): }
+           ret      
+//(.\States.h, 38): int numberSize = 2;
+//(.\States.h, 41): int selectedValue;
+//(.\States.h, 44): void AddHistory(int value){
+AddHistory: nop     
+           popz     AddHistory&value   
+//(.\States.h, 46): 	if(lastHistoryIndex < 5 - 1){
+           pushz    &lastHistoryIndex   
+           pushc    5   
+           pushc    1   
+           sub      
+           lt       
+           fjp      $$7:
+//(.\States.h, 47): 		lastHistoryIndex += 1;
+           pushz    &lastHistoryIndex   
+           pushc    1   
+           add      
+           popz     &lastHistoryIndex   
+           ujp      $$8:
+$$7:       nop      
+//(.\States.h, 48): 	}else{
+//(.\States.h, 49): 		lastHistoryIndex = 0;
+           pushc    0   
+           popz     &lastHistoryIndex   
+//(.\States.h, 50): 	}
+$$8:       nop      
+//(.\States.h, 53): 	historyNumber[lastHistoryIndex] = value;
+           pushz    &lastHistoryIndex   
+           ldrz     &historyNumber   
+           add      
+           pushz    AddHistory&value   
+           sta      
+//(.\States.h, 54): }
+           ret      
+//(.\States.h, 56): void InitHistory(){
+InitHistory: nop    
+//(.\States.h, 57): 	ArrayToVar(historyNumber, -1,5,0);
+           ldrz     &historyNumber   
+           pushc    1   
+           neg      
+           pushc    5   
+           pushc    0   
+           calls    ArrayToVar
+//(.\States.h, 58): }
+           ret      
+//(.\States.h, 65): int errorType = 0;
+//(.\States.h, 72): void error(int error){
+error:     nop      
+           popz     error&error   
+//(.\States.h, 73): 	errorType = error;
+           pushz    error&error   
+           popz     &errorType   
+//(.\States.h, 74): }
+           ret      
+//(.\States.h, 77): void PointUp(){
+PointUp:   nop      
+//(.\States.h, 79): 	gamePoint += numberSize + 8;
+           pushz    &gamePoint   
+           pushz    &numberSize   
+           pushc    8   
+           add      
+           add      
+           popz     &gamePoint   
+//(.\States.h, 81): 	gamePoint += GetBonusPoint();
+           pushz    &gamePoint   
+           call     GetBonusPoint:
+           add      
+           popz     &gamePoint   
+//(.\States.h, 82): }
+           ret      
+//(.\States.h, 85): int GetBonusPoint(){
+GetBonusPoint: nop  
+//(.\States.h, 86): 	int bonus;
+//(.\States.h, 87): 	bonus = (numberSize - 2) * 3 - gameTurn;
+           pushz    &numberSize   
+           pushc    2   
+           sub      
+           pushc    3   
+           mult     
+           pushz    &gameTurn   
+           sub      
+           popz     GetBonusPoint&bonus   
+//(.\States.h, 88): 	if(bonus < 0) bonus = 0;
+           pushz    GetBonusPoint&bonus   
+           pushc    0   
+           lt       
+           fjp      $$9:
+           pushc    0   
+           popz     GetBonusPoint&bonus   
+$$9:       nop      
+//(.\States.h, 89): 	bonus += (100 + numberSize * 5) / (timeValue / numberSize);
+           pushz    GetBonusPoint&bonus   
+           pushc    100   
+           pushz    &numberSize   
+           pushc    5   
+           mult     
+           add      
+           pushz    &timeValue   
+           pushz    &numberSize   
+           div      
+           div      
+           add      
+           popz     GetBonusPoint&bonus   
+//(.\States.h, 90): 	return bonus;
+           pushz    GetBonusPoint&bonus   
+           ret      
+//(.\States.h, 91): }
+//(.\States.h, 94): int GetAidChance(){
+GetAidChance: nop   
+//(.\States.h, 95): 	return (numberSize - 2) * 3;
+           pushz    &numberSize   
+           pushc    2   
+           sub      
+           pushc    3   
+           mult     
+           ret      
+//(.\States.h, 96): }
+//(.\States.h,103): struct Rank{
+//(.\States.h,104): 	int point;
+//(.\States.h,105): 	int date;
+//(.\States.h,106): }rank[5];
+//(.\States.h,109): int AddRank(int point){
+AddRank:   nop      
+           popz     AddRank&point   
+//(.\States.h,110): 	int rankNumber = 5;
+           pushc    5   
+           popz     AddRank&rankNumber   
+//(.\States.h,111): 	int i;
+//(.\States.h,114): 	for(i = 0; i < 5; i++){
+           pushc    0   
+           popz     AddRank&i   
+$$10:      nop      
+           pushz    AddRank&i   
+           pushc    5   
+           lt       
+           fjp      $$11:
+//(.\States.h,115): 		if(rank[i].point < point){
+           pushz    AddRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           ixa      
+           pushz    AddRank&point   
+           lt       
+           fjp      $$13:
+//(.\States.h,116): 			rankNumber = i;
+           pushz    AddRank&i   
+           popz     AddRank&rankNumber   
+           ujp      $$11:
+//(.\States.h,117): 			break;
+//(.\States.h,118): 		}
+$$13:      nop      
+           nop      
+           pushz    AddRank&i   
+           inc      
+           popz     AddRank&i   
+           ujp      $$10:
+//(.\States.h,119): 	}
+$$11:      nop      
+//(.\States.h,122): 	if(rankNumber < 5){
+           pushz    AddRank&rankNumber   
+           pushc    5   
+           lt       
+           fjp      $$14:
+//(.\States.h,124): 		for(i = 5 - 1; i > rankNumber; i--){
+           pushc    5   
+           pushc    1   
+           sub      
+           popz     AddRank&i   
+$$15:      nop      
+           pushz    AddRank&i   
+           pushz    AddRank&rankNumber   
+           gt       
+           fjp      $$16:
+//(.\States.h,125): 			rank[i].point	= rank[i - 1].point;
+           pushz    AddRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           pushz    AddRank&i   
+           pushc    1   
+           sub      
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           ixa      
+           sta      
+//(.\States.h,126): 			rank[i].date	= rank[i - 1].date;
+           pushz    AddRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           pushz    AddRank&i   
+           pushc    1   
+           sub      
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           ixa      
+           sta      
+           nop      
+           pushz    AddRank&i   
+           dec      
+           popz     AddRank&i   
+           ujp      $$15:
+//(.\States.h,127): 		}
+$$16:      nop      
+//(.\States.h,130): 		rank[rankNumber].point	= point;
+           pushz    AddRank&rankNumber   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           pushz    AddRank&point   
+           sta      
+//(.\States.h,131): 		rank[rankNumber].date	= GetDateToInt();
+           pushz    AddRank&rankNumber   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           call     GetDateToInt:
+           sta      
+//(.\States.h,134): 		SaveRank();
+           call     SaveRank:
+//(.\States.h,135): 	}
+$$14:      nop      
+//(.\States.h,137): 	return rankNumber;
+           pushz    AddRank&rankNumber   
+           ret      
+//(.\States.h,138): }
+//(.\States.h,152): int NVROM[12];
+//(.\States.h,153): string gOutStr;
+//(.\States.h,156): void LoadROM(){
+LoadROM:   nop      
+//(.\States.h,157): 	int i, j = 0;
+           pushc    0   
+           popz     LoadROM&j   
+//(.\States.h,159): 	GetBytes(swRsRcvBuf, 0, gOutStr,12);
+           ldrz     &swRsRcvBuf   
+           pushc    0   
+           pushz    &gOutStr   
+           pushc    12   
+           calls    GetBytes
+//(.\States.h,160): 	GetUserNV(NVROM,12);
+           ldrz     &NVROM   
+           pushc    12   
+           calls    GetUserNV
+//(.\States.h,163): 	if(NVROM[0] != 4096){
+           pushc    0   
+           ldrz     &NVROM   
+           add      
+           ixa      
+           pushc    4096   
+           ne       
+           fjp      $$18:
+//(.\States.h,164): 		NVROM[0] = 4096;
+           pushc    0   
+           ldrz     &NVROM   
+           add      
+           pushc    4096   
+           sta      
+//(.\States.h,165): 		NVROM[1] = 2;
+           pushc    1   
+           ldrz     &NVROM   
+           add      
+           pushc    2   
+           sta      
+//(.\States.h,166): 		PutUserNV(NVROM,12);
+           ldrz     &NVROM   
+           pushc    12   
+           calls    PutUserNV
+//(.\States.h,167): 	}
+$$18:      nop      
+//(.\States.h,169): 	for(i = 0; i < 5; i++){
+           pushc    0   
+           popz     LoadROM&i   
+$$19:      nop      
+           pushz    LoadROM&i   
+           pushc    5   
+           lt       
+           fjp      $$20:
+//(.\States.h,170): 		j += 2;
+           pushz    LoadROM&j   
+           pushc    2   
+           add      
+           popz     LoadROM&j   
+//(.\States.h,171): 		rank[i].point	= NVROM[j];
+           pushz    LoadROM&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           pushz    LoadROM&j   
+           ldrz     &NVROM   
+           add      
+           ixa      
+           sta      
+//(.\States.h,172): 		rank[i].date	= NVROM[j+1];
+           pushz    LoadROM&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           pushz    LoadROM&j   
+           pushc    1   
+           add      
+           ldrz     &NVROM   
+           add      
+           ixa      
+           sta      
+           nop      
+           pushz    LoadROM&i   
+           inc      
+           popz     LoadROM&i   
+           ujp      $$19:
+//(.\States.h,173): 	}
+$$20:      nop      
+//(.\States.h,176): 	numberSize = NVROM[1];
+           pushc    1   
+           ldrz     &NVROM   
+           add      
+           ixa      
+           popz     &numberSize   
+//(.\States.h,178): }
+           ret      
+//(.\States.h,181): void SaveRank(){
+SaveRank:  nop      
+//(.\States.h,182): 	int i, j = 0;
+           pushc    0   
+           popz     SaveRank&j   
+//(.\States.h,184): 	for(i = 0; i < 5; i++){
+           pushc    0   
+           popz     SaveRank&i   
+$$22:      nop      
+           pushz    SaveRank&i   
+           pushc    5   
+           lt       
+           fjp      $$23:
+//(.\States.h,185): 		j += 2;
+           pushz    SaveRank&j   
+           pushc    2   
+           add      
+           popz     SaveRank&j   
+//(.\States.h,186): 		NVROM[j]	= rank[i].point;
+           pushz    SaveRank&j   
+           ldrz     &NVROM   
+           add      
+           pushz    SaveRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           ixa      
+           sta      
+//(.\States.h,187): 		NVROM[j+1]	= rank[i].date;
+           pushz    SaveRank&j   
+           pushc    1   
+           add      
+           ldrz     &NVROM   
+           add      
+           pushz    SaveRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           ixa      
+           sta      
+           nop      
+           pushz    SaveRank&i   
+           inc      
+           popz     SaveRank&i   
+           ujp      $$22:
+//(.\States.h,188): 	}
+$$23:      nop      
+//(.\States.h,189): 	PutUserNV(NVROM,12);
+           ldrz     &NVROM   
+           pushc    12   
+           calls    PutUserNV
+//(.\States.h,191): }
+           ret      
+//(.\States.h,194): void SaveOption(){
+SaveOption: nop     
+//(.\States.h,195): 	NVROM[1] = numberSize;
+           pushc    1   
+           ldrz     &NVROM   
+           add      
+           pushz    &numberSize   
+           sta      
+//(.\States.h,196): 	PutUserNV(NVROM,12);
+           ldrz     &NVROM   
+           pushc    12   
+           calls    PutUserNV
+//(.\States.h,197): }
+           ret      
+ChangeMode: nop     
+           popz     ChangeMode&mode   
+//(.\ModeManager.h,  3): void ChangeMode(int mode){
+//(.\ModeManager.h,  4): 	int prevMode = currentMode;
+           pushz    &currentMode   
+           popz     ChangeMode&prevMode   
+//(.\ModeManager.h,  5): 	currentMode = mode;
+           pushz    ChangeMode&mode   
+           popz     &currentMode   
+//(.\ModeManager.h,  8): 	switch(prevMode){
+           ssp      
+           pushz    ChangeMode&prevMode   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$26:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$27:
+           dup      
+           pushc    30   
+           eq       
+           tjp      $$28:
+           dup      
+           pushc    31   
+           eq       
+           tjp      $$29:
+           dup      
+           pushc    32   
+           eq       
+           tjp      $$30:
+           rsp      
+           ujp      $$25:
+$$26:      nop      
+           rsp      
+           ujp      $$25:
+$$27:      nop      
+           rsp      
+           ujp      $$25:
+$$28:      nop      
+           rsp      
+           ujp      $$25:
+$$29:      nop      
+           rsp      
+           ujp      $$25:
+$$30:      nop      
+           rsp      
+//(.\ModeManager.h,  9): 		case 1 :
+//(.\ModeManager.h, 10): 			break;
+//(.\ModeManager.h, 11): 		case 2 :
+//(.\ModeManager.h, 12): 			break;
+//(.\ModeManager.h, 13): 		case 30 :
+//(.\ModeManager.h, 14): 			break;
+//(.\ModeManager.h, 15): 		case 31 :
+//(.\ModeManager.h, 16): 			break;
+//(.\ModeManager.h, 17): 		case 32 :
+//(.\ModeManager.h, 18): 			swRsRcvBuf[1] = numberSize;
+           pushc    1   
+           ldrz     &swRsRcvBuf   
+           add      
+           pushz    &numberSize   
+           sta      
+//(.\ModeManager.h, 19): 			NVROM[1] = numberSize;
+           pushc    1   
+           ldrz     &NVROM   
+           add      
+           pushz    &numberSize   
+           sta      
+$$25:      nop      
+//(.\ModeManager.h, 20): 			break;
+//(.\ModeManager.h, 21): 	}
+//(.\ModeManager.h, 22): 	InitMode();
+           call     InitMode:
+//(.\ModeManager.h, 23): }
+           ret      
+//(.\ModeManager.h, 25): void InitMode(){
+InitMode:  nop      
+//(.\ModeManager.h, 27): 	switch(currentMode){
+           ssp      
+           pushz    &currentMode   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$32:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$33:
+           dup      
+           pushc    30   
+           eq       
+           tjp      $$34:
+           dup      
+           pushc    31   
+           eq       
+           tjp      $$35:
+           dup      
+           pushc    32   
+           eq       
+           tjp      $$36:
+           rsp      
+           ujp      $$31:
+$$32:      nop      
+           rsp      
+           ujp      $$31:
+$$33:      nop      
+           rsp      
+           ujp      $$31:
+$$34:      nop      
+           rsp      
+//(.\ModeManager.h, 28): 		case 1 :
+//(.\ModeManager.h, 29): 			break;
+//(.\ModeManager.h, 30): 		case 2 :
+//(.\ModeManager.h, 31): 			break;
+//(.\ModeManager.h, 32): 		case 30 :
+//(.\ModeManager.h, 33): 			currentPlayMode = 0;
+           pushc    0   
+           popz     &currentPlayMode   
+//(.\ModeManager.h, 34): 			InitTimer();
+           call     InitTimer:
+//(.\ModeManager.h, 35): 			InitHistory();
+           call     InitHistory:
+//(.\ModeManager.h, 36): 			gamePoint = 0;
+           pushc    0   
+           popz     &gamePoint   
+//(.\ModeManager.h, 37): 			gameTurn = 0;
+           pushc    0   
+           popz     &gameTurn   
+//(.\ModeManager.h, 38): 			answeredNumber = 0;
+           pushc    0   
+           popz     &answeredNumber   
+//(.\ModeManager.h, 39): 			playCount = 0;
+           pushc    0   
+           popz     &playCount   
+//(.\ModeManager.h, 40): 			chance = 10 + GetAidChance();
+           pushc    10   
+           call     GetAidChance:
+           add      
+           popz     &chance   
+           ujp      $$31:
+$$35:      nop      
+           rsp      
+           ujp      $$31:
+$$36:      nop      
+           rsp      
+//(.\ModeManager.h, 41): 			break;
+//(.\ModeManager.h, 42): 		case 31 :
+//(.\ModeManager.h, 43): 			break;
+//(.\ModeManager.h, 44): 		case 32 :
+//(.\ModeManager.h, 45): 			selectedValue = numberSize;
+           pushz    &numberSize   
+           popz     &selectedValue   
+$$31:      nop      
+//(.\ModeManager.h, 46): 	}
+//(.\ModeManager.h, 47): }
+           ret      
+ChangePlayMode: nop 
+           popz     ChangePlayMode&mode   
+//(.\ControlPlay.h,  3): void ChangePlayMode(int mode){
+//(.\ControlPlay.h,  4): 	prevPlayMode = currentPlayMode;
+           pushz    &currentPlayMode   
+           popz     &prevPlayMode   
+//(.\ControlPlay.h,  5): 	currentPlayMode = mode;
+           pushz    ChangePlayMode&mode   
+           popz     &currentPlayMode   
+//(.\ControlPlay.h,  7): 	switch(prevPlayMode){
+           ssp      
+           pushz    &prevPlayMode   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$38:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$39:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$40:
+           dup      
+           pushc    3   
+           eq       
+           tjp      $$41:
+           dup      
+           pushc    4   
+           eq       
+           tjp      $$42:
+           dup      
+           pushc    5   
+           eq       
+           tjp      $$43:
+           dup      
+           pushc    6   
+           eq       
+           tjp      $$44:
+           rsp      
+           ujp      $$37:
+$$38:      nop      
+           rsp      
+//(.\ControlPlay.h,  8): 		case 0 :
+//(.\ControlPlay.h, 10): 			questNumber = Rand(0, Power(10, numberSize));
+           pushc    0   
+           pushc    10   
+           pushz    &numberSize   
+           call     Power:
+           calls    Rand
+           popz     &questNumber   
+           ujp      $$37:
+$$39:      nop      
+           rsp      
+           ujp      $$37:
+$$40:      nop      
+           rsp      
+           ujp      $$37:
+$$41:      nop      
+           rsp      
+//(.\ControlPlay.h, 11): 			break;
+//(.\ControlPlay.h, 12): 		case 1 :
+//(.\ControlPlay.h, 13): 			break;
+//(.\ControlPlay.h, 14): 		case 2 :
+//(.\ControlPlay.h, 15): 			break;
+//(.\ControlPlay.h, 16): 		case 3 :
+//(.\ControlPlay.h, 17): 			gameRank = AddRank(gamePoint);
+           pushz    &gamePoint   
+           call     AddRank:
+           popz     &gameRank   
+           ujp      $$37:
+$$42:      nop      
+           rsp      
+           ujp      $$37:
+$$43:      nop      
+           rsp      
+           ujp      $$37:
+$$44:      nop      
+           rsp      
+//(.\ControlPlay.h, 18): 			break;
+//(.\ControlPlay.h, 19): 		case 4 :
+//(.\ControlPlay.h, 20): 			break;
+//(.\ControlPlay.h, 21): 		case 5 :
+//(.\ControlPlay.h, 22): 			break;
+//(.\ControlPlay.h, 23): 		case 6 :
+//(.\ControlPlay.h, 24): 			playCount += 1;
+           pushz    &playCount   
+           pushc    1   
+           add      
+           popz     &playCount   
+//(.\ControlPlay.h, 25): 			PointUp();
+           call     PointUp:
+//(.\ControlPlay.h, 26): 			chance += GetAidChance() + 7;
+           pushz    &chance   
+           call     GetAidChance:
+           pushc    7   
+           add      
+           add      
+           popz     &chance   
+//(.\ControlPlay.h, 27): 			answeredNumber = 0;
+           pushc    0   
+           popz     &answeredNumber   
+$$37:      nop      
+//(.\ControlPlay.h, 28): 			break;
+//(.\ControlPlay.h, 29): 	}
+//(.\ControlPlay.h, 30): 	InitPlayMode();
+           call     InitPlayMode:
+//(.\ControlPlay.h, 32): }
+           ret      
+//(.\ControlPlay.h, 34): void InitPlayMode(){
+InitPlayMode: nop   
+//(.\ControlPlay.h, 36): 	switch(currentPlayMode){
+           ssp      
+           pushz    &currentPlayMode   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$46:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$47:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$48:
+           dup      
+           pushc    3   
+           eq       
+           tjp      $$49:
+           dup      
+           pushc    4   
+           eq       
+           tjp      $$50:
+           dup      
+           pushc    5   
+           eq       
+           tjp      $$51:
+           dup      
+           pushc    6   
+           eq       
+           tjp      $$52:
+           rsp      
+           ujp      $$45:
+$$46:      nop      
+           rsp      
+//(.\ControlPlay.h, 37): 		case 0 :
+//(.\ControlPlay.h, 38): 			InitHistory();
+           call     InitHistory:
+//(.\ControlPlay.h, 39): 			InitTimer();
+           call     InitTimer:
+           ujp      $$45:
+$$47:      nop      
+           rsp      
+//(.\ControlPlay.h, 40): 			break;
+//(.\ControlPlay.h, 41): 		case 1 :
+//(.\ControlPlay.h, 43): 			selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+//(.\ControlPlay.h, 44): 			PlayTimer();
+           call     PlayTimer:
+           ujp      $$45:
+$$48:      nop      
+           rsp      
+//(.\ControlPlay.h, 45): 			break;
+//(.\ControlPlay.h, 46): 		case 2 :
+//(.\ControlPlay.h, 47): 			PauseTimer();
+           call     PauseTimer:
+//(.\ControlPlay.h, 49): 			chance -= 1;
+           pushz    &chance   
+           pushc    1   
+           sub      
+           popz     &chance   
+//(.\ControlPlay.h, 51): 			gameTurn += 1;
+           pushz    &gameTurn   
+           pushc    1   
+           add      
+           popz     &gameTurn   
+           ujp      $$45:
+$$49:      nop      
+           rsp      
+           ujp      $$45:
+$$50:      nop      
+           rsp      
+           ujp      $$45:
+$$51:      nop      
+           rsp      
+//(.\ControlPlay.h, 52): 			break;
+//(.\ControlPlay.h, 53): 		case 3 :
+//(.\ControlPlay.h, 54): 			break;
+//(.\ControlPlay.h, 55): 		case 4 :
+//(.\ControlPlay.h, 56): 			break;
+//(.\ControlPlay.h, 57): 		case 5 :
+//(.\ControlPlay.h, 59): 			selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+//(.\ControlPlay.h, 60): 			PauseTimer();
+           call     PauseTimer:
+           ujp      $$45:
+$$52:      nop      
+           rsp      
+//(.\ControlPlay.h, 61): 			break;
+//(.\ControlPlay.h, 62): 		case 6 :
+//(.\ControlPlay.h, 63): 			selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+$$45:      nop      
+//(.\ControlPlay.h, 64): 			break;
+//(.\ControlPlay.h, 65): 	}
+//(.\ControlPlay.h, 67): }
+           ret      
+//(.\ControlPlay.h, 69): void ControlPlayReady(int key){
+ControlPlayReady: nop 
+           popz     ControlPlayReady&key   
+//(.\ControlPlay.h, 70): 	switch(key){
+           ssp      
+           pushz    ControlPlayReady&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$54:
+           dup      
+           pushc    13   
+           eq       
+           tjp      $$54:
+           rsp      
+           ujp      $$53:
+$$54:      nop      
+           rsp      
+//(.\ControlPlay.h, 71): 		case 0x14 :
+//(.\ControlPlay.h, 72): 		case 0x0D :
+//(.\ControlPlay.h, 74): 			ChangePlayMode(1);
+           pushc    1   
+           call     ChangePlayMode:
+$$53:      nop      
+//(.\ControlPlay.h, 75): 	}
+//(.\ControlPlay.h, 76): }
+           ret      
+//(.\ControlPlay.h, 78): void ControlPlayInput(int key){
+ControlPlayInput: nop 
+           popz     ControlPlayInput&key   
+//(.\ControlPlay.h, 80): 	switch(key){
+           ssp      
+           pushz    ControlPlayInput&key   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$56:
+           dup      
+           pushc    18   
+           eq       
+           tjp      $$56:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$56:
+           dup      
+           pushc    19   
+           eq       
+           tjp      $$56:
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$57:
+           dup      
+           pushc    13   
+           eq       
+           tjp      $$58:
+           rsp      
+           ujp      $$55:
+$$56:      nop      
+           rsp      
+//(.\ControlPlay.h, 82): 		case 0x10 :
+//(.\ControlPlay.h, 83): 		case 0x12 :
+//(.\ControlPlay.h, 84): 		case 0x11 :
+//(.\ControlPlay.h, 85): 		case 0x13 :
+//(.\ControlPlay.h, 86): 			if(selectedValue == 0){
+           pushz    &selectedValue   
+           pushc    0   
+           eq       
+           fjp      $$59:
+//(.\ControlPlay.h, 87): 				selectedValue = 1;
+           pushc    1   
+           popz     &selectedValue   
+           ujp      $$60:
+$$59:      nop      
+//(.\ControlPlay.h, 88): 			}else{
+//(.\ControlPlay.h, 89): 				selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+//(.\ControlPlay.h, 90): 			}
+$$60:      nop      
+           ujp      $$55:
+$$57:      nop      
+           rsp      
+//(.\ControlPlay.h, 91): 			break;
+//(.\ControlPlay.h, 92): 		case 0x14 :
+//(.\ControlPlay.h, 93): 			switch(selectedValue){
+           ssp      
+           pushz    &selectedValue   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$62:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$63:
+           rsp      
+           ujp      $$61:
+$$62:      nop      
+           rsp      
+//(.\ControlPlay.h, 95): 				case 0 :
+//(.\ControlPlay.h, 96): 					StrInput("수를 입력하세요", inputedString);
+           pushmi   %%11   
+           pushz    &inputedString   
+           calls    StrInput
+           ujp      $$61:
+$$63:      nop      
+           rsp      
+//(.\ControlPlay.h, 97): 					break;
+//(.\ControlPlay.h, 99): 				case 1 :
+//(.\ControlPlay.h,100): 					if(errorType == 0){
+           pushz    &errorType   
+           pushc    0   
+           eq       
+           fjp      $$64:
+//(.\ControlPlay.h,102): 						ChangePlayMode(2);
+           pushc    2   
+           call     ChangePlayMode:
+           ujp      $$65:
+$$64:      nop      
+//(.\ControlPlay.h,103): 					}else{
+//(.\ControlPlay.h,104): 						StrInput("수를 다시 입력하세요", inputedString);
+           pushmi   %%12   
+           pushz    &inputedString   
+           calls    StrInput
+//(.\ControlPlay.h,105): 					}
+$$65:      nop      
+$$61:      nop      
+           ujp      $$55:
+$$58:      nop      
+           rsp      
+//(.\ControlPlay.h,106): 			}
+//(.\ControlPlay.h,107): 			break;
+//(.\ControlPlay.h,108): 		case 0x0D :
+//(.\ControlPlay.h,109): 			ChangePlayMode(5);
+           pushc    5   
+           call     ChangePlayMode:
+$$55:      nop      
+//(.\ControlPlay.h,110): 	}
+//(.\ControlPlay.h,111): }
+           ret      
+//(.\ControlPlay.h,113): void ControlPlayCompared(int key){
+ControlPlayCompared: nop 
+           popz     ControlPlayCompared&key   
+//(.\ControlPlay.h,114): 	switch(key){
+           ssp      
+           pushz    ControlPlayCompared&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$67:
+           rsp      
+           ujp      $$66:
+$$67:      nop      
+           rsp      
+//(.\ControlPlay.h,115): 		case 0x14 :
+//(.\ControlPlay.h,116): 			if(answeredNumber == questNumber){
+           pushz    &answeredNumber   
+           pushz    &questNumber   
+           eq       
+           fjp      $$68:
+//(.\ControlPlay.h,118): 				ChangePlayMode(6);
+           pushc    6   
+           call     ChangePlayMode:
+           ujp      $$69:
+$$68:      nop      
+//(.\ControlPlay.h,119): 			}else{
+//(.\ControlPlay.h,121): 				if(chance > 0){
+           pushz    &chance   
+           pushc    0   
+           gt       
+           fjp      $$70:
+//(.\ControlPlay.h,123): 					AddHistory(answeredNumber);
+           pushz    &answeredNumber   
+           call     AddHistory:
+//(.\ControlPlay.h,124): 					ChangePlayMode(1);
+           pushc    1   
+           call     ChangePlayMode:
+           ujp      $$71:
+$$70:      nop      
+//(.\ControlPlay.h,125): 				}else{
+//(.\ControlPlay.h,127): 					ChangePlayMode(3);
+           pushc    3   
+           call     ChangePlayMode:
+//(.\ControlPlay.h,128): 				}
+$$71:      nop      
+//(.\ControlPlay.h,129): 			}
+$$69:      nop      
+$$66:      nop      
+//(.\ControlPlay.h,130): 	}
+//(.\ControlPlay.h,131): }
+           ret      
+//(.\ControlPlay.h,133): void ControlPlayOver(int key){
+ControlPlayOver: nop 
+           popz     ControlPlayOver&key   
+//(.\ControlPlay.h,134): 	switch(key){
+           ssp      
+           pushz    ControlPlayOver&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$73:
+           rsp      
+           ujp      $$72:
+$$73:      nop      
+           rsp      
+//(.\ControlPlay.h,135): 		case 0x14 :
+//(.\ControlPlay.h,136): 			ChangePlayMode(4);
+           pushc    4   
+           call     ChangePlayMode:
+$$72:      nop      
+//(.\ControlPlay.h,137): 	}
+//(.\ControlPlay.h,138): }
+           ret      
+//(.\ControlPlay.h,140): void ControlPlayRecord(int key){
+ControlPlayRecord: nop 
+           popz     ControlPlayRecord&key   
+//(.\ControlPlay.h,141): 	switch(key){
+           ssp      
+           pushz    ControlPlayRecord&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$75:
+           rsp      
+           ujp      $$74:
+$$75:      nop      
+           rsp      
+//(.\ControlPlay.h,142): 		case 0x14 :
+//(.\ControlPlay.h,143): 			ChangeMode(2);
+           pushc    2   
+           call     ChangeMode:
+$$74:      nop      
+//(.\ControlPlay.h,144): 	}
+//(.\ControlPlay.h,145): }
+           ret      
+//(.\ControlPlay.h,147): void ControlPlayGiveup(int key){
+ControlPlayGiveup: nop 
+           popz     ControlPlayGiveup&key   
+//(.\ControlPlay.h,148): 	switch(key){
+           ssp      
+           pushz    ControlPlayGiveup&key   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$77:
+           dup      
+           pushc    18   
+           eq       
+           tjp      $$77:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$77:
+           dup      
+           pushc    19   
+           eq       
+           tjp      $$77:
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$78:
+           rsp      
+           ujp      $$76:
+$$77:      nop      
+           rsp      
+//(.\ControlPlay.h,150): 		case 0x10 :
+//(.\ControlPlay.h,151): 		case 0x12 :
+//(.\ControlPlay.h,152): 		case 0x11 :
+//(.\ControlPlay.h,153): 		case 0x13 :
+//(.\ControlPlay.h,154): 			if(selectedValue == 0){
+           pushz    &selectedValue   
+           pushc    0   
+           eq       
+           fjp      $$79:
+//(.\ControlPlay.h,155): 				selectedValue = 1;
+           pushc    1   
+           popz     &selectedValue   
+           ujp      $$80:
+$$79:      nop      
+//(.\ControlPlay.h,156): 			}else{
+//(.\ControlPlay.h,157): 				selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+//(.\ControlPlay.h,158): 			}
+$$80:      nop      
+           ujp      $$76:
+$$78:      nop      
+           rsp      
+//(.\ControlPlay.h,159): 			break;
+//(.\ControlPlay.h,160): 		case 0x14 :
+//(.\ControlPlay.h,161): 			switch(selectedValue){
+           ssp      
+           pushz    &selectedValue   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$82:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$83:
+           rsp      
+           ujp      $$81:
+$$82:      nop      
+           rsp      
+//(.\ControlPlay.h,163): 				case 0 :
+//(.\ControlPlay.h,164): 					ChangePlayMode(1);
+           pushc    1   
+           call     ChangePlayMode:
+           ujp      $$81:
+$$83:      nop      
+           rsp      
+//(.\ControlPlay.h,165): 					break;
+//(.\ControlPlay.h,167): 				case 1 :
+//(.\ControlPlay.h,168): 					ChangePlayMode(3);
+           pushc    3   
+           call     ChangePlayMode:
+$$81:      nop      
+$$76:      nop      
+//(.\ControlPlay.h,169): 			}
+//(.\ControlPlay.h,170): 	}
+//(.\ControlPlay.h,171): }
+           ret      
+//(.\ControlPlay.h,173): void ControlPlayNextquest(int key){
+ControlPlayNextquest: nop 
+           popz     ControlPlayNextquest&key   
+//(.\ControlPlay.h,174): 	switch(key){
+           ssp      
+           pushz    ControlPlayNextquest&key   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$85:
+           dup      
+           pushc    18   
+           eq       
+           tjp      $$85:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$85:
+           dup      
+           pushc    19   
+           eq       
+           tjp      $$85:
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$86:
+           rsp      
+           ujp      $$84:
+$$85:      nop      
+           rsp      
+//(.\ControlPlay.h,176): 		case 0x10 :
+//(.\ControlPlay.h,177): 		case 0x12 :
+//(.\ControlPlay.h,178): 		case 0x11 :
+//(.\ControlPlay.h,179): 		case 0x13 :
+//(.\ControlPlay.h,180): 			if(selectedValue == 0){
+           pushz    &selectedValue   
+           pushc    0   
+           eq       
+           fjp      $$87:
+//(.\ControlPlay.h,181): 				selectedValue = 1;
+           pushc    1   
+           popz     &selectedValue   
+           ujp      $$88:
+$$87:      nop      
+//(.\ControlPlay.h,182): 			}else{
+//(.\ControlPlay.h,183): 				selectedValue = 0;
+           pushc    0   
+           popz     &selectedValue   
+//(.\ControlPlay.h,184): 			}
+$$88:      nop      
+           ujp      $$84:
+$$86:      nop      
+           rsp      
+//(.\ControlPlay.h,185): 			break;
+//(.\ControlPlay.h,186): 		case 0x14 :
+//(.\ControlPlay.h,187): 			switch(selectedValue){
+           ssp      
+           pushz    &selectedValue   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$90:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$91:
+           rsp      
+           ujp      $$89:
+$$90:      nop      
+           rsp      
+//(.\ControlPlay.h,189): 				case 0 :
+//(.\ControlPlay.h,190): 					ChangePlayMode(0);
+           pushc    0   
+           call     ChangePlayMode:
+           ujp      $$89:
+$$91:      nop      
+           rsp      
+//(.\ControlPlay.h,191): 					break;
+//(.\ControlPlay.h,193): 				case 1 :
+//(.\ControlPlay.h,194): 					ChangePlayMode(3);
+           pushc    3   
+           call     ChangePlayMode:
+$$89:      nop      
+$$84:      nop      
+//(.\ControlPlay.h,195): 			}
+//(.\ControlPlay.h,196): 	}
+//(.\ControlPlay.h,197): }
+           ret      
+DrawPlayBase: nop   
+//(.\DrawPlay.h,  3): void DrawPlayBase(){
+//(.\DrawPlay.h,  4): 	string tempString;
+//(.\DrawPlay.h,  5): 	int rowIndex = 0;
+           pushc    0   
+           popz     DrawPlayBase&rowIndex   
+//(.\DrawPlay.h,  6): 	int i;
+//(.\DrawPlay.h,  9): 	DrawBack3();
+           call     DrawBack3:
+//(.\DrawPlay.h, 10): 	DrawBlueBox(30, 60, 120, 90);
+           pushc    30   
+           pushc    60   
+           pushc    120   
+           pushc    90   
+           call     DrawBlueBox:
+//(.\DrawPlay.h, 11): 	DrawBlueBox(130, 60, 210, 90);
+           pushc    130   
+           pushc    60   
+           pushc    210   
+           pushc    90   
+           call     DrawBlueBox:
+//(.\DrawPlay.h, 12): 	DrawPinkBox(30, 100, 130, 135);
+           pushc    30   
+           pushc    100   
+           pushc    130   
+           pushc    135   
+           call     DrawPinkBox:
+//(.\DrawPlay.h, 13): 	DrawPinkBox(30, 130, 130, 160);
+           pushc    30   
+           pushc    130   
+           pushc    130   
+           pushc    160   
+           call     DrawPinkBox:
+//(.\DrawPlay.h, 14): 	DrawBlueBox(30, 170, 130, 200);
+           pushc    30   
+           pushc    170   
+           pushc    130   
+           pushc    200   
+           call     DrawBlueBox:
+//(.\DrawPlay.h, 15): 	DrawBlueBox(10, 210, 230, 240);
+           pushc    10   
+           pushc    210   
+           pushc    230   
+           pushc    240   
+           call     DrawBlueBox:
+//(.\DrawPlay.h, 16): 	DrawBlueBox(140, 100, 210, 200);
+           pushc    140   
+           pushc    100   
+           pushc    210   
+           pushc    200   
+           call     DrawBlueBox:
+//(.\DrawPlay.h, 19): 	SetColor(129);
+           pushc    129   
+           calls    SetColor
+//(.\DrawPlay.h, 20): 	if(selectedValue == 0){
+           pushz    &selectedValue   
+           pushc    0   
+           eq       
+           fjp      $$92:
+//(.\DrawPlay.h, 21): 		FillRect(35, 135, 80, 155);
+           pushc    35   
+           pushc    135   
+           pushc    80   
+           pushc    155   
+           calls    FillRect
+           ujp      $$93:
+$$92:      nop      
+//(.\DrawPlay.h, 22): 	}else{
+//(.\DrawPlay.h, 23): 		FillRect(80, 135, 125, 155);
+           pushc    80   
+           pushc    135   
+           pushc    125   
+           pushc    155   
+           calls    FillRect
+//(.\DrawPlay.h, 24): 	}
+$$93:      nop      
+//(.\DrawPlay.h, 27): 	SetFontAlign(0);
+           pushc    0   
+           calls    SetFontAlign
+//(.\DrawPlay.h, 28): 	DrawStr(40, 70, "점수");
+           pushc    40   
+           pushc    70   
+           pushmi   %%13   
+           calls    DrawStr
+//(.\DrawPlay.h, 29): 	DrawStr(140, 70, "기회");
+           pushc    140   
+           pushc    70   
+           pushmi   %%14   
+           calls    DrawStr
+//(.\DrawPlay.h, 30): 	MakeStr1(tempString, "범위 0~%d", Power(10, numberSize) - 1);
+           pushz    DrawPlayBase&tempString   
+           pushmi   %%15   
+           pushc    10   
+           pushz    &numberSize   
+           call     Power:
+           pushc    1   
+           sub      
+           calls    MakeStr1
+//(.\DrawPlay.h, 31): 	DrawStr(40, 180, tempString);
+           pushc    40   
+           pushc    180   
+           pushz    DrawPlayBase&tempString   
+           calls    DrawStr
+//(.\DrawPlay.h, 34): 	for(i = lastHistoryIndex; i > -1; i--){
+           pushz    &lastHistoryIndex   
+           popz     DrawPlayBase&i   
+$$94:      nop      
+           pushz    DrawPlayBase&i   
+           pushc    1   
+           neg      
+           gt       
+           fjp      $$95:
+//(.\DrawPlay.h, 35): 		if(historyNumber[i] < 0) continue;
+           pushz    DrawPlayBase&i   
+           ldrz     &historyNumber   
+           add      
+           ixa      
+           pushc    0   
+           lt       
+           fjp      $$97:
+           ujp      $$96:
+$$97:      nop      
+//(.\DrawPlay.h, 36): 		DrawHistory(rowIndex, historyNumber[i]);
+           pushz    DrawPlayBase&rowIndex   
+           pushz    DrawPlayBase&i   
+           ldrz     &historyNumber   
+           add      
+           ixa      
+           call     DrawHistory:
+//(.\DrawPlay.h, 37): 		rowIndex += 1;
+           pushz    DrawPlayBase&rowIndex   
+           pushc    1   
+           add      
+           popz     DrawPlayBase&rowIndex   
+$$96:      nop      
+           pushz    DrawPlayBase&i   
+           dec      
+           popz     DrawPlayBase&i   
+           ujp      $$94:
+//(.\DrawPlay.h, 38): 	}for(i = 5 - 1; i > lastHistoryIndex; i--){
+$$95:      nop      
+           pushc    5   
+           pushc    1   
+           sub      
+           popz     DrawPlayBase&i   
+$$98:      nop      
+           pushz    DrawPlayBase&i   
+           pushz    &lastHistoryIndex   
+           gt       
+           fjp      $$99:
+//(.\DrawPlay.h, 39): 		if(historyNumber[i] < 0) continue;
+           pushz    DrawPlayBase&i   
+           ldrz     &historyNumber   
+           add      
+           ixa      
+           pushc    0   
+           lt       
+           fjp      $$101:
+           ujp      $$100:
+$$101:     nop      
+//(.\DrawPlay.h, 40): 		DrawHistory(rowIndex, historyNumber[i]);
+           pushz    DrawPlayBase&rowIndex   
+           pushz    DrawPlayBase&i   
+           ldrz     &historyNumber   
+           add      
+           ixa      
+           call     DrawHistory:
+//(.\DrawPlay.h, 41): 		rowIndex += 1;
+           pushz    DrawPlayBase&rowIndex   
+           pushc    1   
+           add      
+           popz     DrawPlayBase&rowIndex   
+$$100:     nop      
+           pushz    DrawPlayBase&i   
+           dec      
+           popz     DrawPlayBase&i   
+           ujp      $$98:
+//(.\DrawPlay.h, 42): 	}
+$$99:      nop      
+//(.\DrawPlay.h, 45): 	SetFontAlign(2);
+           pushc    2   
+           calls    SetFontAlign
+//(.\DrawPlay.h, 46): 	DrawInt(110, 70, gamePoint);
+           pushc    110   
+           pushc    70   
+           pushz    &gamePoint   
+           call     DrawInt:
+//(.\DrawPlay.h, 47): 	DrawInt(200, 70, chance);
+           pushc    200   
+           pushc    70   
+           pushz    &chance   
+           call     DrawInt:
+//(.\DrawPlay.h, 50): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawPlay.h, 51): 	DrawInt(80, 110 + Rand(0,2), answeredNumber);
+           pushc    80   
+           pushc    110   
+           pushc    0   
+           pushc    2   
+           calls    Rand
+           add      
+           pushz    &answeredNumber   
+           call     DrawInt:
+//(.\DrawPlay.h, 52): 	DrawStr(60, 140, "입력");
+           pushc    60   
+           pushc    140   
+           pushmi   %%16   
+           calls    DrawStr
+//(.\DrawPlay.h, 53): 	DrawStr(105, 140, "확정");
+           pushc    105   
+           pushc    140   
+           pushmi   %%17   
+           calls    DrawStr
+//(.\DrawPlay.h, 54): 	switch(errorType){
+           ssp      
+           pushz    &errorType   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$103:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$104:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$105:
+           rsp      
+           ujp      $$102:
+$$103:     nop      
+           rsp      
+//(.\DrawPlay.h, 55): 		case 0 :
+//(.\DrawPlay.h, 56): 			DrawStr(120, 220, "수치를 입력하세요");break;
+           pushc    120   
+           pushc    220   
+           pushmi   %%18   
+           calls    DrawStr
+           ujp      $$102:
+$$104:     nop      
+           rsp      
+//(.\DrawPlay.h, 57): 		case 1 :
+//(.\DrawPlay.h, 58): 			DrawStr(120, 220, "자연수로 다시 입력하세요");break;
+           pushc    120   
+           pushc    220   
+           pushmi   %%19   
+           calls    DrawStr
+           ujp      $$102:
+$$105:     nop      
+           rsp      
+//(.\DrawPlay.h, 59): 		case 2 :
+//(.\DrawPlay.h, 60): 			DrawStr(120, 220, "범위 내의 수로 입력하세요");
+           pushc    120   
+           pushc    220   
+           pushmi   %%20   
+           calls    DrawStr
+$$102:     nop      
+//(.\DrawPlay.h, 61): 	}
+//(.\DrawPlay.h, 62): }
+           ret      
+//(.\DrawPlay.h, 64): void DrawPlayReady(){
+DrawPlayReady: nop  
+//(.\DrawPlay.h, 65): 	string tempString;
+//(.\DrawPlay.h, 67): 	DrawPlayBase();
+           call     DrawPlayBase:
+//(.\DrawPlay.h, 68): 	DrawNoticeBox();
+           call     DrawNoticeBox:
+//(.\DrawPlay.h, 70): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawPlay.h, 71): 	MakeStr1(tempString, "%d번째 문제입니다", playCount + 1);
+           pushz    DrawPlayReady&tempString   
+           pushmi   %%21   
+           pushz    &playCount   
+           pushc    1   
+           add      
+           calls    MakeStr1
+//(.\DrawPlay.h, 72): 	DrawStr(120, 135, "준비하세요");
+           pushc    120   
+           pushc    135   
+           pushmi   %%22   
+           calls    DrawStr
+//(.\DrawPlay.h, 73): 	DrawStr(120, 155, tempString);
+           pushc    120   
+           pushc    155   
+           pushz    DrawPlayReady&tempString   
+           calls    DrawStr
+//(.\DrawPlay.h, 75): }
+           ret      
+//(.\DrawPlay.h, 77): void DrawPlayInput(){
+DrawPlayInput: nop  
+//(.\DrawPlay.h, 78): 	DrawPlayBase();
+           call     DrawPlayBase:
+//(.\DrawPlay.h, 79): }
+           ret      
+//(.\DrawPlay.h, 81): void DrawPlayCompared(){
+DrawPlayCompared: nop 
+//(.\DrawPlay.h, 82): 	DrawPlayBase();
+           call     DrawPlayBase:
+//(.\DrawPlay.h, 83): 	DrawNoticeBox();
+           call     DrawNoticeBox:
+//(.\DrawPlay.h, 85): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawPlay.h, 87): 	if(answeredNumber < questNumber){
+           pushz    &answeredNumber   
+           pushz    &questNumber   
+           lt       
+           fjp      $$106:
+//(.\DrawPlay.h, 88): 		DrawStr(120, 145, "그 수보다 큽니다.");
+           pushc    120   
+           pushc    145   
+           pushmi   %%23   
+           calls    DrawStr
+           ujp      $$107:
+$$106:     nop      
+//(.\DrawPlay.h, 90): 	}else if(answeredNumber > questNumber){
+           pushz    &answeredNumber   
+           pushz    &questNumber   
+           gt       
+           fjp      $$108:
+//(.\DrawPlay.h, 91): 		DrawStr(120, 145, "그 수보다 작습니다.");
+           pushc    120   
+           pushc    145   
+           pushmi   %%24   
+           calls    DrawStr
+           ujp      $$109:
+$$108:     nop      
+//(.\DrawPlay.h, 93): 	}else{
+//(.\DrawPlay.h, 94): 		DrawStr(120, 145, "맞았습니다!!");
+           pushc    120   
+           pushc    145   
+           pushmi   %%25   
+           calls    DrawStr
+//(.\DrawPlay.h, 95): 	}
+$$109:     nop      
+$$107:     nop      
+//(.\DrawPlay.h, 96): }
+           ret      
+//(.\DrawPlay.h, 98): void DrawPlayOver(){
+DrawPlayOver: nop   
+//(.\DrawPlay.h, 99): 	DrawBack2();
+           call     DrawBack2:
+//(.\DrawPlay.h,100): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawPlay.h,101): 	DrawStr(120, 135, "게임이 끝났습니다");
+           pushc    120   
+           pushc    135   
+           pushmi   %%26   
+           calls    DrawStr
+//(.\DrawPlay.h,102): }
+           ret      
+//(.\DrawPlay.h,104): void DrawPlayRecord(){
+DrawPlayRecord: nop 
+//(.\DrawPlay.h,105): 	DrawRank();
+           call     DrawRank:
+//(.\DrawPlay.h,106): 	DrawBlueBox(10, 210, 230, 240);
+           pushc    10   
+           pushc    210   
+           pushc    230   
+           pushc    240   
+           call     DrawBlueBox:
+//(.\DrawPlay.h,108): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawPlay.h,109): 	if(gameRank < 5){
+           pushz    &gameRank   
+           pushc    5   
+           lt       
+           fjp      $$110:
+//(.\DrawPlay.h,110): 		SetColor(140);
+           pushc    140   
+           calls    SetColor
+//(.\DrawPlay.h,111): 		DrawRect(20, 95 + gameRank * 20, 220, 115 + gameRank * 20);
+           pushc    20   
+           pushc    95   
+           pushz    &gameRank   
+           pushc    20   
+           mult     
+           add      
+           pushc    220   
+           pushc    115   
+           pushz    &gameRank   
+           pushc    20   
+           mult     
+           add      
+           calls    DrawRect
+//(.\DrawPlay.h,112): 		DrawStr(120, 220, "축하합니다. 순위에 올랐습니다.");
+           pushc    120   
+           pushc    220   
+           pushmi   %%27   
+           calls    DrawStr
+           ujp      $$111:
+$$110:     nop      
+//(.\DrawPlay.h,113): 	}else{
+//(.\DrawPlay.h,114): 		DrawStr(120, 220, "안타깝습니다. 순위권 밖입니다.");
+           pushc    120   
+           pushc    220   
+           pushmi   %%28   
+           calls    DrawStr
+//(.\DrawPlay.h,115): 	}
+$$111:     nop      
+//(.\DrawPlay.h,117): }
+           ret      
+//(.\DrawPlay.h,119): void DrawPlayGiveup(){
+DrawPlayGiveup: nop 
+//(.\DrawPlay.h,120): 	DrawPlayBase();
+           call     DrawPlayBase:
+//(.\DrawPlay.h,121): 	DrawQuestion();
+           call     DrawQuestion:
+//(.\DrawPlay.h,122): }
+           ret      
+//(.\DrawPlay.h,124): void DrawPlayNextquest(){
+DrawPlayNextquest: nop 
+//(.\DrawPlay.h,125): 	DrawPlayBase();
+           call     DrawPlayBase:
+//(.\DrawPlay.h,126): 	DrawQuestion();
+           call     DrawQuestion:
+//(.\DrawPlay.h,127): }
+           ret      
+ControlIndex: nop   
+           popz     ControlIndex&key   
+//(.\ControlNumberGuess.h,  3): void ControlIndex(int key){
+//(.\ControlNumberGuess.h,  4): 	switch(key){
+           ssp      
+           pushz    ControlIndex&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$113:
+           rsp      
+           ujp      $$112:
+$$113:     nop      
+           rsp      
+//(.\ControlNumberGuess.h,  5): 		case 0x14 :
+//(.\ControlNumberGuess.h,  6): 			ChangeMode(2);
+           pushc    2   
+           call     ChangeMode:
+$$112:     nop      
+//(.\ControlNumberGuess.h,  7): 	}
+//(.\ControlNumberGuess.h,  8): }
+           ret      
+//(.\ControlNumberGuess.h, 10): void ControlMain(int key){
+ControlMain: nop    
+           popz     ControlMain&key   
+//(.\ControlNumberGuess.h, 11): 	switch(key){
+           ssp      
+           pushz    ControlMain&key   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$115:
+           dup      
+           pushc    18   
+           eq       
+           tjp      $$115:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$116:
+           dup      
+           pushc    19   
+           eq       
+           tjp      $$116:
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$117:
+           rsp      
+           ujp      $$114:
+$$115:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 13): 		case 0x10 :
+//(.\ControlNumberGuess.h, 14): 		case 0x12 :
+//(.\ControlNumberGuess.h, 15): 			if(currentMenu > 0){
+           pushz    &currentMenu   
+           pushc    0   
+           gt       
+           fjp      $$118:
+//(.\ControlNumberGuess.h, 16): 				currentMenu -= 1;
+           pushz    &currentMenu   
+           pushc    1   
+           sub      
+           popz     &currentMenu   
+           ujp      $$119:
+$$118:     nop      
+//(.\ControlNumberGuess.h, 17): 			}else{
+//(.\ControlNumberGuess.h, 18): 				currentMenu = 2;
+           pushc    2   
+           popz     &currentMenu   
+//(.\ControlNumberGuess.h, 19): 			}
+$$119:     nop      
+           ujp      $$114:
+$$116:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 20): 			break;
+//(.\ControlNumberGuess.h, 22): 		case 0x11 :
+//(.\ControlNumberGuess.h, 23): 		case 0x13 :
+//(.\ControlNumberGuess.h, 24): 			if(currentMenu < 2){
+           pushz    &currentMenu   
+           pushc    2   
+           lt       
+           fjp      $$120:
+//(.\ControlNumberGuess.h, 25): 				currentMenu += 1;
+           pushz    &currentMenu   
+           pushc    1   
+           add      
+           popz     &currentMenu   
+           ujp      $$121:
+$$120:     nop      
+//(.\ControlNumberGuess.h, 26): 			}else{
+//(.\ControlNumberGuess.h, 27): 				currentMenu = 0;
+           pushc    0   
+           popz     &currentMenu   
+//(.\ControlNumberGuess.h, 28): 			}
+$$121:     nop      
+           ujp      $$114:
+$$117:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 29): 			break;
+//(.\ControlNumberGuess.h, 31): 		case 0x14 :
+//(.\ControlNumberGuess.h, 32): 			switch(currentMenu){
+           ssp      
+           pushz    &currentMenu   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$123:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$124:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$125:
+           rsp      
+           ujp      $$122:
+$$123:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 33): 				case 0 :
+//(.\ControlNumberGuess.h, 34): 					ChangeMode(30);
+           pushc    30   
+           call     ChangeMode:
+           ujp      $$122:
+$$124:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 35): 					break;
+//(.\ControlNumberGuess.h, 36): 				case 1 :
+//(.\ControlNumberGuess.h, 37): 					ChangeMode(31);
+           pushc    31   
+           call     ChangeMode:
+           ujp      $$122:
+$$125:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 38): 					break;
+//(.\ControlNumberGuess.h, 39): 				case 2 :
+//(.\ControlNumberGuess.h, 40): 					ChangeMode(32);
+           pushc    32   
+           call     ChangeMode:
+$$122:     nop      
+$$114:     nop      
+//(.\ControlNumberGuess.h, 41): 			}
+//(.\ControlNumberGuess.h, 42): 	}
+//(.\ControlNumberGuess.h, 43): }
+           ret      
+//(.\ControlNumberGuess.h, 45): void ControlPlay(int key){
+ControlPlay: nop    
+           popz     ControlPlay&key   
+//(.\ControlNumberGuess.h, 46): 	switch(currentPlayMode){
+           ssp      
+           pushz    &currentPlayMode   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$127:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$128:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$129:
+           dup      
+           pushc    3   
+           eq       
+           tjp      $$130:
+           dup      
+           pushc    4   
+           eq       
+           tjp      $$131:
+           dup      
+           pushc    5   
+           eq       
+           tjp      $$132:
+           dup      
+           pushc    6   
+           eq       
+           tjp      $$133:
+           rsp      
+           ujp      $$126:
+$$127:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 47): 		case 0 :
+//(.\ControlNumberGuess.h, 48): 			ControlPlayReady(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayReady:
+           ujp      $$126:
+$$128:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 49): 			break;
+//(.\ControlNumberGuess.h, 50): 		case 1 :
+//(.\ControlNumberGuess.h, 51): 			ControlPlayInput(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayInput:
+           ujp      $$126:
+$$129:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 52): 			break;
+//(.\ControlNumberGuess.h, 53): 		case 2 :
+//(.\ControlNumberGuess.h, 54): 			ControlPlayCompared(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayCompared:
+           ujp      $$126:
+$$130:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 55): 			break;
+//(.\ControlNumberGuess.h, 56): 		case 3 :
+//(.\ControlNumberGuess.h, 57): 			ControlPlayOver(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayOver:
+           ujp      $$126:
+$$131:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 58): 			break;
+//(.\ControlNumberGuess.h, 59): 		case 4 :
+//(.\ControlNumberGuess.h, 60): 			ControlPlayRecord(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayRecord:
+           ujp      $$126:
+$$132:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 61): 			break;
+//(.\ControlNumberGuess.h, 62): 		case 5 :
+//(.\ControlNumberGuess.h, 63): 			ControlPlayGiveup(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayGiveup:
+           ujp      $$126:
+$$133:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 64): 			break;
+//(.\ControlNumberGuess.h, 65): 		case 6 :
+//(.\ControlNumberGuess.h, 66): 			ControlPlayNextquest(key);
+           pushz    ControlPlay&key   
+           call     ControlPlayNextquest:
+$$126:     nop      
+//(.\ControlNumberGuess.h, 67): 	}
+//(.\ControlNumberGuess.h, 68): }
+           ret      
+//(.\ControlNumberGuess.h, 70): void ControlRank(int key){
+ControlRank: nop    
+           popz     ControlRank&key   
+//(.\ControlNumberGuess.h, 71): 	switch(key){
+           ssp      
+           pushz    ControlRank&key   
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$135:
+           dup      
+           pushc    13   
+           eq       
+           tjp      $$135:
+           rsp      
+           ujp      $$134:
+$$135:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 73): 		case 0x14 :
+//(.\ControlNumberGuess.h, 74): 		case 0x0D :
+//(.\ControlNumberGuess.h, 75): 			ChangeMode(2);
+           pushc    2   
+           call     ChangeMode:
+$$134:     nop      
+//(.\ControlNumberGuess.h, 76): 	}
+//(.\ControlNumberGuess.h, 77): }
+           ret      
+//(.\ControlNumberGuess.h, 79): void ControlOption(int key){
+ControlOption: nop  
+           popz     ControlOption&key   
+//(.\ControlNumberGuess.h, 82): 	switch(key){
+           ssp      
+           pushz    ControlOption&key   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$137:
+           dup      
+           pushc    18   
+           eq       
+           tjp      $$137:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$138:
+           dup      
+           pushc    19   
+           eq       
+           tjp      $$138:
+           dup      
+           pushc    20   
+           eq       
+           tjp      $$139:
+           dup      
+           pushc    13   
+           eq       
+           tjp      $$140:
+           rsp      
+           ujp      $$136:
+$$137:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 84): 		case 0x10 :
+//(.\ControlNumberGuess.h, 85): 		case 0x12 :
+//(.\ControlNumberGuess.h, 86): 			if(selectedValue > 1){
+           pushz    &selectedValue   
+           pushc    1   
+           gt       
+           fjp      $$141:
+//(.\ControlNumberGuess.h, 87): 				selectedValue -= 1;
+           pushz    &selectedValue   
+           pushc    1   
+           sub      
+           popz     &selectedValue   
+           ujp      $$142:
+$$141:     nop      
+//(.\ControlNumberGuess.h, 88): 			}else{
+//(.\ControlNumberGuess.h, 89): 				selectedValue = 4;
+           pushc    4   
+           popz     &selectedValue   
+//(.\ControlNumberGuess.h, 90): 			}
+$$142:     nop      
+//(.\ControlNumberGuess.h, 92): 			delayTime = 3;
+           pushc    3   
+           popz     &delayTime   
+//(.\ControlNumberGuess.h, 93): 			delayKey = 0x10;
+           pushc    16   
+           popz     &delayKey   
+           ujp      $$136:
+$$138:     nop      
+           rsp      
+//(.\ControlNumberGuess.h, 95): 			break;
+//(.\ControlNumberGuess.h, 97): 		case 0x11 :
+//(.\ControlNumberGuess.h, 98): 		case 0x13 :
+//(.\ControlNumberGuess.h, 99): 			if(selectedValue < 4){
+           pushz    &selectedValue   
+           pushc    4   
+           lt       
+           fjp      $$143:
+//(.\ControlNumberGuess.h,100): 				selectedValue += 1;
+           pushz    &selectedValue   
+           pushc    1   
+           add      
+           popz     &selectedValue   
+           ujp      $$144:
+$$143:     nop      
+//(.\ControlNumberGuess.h,101): 			}else{
+//(.\ControlNumberGuess.h,102): 				selectedValue = 1;
+           pushc    1   
+           popz     &selectedValue   
+//(.\ControlNumberGuess.h,103): 			}
+$$144:     nop      
+//(.\ControlNumberGuess.h,105): 			delayTime = 3;
+           pushc    3   
+           popz     &delayTime   
+//(.\ControlNumberGuess.h,106): 			delayKey = 0x11;
+           pushc    17   
+           popz     &delayKey   
+           ujp      $$136:
+$$139:     nop      
+           rsp      
+//(.\ControlNumberGuess.h,108): 			break;
+//(.\ControlNumberGuess.h,110): 		case 0x14 :
+//(.\ControlNumberGuess.h,111): 			numberSize = selectedValue;
+           pushz    &selectedValue   
+           popz     &numberSize   
+//(.\ControlNumberGuess.h,113): 			SaveOption();
+           call     SaveOption:
+$$140:     nop      
+           rsp      
+//(.\ControlNumberGuess.h,115): 		case 0x0D :
+//(.\ControlNumberGuess.h,116): 			ChangeMode(2);
+           pushc    2   
+           call     ChangeMode:
+$$136:     nop      
+//(.\ControlNumberGuess.h,117): 	}
+//(.\ControlNumberGuess.h,118): }
+           ret      
+DrawGame:  nop      
+//(.\DrawNumberGuess.h,  3): void DrawGame(){
+//(.\DrawNumberGuess.h,  4): 	switch(currentMode){
+           ssp      
+           pushz    &currentMode   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$146:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$147:
+           dup      
+           pushc    30   
+           eq       
+           tjp      $$148:
+           dup      
+           pushc    31   
+           eq       
+           tjp      $$149:
+           dup      
+           pushc    32   
+           eq       
+           tjp      $$150:
+           ujp      $$151:
+$$146:     nop      
+           rsp      
+//(.\DrawNumberGuess.h,  5): 		case 1 :
+//(.\DrawNumberGuess.h,  6): 			DrawIndex();
+           call     DrawIndex:
+           ujp      $$145:
+$$147:     nop      
+           rsp      
+//(.\DrawNumberGuess.h,  7): 			break;
+//(.\DrawNumberGuess.h,  8): 		case 2 :
+//(.\DrawNumberGuess.h,  9): 			DrawMain();
+           call     DrawMain:
+           ujp      $$145:
+$$148:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 10): 			break;
+//(.\DrawNumberGuess.h, 11): 		case 30 :
+//(.\DrawNumberGuess.h, 12): 			DrawPlay();
+           call     DrawPlay:
+           ujp      $$145:
+$$149:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 13): 			break;
+//(.\DrawNumberGuess.h, 14): 		case 31 :
+//(.\DrawNumberGuess.h, 15): 			DrawRank();
+           call     DrawRank:
+           ujp      $$145:
+$$150:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 16): 			break;
+//(.\DrawNumberGuess.h, 17): 		case 32 :
+//(.\DrawNumberGuess.h, 18): 			DrawOption();
+           call     DrawOption:
+           ujp      $$145:
+$$151:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 19): 			break;
+//(.\DrawNumberGuess.h, 20): 		default:
+//(.\DrawNumberGuess.h, 21): 			ChangeMode(1);
+           pushc    1   
+           call     ChangeMode:
+$$145:     nop      
+//(.\DrawNumberGuess.h, 22): 	}
+//(.\DrawNumberGuess.h, 23): }
+           ret      
+//(.\DrawNumberGuess.h, 25): void DrawIndex(){
+DrawIndex: nop      
+//(.\DrawNumberGuess.h, 26): 	DrawBack1();
+           call     DrawBack1:
+//(.\DrawNumberGuess.h, 27): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawNumberGuess.h, 28): 	DrawStr(120, 135, LABEL_TITLE);
+           pushc    120   
+           pushc    135   
+           pushc    0   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 29): }
+           ret      
+//(.\DrawNumberGuess.h, 31): void DrawMain(){
+DrawMain:  nop      
+//(.\DrawNumberGuess.h, 32): 	DrawBack3();
+           call     DrawBack3:
+//(.\DrawNumberGuess.h, 33): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawNumberGuess.h, 34): 	DrawStr(120, 100, LABEL_TITLE);
+           pushc    120   
+           pushc    100   
+           pushc    0   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 35): 	DrawStr(120, 150, LABEL_MENU[0]);
+           pushc    120   
+           pushc    150   
+           pushc    0   
+           ldrz     &LABEL_MENU   
+           add      
+           ixa      
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 36): 	DrawStr(120, 170, LABEL_MENU[1]);
+           pushc    120   
+           pushc    170   
+           pushc    1   
+           ldrz     &LABEL_MENU   
+           add      
+           ixa      
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 37): 	DrawStr(120, 190, LABEL_MENU[2]);
+           pushc    120   
+           pushc    190   
+           pushc    2   
+           ldrz     &LABEL_MENU   
+           add      
+           ixa      
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 39): 	DrawRect(40, 145 + currentMenu * 20, 200, 165 + currentMenu * 20);
+           pushc    40   
+           pushc    145   
+           pushz    &currentMenu   
+           pushc    20   
+           mult     
+           add      
+           pushc    200   
+           pushc    165   
+           pushz    &currentMenu   
+           pushc    20   
+           mult     
+           add      
+           calls    DrawRect
+//(.\DrawNumberGuess.h, 40): }
+           ret      
+//(.\DrawNumberGuess.h, 42): void DrawPlay(){
+DrawPlay:  nop      
+//(.\DrawNumberGuess.h, 43): 	switch(currentPlayMode){
+           ssp      
+           pushz    &currentPlayMode   
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$153:
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$154:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$155:
+           dup      
+           pushc    3   
+           eq       
+           tjp      $$156:
+           dup      
+           pushc    4   
+           eq       
+           tjp      $$157:
+           dup      
+           pushc    5   
+           eq       
+           tjp      $$158:
+           dup      
+           pushc    6   
+           eq       
+           tjp      $$159:
+           rsp      
+           ujp      $$152:
+$$153:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 44): 		case 0 :
+//(.\DrawNumberGuess.h, 45): 			DrawPlayReady();
+           call     DrawPlayReady:
+           ujp      $$152:
+$$154:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 46): 			break;
+//(.\DrawNumberGuess.h, 47): 		case 1 :
+//(.\DrawNumberGuess.h, 48): 			DrawPlayInput();
+           call     DrawPlayInput:
+           ujp      $$152:
+$$155:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 49): 			break;
+//(.\DrawNumberGuess.h, 50): 		case 2 :
+//(.\DrawNumberGuess.h, 51): 			DrawPlayCompared();
+           call     DrawPlayCompared:
+           ujp      $$152:
+$$156:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 52): 			break;
+//(.\DrawNumberGuess.h, 53): 		case 3 :
+//(.\DrawNumberGuess.h, 54): 			DrawPlayOver();
+           call     DrawPlayOver:
+           ujp      $$152:
+$$157:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 55): 			break;
+//(.\DrawNumberGuess.h, 56): 		case 4 :
+//(.\DrawNumberGuess.h, 57): 			DrawPlayRecord();
+           call     DrawPlayRecord:
+           ujp      $$152:
+$$158:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 58): 			break;
+//(.\DrawNumberGuess.h, 59): 		case 5 :
+//(.\DrawNumberGuess.h, 60): 			DrawPlayGiveup();
+           call     DrawPlayGiveup:
+$$159:     nop      
+           rsp      
+//(.\DrawNumberGuess.h, 61): 		case 6 :
+//(.\DrawNumberGuess.h, 62): 			DrawPlayNextquest();
+           call     DrawPlayNextquest:
+$$152:     nop      
+//(.\DrawNumberGuess.h, 63): 	}
+//(.\DrawNumberGuess.h, 64): }
+           ret      
+//(.\DrawNumberGuess.h, 66): void DrawRank(){
+DrawRank:  nop      
+//(.\DrawNumberGuess.h, 67): 	int i;
+//(.\DrawNumberGuess.h, 68): 	int rankTime[3];
+//(.\DrawNumberGuess.h, 69): 	string printFormat;
+//(.\DrawNumberGuess.h, 71): 	DrawBack3();
+           call     DrawBack3:
+//(.\DrawNumberGuess.h, 74): 	SetFontAlign(0);
+           pushc    0   
+           calls    SetFontAlign
+//(.\DrawNumberGuess.h, 75): 	for(i = 0; i < 5; i++){
+           pushc    0   
+           popz     DrawRank&i   
+$$160:     nop      
+           pushz    DrawRank&i   
+           pushc    5   
+           lt       
+           fjp      $$161:
+//(.\DrawNumberGuess.h, 76): 		MakeStr1(printFormat, "%2d등", i + 1);
+           pushz    DrawRank&printFormat   
+           pushmi   %%29   
+           pushz    DrawRank&i   
+           pushc    1   
+           add      
+           calls    MakeStr1
+//(.\DrawNumberGuess.h, 77): 		DrawStr(40, 100 + 20 * i, printFormat);
+           pushc    40   
+           pushc    100   
+           pushc    20   
+           pushz    DrawRank&i   
+           mult     
+           add      
+           pushz    DrawRank&printFormat   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 79): 		if(rank[i].point > 0){
+           pushz    DrawRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           ixa      
+           pushc    0   
+           gt       
+           fjp      $$163:
+//(.\DrawNumberGuess.h, 80): 			IntToDate(rankTime, rank[i].date);
+           ldrz     DrawRank&rankTime   
+           pushz    DrawRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    1   
+           add      
+           ixa      
+           call     IntToDate:
+//(.\DrawNumberGuess.h, 81): 			MakeStr4(printFormat, "%4d점   %4d.%2d.%2d", rank[i].point, rankTime[0], rankTime[1], rankTime[2]);
+           pushz    DrawRank&printFormat   
+           pushmi   %%30   
+           pushz    DrawRank&i   
+           pushc    2   
+           mult     
+           ldrz     &rank   
+           add      
+           pushc    0   
+           add      
+           ixa      
+           pushc    0   
+           ldrz     DrawRank&rankTime   
+           add      
+           ixa      
+           pushc    1   
+           ldrz     DrawRank&rankTime   
+           add      
+           ixa      
+           pushc    2   
+           ldrz     DrawRank&rankTime   
+           add      
+           ixa      
+           calls    MakeStr4
+//(.\DrawNumberGuess.h, 82): 			DrawStr(80, 100 + 20 * i, printFormat);
+           pushc    80   
+           pushc    100   
+           pushc    20   
+           pushz    DrawRank&i   
+           mult     
+           add      
+           pushz    DrawRank&printFormat   
+           calls    DrawStr
+           ujp      $$164:
+$$163:     nop      
+//(.\DrawNumberGuess.h, 83): 		}else{
+//(.\DrawNumberGuess.h, 84): 			DrawStr(100, 100 + 20 * i, "기록이 없습니다");
+           pushc    100   
+           pushc    100   
+           pushc    20   
+           pushz    DrawRank&i   
+           mult     
+           add      
+           pushmi   %%31   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 85): 		}
+$$164:     nop      
+           nop      
+           pushz    DrawRank&i   
+           inc      
+           popz     DrawRank&i   
+           ujp      $$160:
+//(.\DrawNumberGuess.h, 86): 	}
+$$161:     nop      
+//(.\DrawNumberGuess.h, 87): }
+           ret      
+//(.\DrawNumberGuess.h, 89): void DrawOption(){
+DrawOption: nop     
+//(.\DrawNumberGuess.h, 92): 	DrawBack3();
+           call     DrawBack3:
+//(.\DrawNumberGuess.h, 94): 	SetFontAlign(1);
+           pushc    1   
+           calls    SetFontAlign
+//(.\DrawNumberGuess.h, 95): 	DrawStr(120, 120, "옵션");
+           pushc    120   
+           pushc    120   
+           pushmi   %%32   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 96): 	DrawStr(80, 150, "문제 자릿수");
+           pushc    80   
+           pushc    150   
+           pushmi   %%33   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 97): 	DrawInt(170, 150, selectedValue);
+           pushc    170   
+           pushc    150   
+           pushz    &selectedValue   
+           call     DrawInt:
+//(.\DrawNumberGuess.h, 98): 	DrawStr(150, 150, "◁");
+           pushc    150   
+           pushc    150   
+           pushmi   %%34   
+           calls    DrawStr
+//(.\DrawNumberGuess.h, 99): 	DrawStr(190, 150, "▷");
+           pushc    190   
+           pushc    150   
+           pushmi   %%35   
+           calls    DrawStr
+//(.\DrawNumberGuess.h,101): 	if(delayTime > 0){
+           pushz    &delayTime   
+           pushc    0   
+           gt       
+           fjp      $$165:
+//(.\DrawNumberGuess.h,102): 		switch(delayKey){
+           ssp      
+           pushz    &delayKey   
+           dup      
+           pushc    16   
+           eq       
+           tjp      $$167:
+           dup      
+           pushc    17   
+           eq       
+           tjp      $$168:
+           rsp      
+           ujp      $$166:
+$$167:     nop      
+           rsp      
+//(.\DrawNumberGuess.h,103): 			case 0x10 :	DrawStr(150, 150, "◀");break;
+           pushc    150   
+           pushc    150   
+           pushmi   %%36   
+           calls    DrawStr
+           ujp      $$166:
+$$168:     nop      
+           rsp      
+//(.\DrawNumberGuess.h,104): 			case 0x11 :DrawStr(190, 150, "▶");
+           pushc    190   
+           pushc    150   
+           pushmi   %%37   
+           calls    DrawStr
+$$166:     nop      
+//(.\DrawNumberGuess.h,105): 		}delayTime--;
+           pushz    &delayTime   
+           dec      
+           popz     &delayTime   
+//(.\DrawNumberGuess.h,106): 	}
+$$165:     nop      
+//(.\DrawNumberGuess.h,107): }
+           ret      
+TEST:      nop      
+//(.\NumberGuess.mc, 53): void TEST(){
+//(.\NumberGuess.mc, 54): 	SetFontAlign(0);
+           pushc    0   
+           calls    SetFontAlign
+//(.\NumberGuess.mc, 55): 	DrawStr(14, 250, "QUEST_");
+           pushc    14   
+           pushc    250   
+           pushmi   %%38   
+           calls    DrawStr
+//(.\NumberGuess.mc, 56): 	DrawInt(50, 250, questNumber);
+           pushc    50   
+           pushc    250   
+           pushz    &questNumber   
+           call     DrawInt:
+//(.\NumberGuess.mc, 57): 	DrawStr(14, 270, "TIMER_");
+           pushc    14   
+           pushc    270   
+           pushmi   %%39   
+           calls    DrawStr
+//(.\NumberGuess.mc, 58): 	DrawInt(50, 270, timeValue);
+           pushc    50   
+           pushc    270   
+           pushz    &timeValue   
+           call     DrawInt:
+//(.\NumberGuess.mc, 59): }
+           ret      
+//(.\NumberGuess.mc, 61): void EVENT_START(){
+EVENT_START: nop    
+//(.\NumberGuess.mc, 62): 	LoadROM();
+           call     LoadROM:
+//(.\NumberGuess.mc, 63): 	SetTimer(50,1);
+           pushc    50   
+           pushc    1   
+           calls    SetTimer
+//(.\NumberGuess.mc, 64): }
+           end      
+//(.\NumberGuess.mc, 66): void EVENT_TIMEOUT(){
+EVENT_TIMEOUT: nop  
+//(.\NumberGuess.mc, 67): 	switch(swData){
+           ssp      
+           pushz    &swData   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$170:
+           dup      
+           pushc    0   
+           eq       
+           tjp      $$171:
+           rsp      
+           ujp      $$169:
+$$170:     nop      
+           rsp      
+//(.\NumberGuess.mc, 68): 		case 1 :
+//(.\NumberGuess.mc, 69): 			timeValue += 1;
+           pushz    &timeValue   
+           pushc    1   
+           add      
+           popz     &timeValue   
+$$171:     nop      
+           rsp      
+//(.\NumberGuess.mc, 70): 		case 0 :
+//(.\NumberGuess.mc, 71): 			Clear(0x00);
+           pushc    0   
+           calls    Clear
+//(.\NumberGuess.mc, 72): 			DrawGame();
+           call     DrawGame:
+//(.\NumberGuess.mc, 73): 			Flush();
+           calls    Flush
+$$169:     nop      
+//(.\NumberGuess.mc, 74): 	}
+//(.\NumberGuess.mc, 75): }
+           end      
+//(.\NumberGuess.mc, 77): void EVENT_KEYPRESS(){
+EVENT_KEYPRESS: nop 
+//(.\NumberGuess.mc, 79): 	Clear(0x00);
+           pushc    0   
+           calls    Clear
+//(.\NumberGuess.mc, 80): 	DrawGame();
+           call     DrawGame:
+//(.\NumberGuess.mc, 81): 	Flush();
+           calls    Flush
+//(.\NumberGuess.mc, 83): 	switch(currentMode){
+           ssp      
+           pushz    &currentMode   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$173:
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$174:
+           dup      
+           pushc    30   
+           eq       
+           tjp      $$175:
+           dup      
+           pushc    31   
+           eq       
+           tjp      $$176:
+           dup      
+           pushc    32   
+           eq       
+           tjp      $$177:
+           rsp      
+           ujp      $$172:
+$$173:     nop      
+           rsp      
+//(.\NumberGuess.mc, 84): 		case 1 :
+//(.\NumberGuess.mc, 85): 			ControlIndex(swData);
+           pushz    &swData   
+           call     ControlIndex:
+           ujp      $$172:
+$$174:     nop      
+           rsp      
+//(.\NumberGuess.mc, 86): 			break;
+//(.\NumberGuess.mc, 87): 		case 2 :
+//(.\NumberGuess.mc, 88): 			ControlMain(swData);
+           pushz    &swData   
+           call     ControlMain:
+           ujp      $$172:
+$$175:     nop      
+           rsp      
+//(.\NumberGuess.mc, 89): 			break;
+//(.\NumberGuess.mc, 90): 		case 30 :
+//(.\NumberGuess.mc, 91): 			ControlPlay(swData);
+           pushz    &swData   
+           call     ControlPlay:
+           ujp      $$172:
+$$176:     nop      
+           rsp      
+//(.\NumberGuess.mc, 92): 			break;
+//(.\NumberGuess.mc, 93): 		case 31 :
+//(.\NumberGuess.mc, 94): 			ControlRank(swData);
+           pushz    &swData   
+           call     ControlRank:
+           ujp      $$172:
+$$177:     nop      
+           rsp      
+//(.\NumberGuess.mc, 95): 			break;
+//(.\NumberGuess.mc, 96): 		case 32 :
+//(.\NumberGuess.mc, 97): 			ControlOption(swData);
+           pushz    &swData   
+           call     ControlOption:
+$$172:     nop      
+//(.\NumberGuess.mc, 98): 	}
+//(.\NumberGuess.mc, 99): }
+           end      
+//(.\NumberGuess.mc,101): void EVENT_RESULT(){
+EVENT_RESULT: nop   
+//(.\NumberGuess.mc,102): 	switch(currentMode){
+           ssp      
+           pushz    &currentMode   
+           dup      
+           pushc    30   
+           eq       
+           tjp      $$179:
+           rsp      
+           ujp      $$178:
+$$179:     nop      
+           rsp      
+//(.\NumberGuess.mc,104): 		case 30 :
+//(.\NumberGuess.mc,105): 			switch(currentPlayMode){
+           ssp      
+           pushz    &currentPlayMode   
+           dup      
+           pushc    1   
+           eq       
+           tjp      $$181:
+           rsp      
+           ujp      $$180:
+$$181:     nop      
+           rsp      
+//(.\NumberGuess.mc,107): 				case 1 :
+//(.\NumberGuess.mc,108): 					switch(swData){
+           ssp      
+           pushz    &swData   
+           dup      
+           pushc    2   
+           eq       
+           tjp      $$183:
+           rsp      
+           ujp      $$182:
+$$183:     nop      
+           rsp      
+//(.\NumberGuess.mc,110): 						case 2 :
+//(.\NumberGuess.mc,112): 							if(!StrCmp(inputedString, "0")){
+           pushz    &inputedString   
+           pushmi   %%40   
+           calls    StrCmp
+           not      
+           fjp      $$184:
+//(.\NumberGuess.mc,113): 								answeredNumber = 0;
+           pushc    0   
+           popz     &answeredNumber   
+           ujp      $$185:
+$$184:     nop      
+//(.\NumberGuess.mc,114): 							}else{
+//(.\NumberGuess.mc,115): 								answeredNumber = AsciiToInt(inputedString);
+           pushz    &inputedString   
+           calls    AsciiToInt
+           popz     &answeredNumber   
+//(.\NumberGuess.mc,116): 								if(answeredNumber == 0){
+           pushz    &answeredNumber   
+           pushc    0   
+           eq       
+           fjp      $$186:
+//(.\NumberGuess.mc,117): 									error(1);
+           pushc    1   
+           call     error:
+           ujp      $$187:
+$$186:     nop      
+//(.\NumberGuess.mc,118): 								}else if(answeredNumber >= Power(10, numberSize)){
+           pushz    &answeredNumber   
+           pushc    10   
+           pushz    &numberSize   
+           call     Power:
+           ge       
+           fjp      $$188:
+//(.\NumberGuess.mc,119): 									error(2);
+           pushc    2   
+           call     error:
+           ujp      $$189:
+$$188:     nop      
+//(.\NumberGuess.mc,120): 								}else{
+//(.\NumberGuess.mc,121): 									error(0);
+           pushc    0   
+           call     error:
+//(.\NumberGuess.mc,122): 								}
+$$189:     nop      
+$$187:     nop      
+//(.\NumberGuess.mc,123): 							}
+$$185:     nop      
+$$182:     nop      
+$$180:     nop      
+$$178:     nop      
+//(.\NumberGuess.mc,124): 					}
+//(.\NumberGuess.mc,125): 			}
+//(.\NumberGuess.mc,126): 	}
+//(.\NumberGuess.mc,128): }
+           end      
