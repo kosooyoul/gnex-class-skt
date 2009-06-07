@@ -1,0 +1,1856 @@
+@HEADER_SECTION
+	#DEFINE PLAYERVER	4
+	#DEFINE LCDCLASS	255
+	#DEFINE IMAGETYPE	255
+	#DEFINE AUDIOTYPE	255
+	#DEFINE APPTYPE		1
+	#DEFINE APPCPID		60000
+	#DEFINE APPID		1
+	#DEFINE APPNAME		"Physical GNEX App"
+	#DEFINE COMPTYPE	0
+	#DEFINE AGENTTYPE	0
+	#DEFINE VALIDCOUNT	255
+	#DEFINE VALIDTERM	255
+	#DEFINE DIRECTRUN	0
+	#DEFINE APPVER		1
+@DATA_SECTION
+@GLOBAL_INTSYMBOL_TABLE
+.sym 	&swData 	    0     1
+.sym 	&swData2 	    1     1
+.sym 	&swData3 	    2     1
+.sym 	&swData4 	    3     1
+.sym 	&swWidth 	    4     1
+.sym 	&swHeight 	    5     1
+.sym 	&swFrame 	    6     1
+.sym 	&swFrame2 	    7     1
+.sym 	&swFrame3 	    8     1
+.sym 	&swFrame6 	    9     1
+.syma 	&swVMver 	   10     3     0
+.syma 	&swModel 	   11     8     0
+.syma 	&swSmsRcvBuf 	   12    41     0
+.syma 	&swRsRcvBuf 	   13   128     0
+.syma 	&swRcvBuf 	   14   256     0
+.sym 	&swReserved1 	   15     1
+.sym 	&swReserved2 	   16     1
+.sym 	&swReserved3 	   17     1
+.sym 	&swReserved4 	   18     1
+.sym 	&swSbuf 	   19     1
+.equ 	&GRAVITY 	   20    10     0
+.syma 	&PublicMaterial 	   21    54     0
+.syma 	&PublicWall 	   22    50     0
+.equ 	&option 	   23     1     0
+.sym 	initMaterial&index 	   24     1
+.sym 	initMaterial&x 	   25     1
+.sym 	initMaterial&y 	   26     1
+.sym 	initMaterial&powerX 	   27     1
+.sym 	initMaterial&powerY 	   28     1
+.sym 	initMaterial&weight 	   29     1
+.sym 	initMaterial&elastic 	   30     1
+.sym 	initMaterial&friction 	   31     1
+.sym 	initMaterial&type 	   32     1
+.sym 	setEnabledMaterial&index 	   33     1
+.sym 	setEnabledMaterial&Enabled 	   34     1
+.sym 	initWall&index 	   35     1
+.sym 	initWall&x1 	   36     1
+.sym 	initWall&x2 	   37     1
+.sym 	initWall&y1 	   38     1
+.sym 	initWall&y2 	   39     1
+.sym 	initWall&direction 	   40     1
+.sym 	moveMaterial&index 	   41     1
+.sym 	moveMaterial&tempX 	   42     1
+.sym 	moveMaterial&tempY 	   43     1
+.sym 	moveMaterial&strikeResult 	   44     1
+.sym 	strikeWall&index 	   45     1
+.sym 	strikeWall&i 	   46     1
+.sym 	strikeWall&resultStrike 	   47     1
+.sym 	applyElasticX&index 	   48     1
+.sym 	applyElasticY&index 	   49     1
+.sym 	applyElasticY&gravityDirection 	   50     1
+.sym 	strikeWallHorizontalOut&index 	   51     1
+.sym 	strikeWallHorizontalOut&i 	   52     1
+.sym 	strikeWallVerticalOut&index 	   53     1
+.sym 	strikeWallVerticalOut&i 	   54     1
+.sym 	strikeWallHorizontalIn&index 	   55     1
+.sym 	strikeWallHorizontalIn&i 	   56     1
+.sym 	strikeWallVerticalIn&index 	   57     1
+.sym 	strikeWallVerticalIn&i 	   58     1
+.sym 	drawAllWall&i 	   59     1
+.sym 	drawWall&index 	   60     1
+.sym 	drawMaterial&index 	   61     1
+.sym 	EVENT_TIMEOUT&i 	   62     1
+.equ 	EVENT_TIMEOUT&temp 	   63   %%8     1
+@EXTERN_INTSYMBOL_TABLE
+@STATIC_FUNC_TABLE
+.func     initMaterial 	9	
+.func     setEnabledMaterial 	2	
+.func     initWall 	6	
+.func     moveMaterial 	1	
+.func     strikeWall 	1	
+.func     applyElasticX 	1	
+.func     applyElasticY 	2	
+.func     strikeWallHorizontalOut 	2	
+.func     strikeWallVerticalOut 	2	
+.func     strikeWallHorizontalIn 	2	
+.func     strikeWallVerticalIn 	2	
+.func     drawAllWall 	0	
+.func     drawWall 	1	
+.func     drawMaterial 	1	
+.func     EVENT_TIMEOUT 	0	
+.func     initW 	0	
+.func     initS 	0	
+.func     EVENT_KEYPRESS 	0	
+@EXTERN_FUNC_TABLE
+@IMPORT_FUNC_TABLE
+@EXPORT_FUNC_TABLE
+@MEDIA_SYMBOL_TABLE
+.equm 	%%0 	    0     0    21
+// string form = "잔상남음으로 : 별 키"
+    0xc0 0xdc 0xbb 0xf3 0xb3 0xb2 0xc0 0xbd 0xc0 0xb8 0xb7 0xce 
+    0x20 0x3a 0x20 0xba 0xb0 0x20 0xc5 0xb0 0x00
+.equm 	%%1 	    1     0    21
+// string form = "잔상없음으로 : 별 키"
+    0xc0 0xdc 0xbb 0xf3 0xbe 0xf8 0xc0 0xbd 0xc0 0xb8 0xb7 0xce 
+    0x20 0x3a 0x20 0xba 0xb0 0x20 0xc5 0xb0 0x00
+.equm 	%%2 	    2     0    33
+// string form = "화면을 지우려면 OK키를 누르세요."
+    0xc8 0xad 0xb8 0xe9 0xc0 0xbb 0x20 0xc1 0xf6 0xbf 0xec 0xb7 
+    0xc1 0xb8 0xe9 0x20 0x4f 0x4b 0xc5 0xb0 0xb8 0xa6 0x20 0xb4 
+    0xa9 0xb8 0xa3 0xbc 0xbc 0xbf 0xe4 0x2e 0x00
+.equm 	%%3 	    3     0    27
+// string form = "재시작은 CLR키를 누르세요."
+    0xc0 0xe7 0xbd 0xc3 0xc0 0xdb 0xc0 0xba 0x20 0x43 0x4c 0x52 
+    0xc5 0xb0 0xb8 0xa6 0x20 0xb4 0xa9 0xb8 0xa3 0xbc 0xbc 0xbf 
+    0xe4 0x2e 0x00
+.equm 	%%4 	    4     0    13
+// string form = "by kosooyoul"
+    0x62 0x79 0x20 0x6b 0x6f 0x73 0x6f 0x6f 0x79 0x6f 0x75 0x6c 
+    0x00
+.equm 	%%5 	    5     0     9
+// string form = "%d키  on"
+    0x25 0x64 0xc5 0xb0 0x20 0x20 0x6f 0x6e 0x00
+.equm 	%%6 	    6     0     9
+// string form = "%d키 off"
+    0x25 0x64 0xc5 0xb0 0x20 0x6f 0x66 0x66 0x00
+.equm 	%%7 	    7     0    33
+// string form = "LEFT KEY < 중력 : %d > RIGHT KEY"
+    0x4c 0x45 0x46 0x54 0x20 0x4b 0x45 0x59 0x20 0x3c 0x20 0xc1 
+    0xdf 0xb7 0xc2 0x20 0x3a 0x20 0x25 0x64 0x20 0x3e 0x20 0x52 
+    0x49 0x47 0x48 0x54 0x20 0x4b 0x45 0x59 0x00
+.symm 	%%8 	    8     0     0
+@CODE_SECTION
+$init:     ret      
+initMaterial: nop   
+           popz     initMaterial&type   
+           popz     initMaterial&friction   
+           popz     initMaterial&elastic   
+           popz     initMaterial&weight   
+           popz     initMaterial&powerY   
+           popz     initMaterial&powerX   
+           popz     initMaterial&y   
+           popz     initMaterial&x   
+           stnz     initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    initMaterial&x   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    initMaterial&y   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    initMaterial&powerX   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           pushz    initMaterial&powerY   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    4   
+           add      
+           pushz    initMaterial&weight   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    5   
+           add      
+           pushz    initMaterial&elastic   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    6   
+           add      
+           pushz    initMaterial&friction   
+           sta      
+           pushz    initMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    7   
+           add      
+           pushz    initMaterial&type   
+           sta      
+           ret      
+setEnabledMaterial: nop 
+           popz     setEnabledMaterial&Enabled   
+           stnz     setEnabledMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           pushz    setEnabledMaterial&Enabled   
+           sta      
+           ret      
+initWall:  nop      
+           popz     initWall&direction   
+           popz     initWall&y2   
+           popz     initWall&y1   
+           popz     initWall&x2   
+           popz     initWall&x1   
+           stnz     initWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushz    initWall&x1   
+           sta      
+           pushz    initWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           pushz    initWall&x2   
+           sta      
+           pushz    initWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           pushz    initWall&y1   
+           sta      
+           pushz    initWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           pushz    initWall&y2   
+           sta      
+           pushz    initWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    4   
+           add      
+           pushz    initWall&direction   
+           sta      
+           ret      
+moveMaterial: nop   
+           stnz     moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           popz     moveMaterial&tempX   
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           popz     moveMaterial&tempY   
+           pushz    moveMaterial&index   
+           call     strikeWall:
+           stnz     moveMaterial&strikeResult   
+           eqjp     1   $$0:
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           sta      
+$$0:       pushz    moveMaterial&strikeResult   
+           eqjp     2   $$1:
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           sta      
+$$1:       pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           ixa      
+           nejp     1   $$2:
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    7   
+           add      
+           ixa      
+           calls    SetColor
+           pushz    moveMaterial&tempX   
+           pushz    moveMaterial&tempY   
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           calls    DrawLine
+$$2:       pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           pushz    moveMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushz    &GRAVITY   
+           sub      
+           sta      
+           ret      
+strikeWall: nop     
+           popz     strikeWall&index   
+           zsetc    strikeWall&resultStrike   0   
+           zsetc    strikeWall&i   0   
+$$3:       pushz    strikeWall&i   
+           gejp     10   $$4:
+           pushz    strikeWall&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    4   
+           add      
+           ixa      
+           nejp     0   $$6:
+           pushz    strikeWall&index   
+           pushz    strikeWall&i   
+           call     strikeWallHorizontalIn:
+           nejp     1   $$8:
+           zsetc    strikeWall&resultStrike   1   
+$$8:       pushz    strikeWall&index   
+           pushz    strikeWall&i   
+           call     strikeWallVerticalIn:
+           nejp     1   $$5:
+           zsetc    strikeWall&resultStrike   2   
+           ujp      $$5:
+$$6:       pushz    strikeWall&index   
+           pushz    strikeWall&i   
+           call     strikeWallHorizontalOut:
+           nejp     1   $$10:
+           zsetc    strikeWall&resultStrike   1   
+$$10:      pushz    strikeWall&index   
+           pushz    strikeWall&i   
+           call     strikeWallVerticalOut:
+           nejp     1   $$5:
+           zsetc    strikeWall&resultStrike   2   
+$$5:       incz     strikeWall&i   1   
+           ujp      $$3:
+$$4:       pushz    strikeWall&resultStrike   
+           ret      
+applyElasticX: nop  
+           stnz     applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           lejp     0   $$12:
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    2   
+           add      
+           sta      
+           ujp      $$13:
+$$12:      pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           gejp     0   $$13:
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    applyElasticX&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    2   
+           sub      
+           sta      
+$$13:      ret      
+applyElasticY: nop  
+           popz     applyElasticY&gravityDirection   
+           stnz     applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           pushz    applyElasticY&gravityDirection   
+           nejp     1   $$15:
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    5   
+           add      
+           ixa      
+           mult     
+           sta      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    100   
+           div      
+           sta      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           lejp     0   $$16:
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    6   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           sta      
+           ujp      $$15:
+$$16:      pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           gejp     0   $$15:
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushz    applyElasticY&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    6   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           sta      
+$$15:      ret      
+strikeWallHorizontalOut: nop 
+           popz     strikeWallHorizontalOut&i   
+           stnz     strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$20:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           le       
+$$20:      fjp      $$19:
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           le       
+           dup      
+           fjp      $$22:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           pushc    5   
+           sub      
+           gt       
+$$22:      fjp      $$19:
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           sta      
+           pushz    strikeWallHorizontalOut&index   
+           call     applyElasticX:
+           pushc    1   
+           ret      
+$$19:      pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$24:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           le       
+$$24:      fjp      $$23:
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           ge       
+           dup      
+           fjp      $$26:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           pushc    5   
+           add      
+           lt       
+$$26:      fjp      $$23:
+           pushz    strikeWallHorizontalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    strikeWallHorizontalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallHorizontalOut&index   
+           call     applyElasticX:
+           pushc    1   
+           ret      
+$$23:      pushc    0   
+           ret      
+strikeWallVerticalOut: nop 
+           popz     strikeWallVerticalOut&i   
+           stnz     strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$28:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           le       
+$$28:      fjp      $$27:
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           le       
+           dup      
+           fjp      $$30:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    5   
+           sub      
+           gt       
+$$30:      fjp      $$27:
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallVerticalOut&index   
+           pushc    0   
+           call     applyElasticY:
+           pushc    1   
+           ret      
+$$27:      pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$32:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           le       
+$$32:      fjp      $$31:
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           ge       
+           dup      
+           fjp      $$34:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    5   
+           add      
+           lt       
+$$34:      fjp      $$31:
+           pushz    strikeWallVerticalOut&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    strikeWallVerticalOut&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallVerticalOut&index   
+           pushc    1   
+           call     applyElasticY:
+           pushc    1   
+           ret      
+$$31:      pushc    0   
+           ret      
+strikeWallHorizontalIn: nop 
+           popz     strikeWallHorizontalIn&i   
+           stnz     strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$36:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           le       
+$$36:      fjp      $$35:
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           le       
+           dup      
+           fjp      $$38:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           pushc    5   
+           sub      
+           gt       
+$$38:      fjp      $$35:
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallHorizontalIn&index   
+           call     applyElasticX:
+           pushc    1   
+           ret      
+$$35:      pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$40:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           le       
+$$40:      fjp      $$39:
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           sub      
+           ge       
+           dup      
+           fjp      $$42:
+           popz     &swReserved3   
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           pushc    5   
+           add      
+           lt       
+$$42:      fjp      $$39:
+           pushz    strikeWallHorizontalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushz    strikeWallHorizontalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           sta      
+           pushz    strikeWallHorizontalIn&index   
+           call     applyElasticX:
+           pushc    1   
+           ret      
+$$39:      pushc    0   
+           ret      
+strikeWallVerticalIn: nop 
+           popz     strikeWallVerticalIn&i   
+           stnz     strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$44:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           le       
+$$44:      fjp      $$43:
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           le       
+           dup      
+           fjp      $$46:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushc    5   
+           sub      
+           gt       
+$$46:      fjp      $$43:
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallVerticalIn&index   
+           pushc    0   
+           call     applyElasticY:
+           pushc    1   
+           ret      
+$$43:      pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           ge       
+           dup      
+           fjp      $$48:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           le       
+$$48:      fjp      $$47:
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    10   
+           div      
+           add      
+           ge       
+           dup      
+           fjp      $$50:
+           popz     &swReserved3   
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           pushc    5   
+           add      
+           lt       
+$$50:      fjp      $$47:
+           pushz    strikeWallVerticalIn&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           pushz    strikeWallVerticalIn&i   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           sta      
+           pushz    strikeWallVerticalIn&index   
+           pushc    1   
+           call     applyElasticY:
+           pushc    1   
+           ret      
+$$47:      pushc    0   
+           ret      
+drawAllWall: nop    
+           zsetc    drawAllWall&i   0   
+$$51:      pushz    drawAllWall&i   
+           gejp     10   $$52:
+           pushz    drawAllWall&i   
+           call     drawWall:
+           incz     drawAllWall&i   1   
+           ujp      $$51:
+$$52:      ret      
+drawWall:  nop      
+           popz     drawWall&index   
+           pushc    3   
+           calls    SetColor
+           pushz    drawWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           ixa      
+           pushz    drawWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    2   
+           add      
+           ixa      
+           pushz    drawWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           inc      
+           ixa      
+           pushz    drawWall&index   
+           pushc    5   
+           mult     
+           ldrz     &PublicWall   
+           add      
+           pushc    3   
+           add      
+           ixa      
+           calls    DrawRect
+           ret      
+drawMaterial: nop   
+           stnz     drawMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           ixa      
+           nejp     0   $$54:
+           ret      
+$$54:      pushz    drawMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    7   
+           add      
+           ixa      
+           calls    SetColor
+           pushz    drawMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           ixa      
+           pushz    drawMaterial&index   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           inc      
+           ixa      
+           pushc    2   
+           pushc    2   
+           calls    FillEllipse
+           ret      
+main:      nop      
+           call     $init:
+           call     initW:
+           call     initS:
+           pushc    0   
+           pushc    1   
+           call     setEnabledMaterial:
+           pushc    1   
+           pushc    0   
+           call     setEnabledMaterial:
+           pushc    2   
+           pushc    0   
+           call     setEnabledMaterial:
+           pushc    3   
+           pushc    0   
+           call     setEnabledMaterial:
+           pushc    4   
+           pushc    1   
+           call     setEnabledMaterial:
+           pushc    5   
+           pushc    1   
+           call     setEnabledMaterial:
+           pushc    20   
+           pushc    1   
+           calls    SetTimer
+           calls    ClearWhite
+           end      
+EVENT_TIMEOUT: nop  
+           pushz    &option   
+           nejp     1   $$55:
+           calls    ClearWhite
+           pushc    10   
+           pushc    160   
+           pushmi   %%0   
+           calls    DrawStr
+           ujp      $$56:
+$$55:      pushc    10   
+           pushc    160   
+           pushmi   %%1   
+           calls    DrawStr
+$$56:      pushc    10   
+           pushc    10   
+           pushmi   %%2   
+           calls    DrawStr
+           pushc    10   
+           pushc    30   
+           pushmi   %%3   
+           calls    DrawStr
+           pushc    10   
+           pushc    305   
+           pushmi   %%4   
+           calls    DrawStr
+           zsetc    EVENT_TIMEOUT&i   0   
+$$57:      pushz    EVENT_TIMEOUT&i   
+           gejp     6   $$58:
+           pushc    3   
+           calls    SetColor
+           pushc    58   
+           pushc    53   
+           pushc    15   
+           pushz    EVENT_TIMEOUT&i   
+           mult     
+           add      
+           pushc    65   
+           pushc    60   
+           pushc    15   
+           pushz    EVENT_TIMEOUT&i   
+           mult     
+           add      
+           calls    FillRect
+           pushz    EVENT_TIMEOUT&i   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           ixa      
+           nejp     1   $$60:
+           pushz    EVENT_TIMEOUT&i   
+           call     moveMaterial:
+           pushz    EVENT_TIMEOUT&i   
+           call     drawMaterial:
+           pushz    EVENT_TIMEOUT&temp   
+           pushmi   %%5   
+           pushz    EVENT_TIMEOUT&i   
+           inc      
+           calls    MakeStr1
+           pushz    EVENT_TIMEOUT&i   
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    7   
+           add      
+           ixa      
+           calls    SetColor
+           ujp      $$61:
+$$60:      pushz    EVENT_TIMEOUT&temp   
+           pushmi   %%6   
+           pushz    EVENT_TIMEOUT&i   
+           inc      
+           calls    MakeStr1
+           pushc    0   
+           calls    SetColor
+$$61:      pushc    10   
+           pushc    50   
+           pushc    15   
+           pushz    EVENT_TIMEOUT&i   
+           mult     
+           add      
+           pushz    EVENT_TIMEOUT&temp   
+           calls    DrawStr
+           pushc    60   
+           pushc    55   
+           pushc    15   
+           pushz    EVENT_TIMEOUT&i   
+           mult     
+           add      
+           pushc    63   
+           pushc    58   
+           pushc    15   
+           pushz    EVENT_TIMEOUT&i   
+           mult     
+           add      
+           calls    FillRect
+           incz     EVENT_TIMEOUT&i   1   
+           ujp      $$57:
+$$58:      pushz    EVENT_TIMEOUT&temp   
+           pushmi   %%7   
+           pushz    &GRAVITY   
+           calls    MakeStr1
+           pushc    30   
+           pushc    280   
+           pushz    EVENT_TIMEOUT&temp   
+           calls    DrawStr
+           call     drawAllWall:
+           calls    Flush
+           end      
+initW:     nop      
+           pushc    0   
+           pushc    10   
+           pushc    230   
+           pushc    10   
+           pushc    300   
+           pushc    0   
+           call     initWall:
+           pushc    1   
+           pushc    70   
+           pushc    170   
+           pushc    200   
+           pushc    250   
+           pushc    1   
+           call     initWall:
+           pushc    2   
+           pushc    30   
+           pushc    120   
+           pushc    120   
+           pushc    150   
+           pushc    1   
+           call     initWall:
+           pushc    3   
+           pushc    170   
+           pushc    200   
+           pushc    30   
+           pushc    100   
+           pushc    1   
+           call     initWall:
+           ret      
+initS:     nop      
+           pushc    0   
+           pushc    200   
+           pushc    200   
+           pushc    -50   
+           pushc    150   
+           pushc    0   
+           pushc    77   
+           pushc    10   
+           pushc    109   
+           call     initMaterial:
+           pushc    1   
+           pushc    50   
+           pushc    250   
+           pushc    50   
+           pushc    200   
+           pushc    0   
+           pushc    99   
+           pushc    20   
+           pushc    91   
+           call     initMaterial:
+           pushc    2   
+           pushc    20   
+           pushc    100   
+           pushc    -100   
+           pushc    -200   
+           pushc    0   
+           pushc    80   
+           pushc    50   
+           pushc    20   
+           call     initMaterial:
+           pushc    3   
+           pushc    20   
+           pushc    100   
+           pushc    50   
+           pushc    100   
+           pushc    0   
+           pushc    57   
+           pushc    20   
+           pushc    112   
+           call     initMaterial:
+           pushc    4   
+           pushc    50   
+           pushc    50   
+           pushc    70   
+           pushc    70   
+           pushc    0   
+           pushc    30   
+           pushc    50   
+           pushc    98   
+           call     initMaterial:
+           pushc    5   
+           pushc    50   
+           pushc    50   
+           pushc    50   
+           pushc    90   
+           pushc    0   
+           pushc    10   
+           pushc    10   
+           pushc    33   
+           call     initMaterial:
+           ret      
+EVENT_KEYPRESS: nop 
+           ssp      
+           pushz    &swData   
+           dup      
+           eqjp     20   $$63:
+           dup      
+           eqjp     13   $$64:
+           dup      
+           eqjp     1   $$65:
+           dup      
+           eqjp     2   $$65:
+           dup      
+           eqjp     3   $$65:
+           dup      
+           eqjp     4   $$65:
+           dup      
+           eqjp     5   $$65:
+           dup      
+           eqjp     6   $$65:
+           dup      
+           eqjp     11   $$66:
+           dup      
+           eqjp     16   $$67:
+           dup      
+           eqjp     17   $$68:
+           rsp      
+           ujp      $$62:
+$$63:      rsp      
+           calls    ClearWhite
+           ujp      $$62:
+$$64:      rsp      
+           calls    ClearWhite
+           call     initS:
+           ujp      $$62:
+$$65:      rsp      
+           pushz    &swData   
+           dec      
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           ixa      
+           nejp     1   $$69:
+           pushz    &swData   
+           dec      
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           pushc    0   
+           sta      
+           ujp      $$62:
+$$69:      pushz    &swData   
+           dec      
+           pushc    9   
+           mult     
+           ldrz     &PublicMaterial   
+           add      
+           pushc    8   
+           add      
+           pushc    1   
+           sta      
+           ujp      $$62:
+$$66:      rsp      
+           pushz    &option   
+           nejp     1   $$71:
+           zsetc    &option   0   
+           ujp      $$62:
+$$71:      zsetc    &option   1   
+           ujp      $$62:
+$$67:      rsp      
+           pushz    &GRAVITY   
+           lejp     0   $$62:
+           incz     &GRAVITY   -1   
+           ujp      $$62:
+$$68:      rsp      
+           pushz    &GRAVITY   
+           gejp     20   $$62:
+           incz     &GRAVITY   1   
+$$62:      end      
