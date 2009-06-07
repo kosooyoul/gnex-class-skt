@@ -35,20 +35,22 @@
 #endif
 
 #include <SScript.h>
+#include "Define.h"
 #include "Palette.h"
-#include "Physical.h"
+#include "Wall.h"
+#include "PhysicalObject.h"
 
 int option = TRUE;
 
 void main(){
 	initW();
 	initS();
-	setEnabledMaterial(0, TRUE);
-	setEnabledMaterial(1, FALSE);
-	setEnabledMaterial(2, FALSE);
-	setEnabledMaterial(3, FALSE);
-	setEnabledMaterial(4, TRUE);
-	setEnabledMaterial(5, TRUE);
+	SetMaterialEnabled(0, TRUE);
+	SetMaterialEnabled(1, FALSE);
+	SetMaterialEnabled(2, FALSE);
+	SetMaterialEnabled(3, FALSE);
+	SetMaterialEnabled(4, TRUE);
+	SetMaterialEnabled(5, TRUE);
 	SetTimer(20, 1);
 	ClearWhite();
 }
@@ -75,8 +77,8 @@ void EVENT_TIMEOUT(){
 				SetColor(S_BLACK);
 		FillRect(58, 53 + 15 * i, 65, 60 + 15 * i);
 		if(PublicMaterial[i].enabled == TRUE){
-			moveMaterial(i);
-			drawMaterial(i);
+			MoveMaterial(i);
+			DrawMaterial(i);
 
 			MakeStr1(temp, "%d키  on", i+1);
 			SetColor(PublicMaterial[i].type);
@@ -92,25 +94,26 @@ void EVENT_TIMEOUT(){
 	MakeStr1(temp, "LEFT KEY < 중력 : %d > RIGHT KEY", GRAVITY);
 	DrawStr(30, 280, temp);
 
-	drawAllWall();
+	SetColor(S_SKY);
+	DrawAllWall();
 
 	Flush();
 }
 
 void initW(){
-	initWall(0,  10, 230,  10, 300, DIRECTION_IN);
-	initWall(1,  70, 170, 200, 250, DIRECTION_OUT);
-	initWall(2,  30, 120, 120, 150, DIRECTION_OUT);
-	initWall(3, 170, 200,  30, 100, DIRECTION_OUT);
+	InitWall(0,  10, 230,  10, 300, DIRECTION_IN);
+	InitWall(1,  70, 170, 200, 250, DIRECTION_OUT);
+	InitWall(2,  30, 120, 120, 150, DIRECTION_OUT);
+	InitWall(3, 170, 200,  30, 100, DIRECTION_OUT);
 }
 
 void initS(){
-	initMaterial(0, 200, 200, -50, 150,   0,  77,  10, S_RED);
-	initMaterial(1,  50, 250,  50, 200,   0,  99,  20, S_CHOCO);
-	initMaterial(2,  20, 100,-100,-200,   0,  80,  50, S_BLUE);
-	initMaterial(3,  20, 100,  50, 100,   0,  57,  20, S_MARGENTA);
-	initMaterial(4,  50,  50,  70,  70,   0,  30,  50, S_OLDLEAF);
-	initMaterial(5,  50,  50,  50,  90,   0,  10,  10, S_SEA);
+	InitMaterial(0, 200, 200, -50, 150,   0,  77,  10, S_RED);
+	InitMaterial(1,  50, 250,  50, 200,   0,  99,  20, S_CHOCO);
+	InitMaterial(2,  20, 100,-100,-200,   0,  80,  50, S_BLUE);
+	InitMaterial(3,  20, 100,  50, 100,   0,  57,  20, S_MARGENTA);
+	InitMaterial(4,  50,  50,  70,  70,   0,  30,  50, S_OLDLEAF);
+	InitMaterial(5,  50,  50,  50,  90,   0,  10,  10, S_SEA);
 }
 
 void EVENT_KEYPRESS(){
