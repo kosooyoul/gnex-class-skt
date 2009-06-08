@@ -1,0 +1,1453 @@
+STATIC VAR.	swData           of SYSTEM          0       1       
+STATIC VAR.	swData2          of SYSTEM          1       1       
+STATIC VAR.	swData3          of SYSTEM          2       1       
+STATIC VAR.	swData4          of SYSTEM          3       1       
+STATIC VAR.	swWidth          of SYSTEM          4       1       
+STATIC VAR.	swHeight         of SYSTEM          5       1       
+STATIC VAR.	swFrame          of SYSTEM          6       1       
+STATIC VAR.	swFrame2         of SYSTEM          7       1       
+STATIC VAR.	swFrame3         of SYSTEM          8       1       
+STATIC VAR.	swFrame6         of SYSTEM          9       1       
+STATIC VAR.	swVMver          of SYSTEM          10      3       0       
+STATIC VAR.	swModel          of SYSTEM          11      8       0       
+STATIC VAR.	swSmsRcvBuf      of SYSTEM          12      41      0       
+STATIC VAR.	swRsRcvBuf       of SYSTEM          13      128     0       
+STATIC VAR.	swRcvBuf         of SYSTEM          14      256     0       
+STATIC VAR.	swReserved1      of SYSTEM          15      1       
+STATIC VAR.	swReserved2      of SYSTEM          16      1       
+STATIC VAR.	swReserved3      of SYSTEM          17      1       
+STATIC VAR.	swReserved4      of SYSTEM          18      1       
+STATIC VAR.	swSbuf           of SYSTEM          19      1       
+STATIC VAR.	imgBall          of SYSTEM          20      9       1       
+STATIC VAR.	imgBar           of SYSTEM          21      10      1       
+STATIC VAR.	imgBlock         of SYSTEM          22      2       
+ 11          12         
+STATIC VAR.	unitBall         of SYSTEM          23      4       0       
+STATIC VAR.	unitBar          of SYSTEM          24      2       0       
+STATIC VAR.	blockMap         of SYSTEM          25      100     0       
+STATIC VAR.	gameMode         of SYSTEM          26      2       0       
+STATIC VAR.	playStage        of SYSTEM          27      0       0       
+STATIC VAR.	playPoint        of SYSTEM          28      0       0       
+STATIC VAR.	selectedMenu     of SYSTEM          29      0       0       
+STATIC VAR.	nextKey          of SYSTEM          30      255     0       
+STATIC VAR.	mode             of ChangeMode                      31      1       
+STATIC VAR.	i                of InitBlockMap                    32      1       
+STATIC VAR.	j                of InitBlockMap                    33      1       
+STATIC VAR.	strPoint         of DrawPoint                       34      13      1       
+STATIC VAR.	i                of DrawBlockMap                    35      1       
+STATIC VAR.	j                of DrawBlockMap                    36      1       
+STATIC VAR.	swData           of ControlAlcanoid                 37      1       
+STATIC VAR.	i                of StrikeBlockMap                  38      1       
+STATIC VAR.	j                of StrikeBlockMap                  39      1       
+STATIC VAR.	x                of DestroyBlock                    40      1       
+STATIC VAR.	y                of DestroyBlock                    41      1       
+STATIC VAR.	position         of ChangeDirection                 42      1       
+STATIC VAR.	xPerY            of ChangeDirection                 43      1       
+STATIC VAR.	xPerYFromPosition of ChangeDirection                 44      1       
+FUNCTION	ChangeMode       has 1     args.
+FUNCTION	InitAlcanoid     has 0     args.
+FUNCTION	InitBall         has 0     args.
+FUNCTION	InitBar          has 0     args.
+FUNCTION	InitBlockMap     has 0     args.
+FUNCTION	DrawAlcanoid     has 0     args.
+FUNCTION	DrawPoint        has 0     args.
+FUNCTION	DrawBlockMap     has 0     args.
+FUNCTION	DrawBall         has 0     args.
+FUNCTION	DrawBar          has 0     args.
+FUNCTION	DrawIndex        has 0     args.
+FUNCTION	DrawMenu         has 0     args.
+FUNCTION	DrawRecord       has 0     args.
+FUNCTION	DrawOption       has 0     args.
+FUNCTION	ControlAlcanoid  has 1     args.
+FUNCTION	ActAlcanoid      has 0     args.
+FUNCTION	MoveBar          has 0     args.
+FUNCTION	MoveBall         has 0     args.
+FUNCTION	StrikeBlockMap   has 0     args.
+FUNCTION	DestroyBlock     has 2     args.
+FUNCTION	StrikeWall       has 0     args.
+FUNCTION	ChangeDirection  has 1     args.
+FUNCTION	EVENT_START      has 0     args.
+FUNCTION	EVENT_TIMEOUT    has 0     args.
+FUNCTION	EVENT_KEYPRESS   has 0     args.
+MEDIA		%%0     has [ 0 0 0 11 ].
+MEDIA		%%1     has [ 1 1 0 18 ].
+MEDIA		%%2     has [ 2 2 0 18 ].
+MEDIA		%%3     has [ 3 3 0 14 ].
+MEDIA		%%4     has [ 4 4 0 10 ].
+MEDIA		%%5     has [ 5 5 0 10 ].
+MEDIA		%%6     has [ 6 6 0 10 ].
+MEDIA		%%7     has [ 7 7 0 36 ].
+MEDIA		%%8     has [ 8 8 0 5 ].
+MEDIA		%%9     has [ 9 9 1 5 ].
+MEDIA		%%10    has [ 10 10 1 5 ].
+MEDIA		%%11    has [ 11 11 1 5 ].
+MEDIA		%%12    has [ 12 12 1 5 ].
+MEDIA		%%13    has [ 13 13 0 0 ].
+CODESIZE	12       Bytes in ChangeMode      
+CODESIZE	22       Bytes in InitAlcanoid    
+CODESIZE	58       Bytes in InitBall        
+CODESIZE	26       Bytes in InitBar         
+LABEL		$$0              of InitBlockMap    
+LABEL		$$3              of InitBlockMap    
+LABEL		$$2              of InitBlockMap    
+LABEL		$$1              of InitBlockMap    
+CODESIZE	100      Bytes in InitBlockMap    
+LABEL		$$7              of DrawAlcanoid    
+LABEL		$$8              of DrawAlcanoid    
+LABEL		$$9              of DrawAlcanoid    
+LABEL		$$10             of DrawAlcanoid    
+LABEL		$$11             of DrawAlcanoid    
+LABEL		$$6              of DrawAlcanoid    
+CODESIZE	164      Bytes in DrawAlcanoid    
+CODESIZE	36       Bytes in DrawPoint       
+LABEL		$$12             of DrawBlockMap    
+LABEL		$$15             of DrawBlockMap    
+LABEL		$$17             of DrawBlockMap    
+LABEL		$$14             of DrawBlockMap    
+LABEL		$$13             of DrawBlockMap    
+CODESIZE	162      Bytes in DrawBlockMap    
+CODESIZE	24       Bytes in DrawBall        
+CODESIZE	20       Bytes in DrawBar         
+CODESIZE	52       Bytes in DrawIndex       
+CODESIZE	96       Bytes in DrawMenu        
+CODESIZE	20       Bytes in DrawRecord      
+CODESIZE	20       Bytes in DrawOption      
+LABEL		$$20             of ControlAlcanoid 
+LABEL		$$26             of ControlAlcanoid 
+LABEL		$$21             of ControlAlcanoid 
+LABEL		$$28             of ControlAlcanoid 
+LABEL		$$31             of ControlAlcanoid 
+LABEL		$$29             of ControlAlcanoid 
+LABEL		$$33             of ControlAlcanoid 
+LABEL		$$30             of ControlAlcanoid 
+LABEL		$$36             of ControlAlcanoid 
+LABEL		$$37             of ControlAlcanoid 
+LABEL		$$38             of ControlAlcanoid 
+LABEL		$$22             of ControlAlcanoid 
+LABEL		$$40             of ControlAlcanoid 
+LABEL		$$41             of ControlAlcanoid 
+LABEL		$$23             of ControlAlcanoid 
+LABEL		$$43             of ControlAlcanoid 
+LABEL		$$24             of ControlAlcanoid 
+LABEL		$$45             of ControlAlcanoid 
+LABEL		$$19             of ControlAlcanoid 
+CODESIZE	548      Bytes in ControlAlcanoid 
+CODESIZE	16       Bytes in ActAlcanoid     
+LABEL		$$47             of MoveBar         
+LABEL		$$48             of MoveBar         
+LABEL		$$46             of MoveBar         
+CODESIZE	148      Bytes in MoveBar         
+CODESIZE	72       Bytes in MoveBall        
+LABEL		$$51             of StrikeBlockMap  
+LABEL		$$54             of StrikeBlockMap  
+LABEL		$$58             of StrikeBlockMap  
+LABEL		$$56             of StrikeBlockMap  
+LABEL		$$53             of StrikeBlockMap  
+LABEL		$$52             of StrikeBlockMap  
+CODESIZE	442      Bytes in StrikeBlockMap  
+CODESIZE	46       Bytes in DestroyBlock    
+LABEL		$$64             of StrikeWall      
+LABEL		$$67             of StrikeWall      
+LABEL		$$65             of StrikeWall      
+LABEL		$$70             of StrikeWall      
+LABEL		$$71             of StrikeWall      
+CODESIZE	342      Bytes in StrikeWall      
+LABEL		$$73             of ChangeDirection 
+CODESIZE	164      Bytes in ChangeDirection 
+CODESIZE	22       Bytes in EVENT_START     
+CODESIZE	10       Bytes in EVENT_TIMEOUT   
+CODESIZE	14       Bytes in EVENT_KEYPRESS  
+000th Func is 'ActAlcanoid'
+001th Func is 'ChangeDirection'
+002th Func is 'ChangeMode'
+003th Func is 'ControlAlcanoid'
+004th Func is 'DestroyBlock'
+005th Func is 'DrawAlcanoid'
+006th Func is 'DrawBall'
+007th Func is 'DrawBar'
+008th Func is 'DrawBlockMap'
+009th Func is 'DrawIndex'
+010th Func is 'DrawMenu'
+011th Func is 'DrawOption'
+012th Func is 'DrawPoint'
+013th Func is 'DrawRecord'
+014th Func is 'EVENT_KEYPRESS'
+015th Func is 'EVENT_START'
+016th Func is 'EVENT_TIMEOUT'
+017th Func is 'InitAlcanoid'
+018th Func is 'InitBall'
+019th Func is 'InitBar'
+020th Func is 'InitBlockMap'
+021th Func is 'MoveBall'
+022th Func is 'MoveBar'
+023th Func is 'StrikeBlockMap'
+024th Func is 'StrikeWall'
+-------------------------------------------------
+Optimize Function 'ChangeMode()'
+		Code Length : 12 Byte(s).
+		Final Optimized Code Length : 12 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'InitAlcanoid()'
+		Code Length : 22 Byte(s).
+		Final Optimized Code Length : 22 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'InitBall()'
+		Code Length : 58 Byte(s).
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 48 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 54 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 44 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 50 Byte(s).
+
+		Final Optimized Code Length : 50 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'InitBar()'
+		Code Length : 26 Byte(s).
+		Final Optimized Code Length : 26 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'InitBlockMap()'
+		Code Length : 100 Byte(s).
+		Final Optimized Code Length : 100 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawAlcanoid()'
+		Code Length : 164 Byte(s).
+		Final Optimized Code Length : 164 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawPoint()'
+		Code Length : 36 Byte(s).
+		Final Optimized Code Length : 36 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawBlockMap()'
+		Code Length : 162 Byte(s).
+		Final Optimized Code Length : 162 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawBall()'
+		Code Length : 24 Byte(s).
+		Final Optimized Code Length : 24 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawBar()'
+		Code Length : 20 Byte(s).
+		Final Optimized Code Length : 20 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawIndex()'
+		Code Length : 52 Byte(s).
+		Final Optimized Code Length : 52 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawMenu()'
+		Code Length : 96 Byte(s).
+		Final Optimized Code Length : 96 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawRecord()'
+		Code Length : 20 Byte(s).
+		Final Optimized Code Length : 20 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DrawOption()'
+		Code Length : 20 Byte(s).
+		Final Optimized Code Length : 20 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'ControlAlcanoid()'
+		Code Length : 548 Byte(s).
+		Final Optimized Code Length : 548 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'ActAlcanoid()'
+		Code Length : 16 Byte(s).
+		Final Optimized Code Length : 16 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'MoveBar()'
+		Code Length : 148 Byte(s).
+		Final Optimized Code Length : 148 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'MoveBall()'
+		Code Length : 72 Byte(s).
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 62 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 68 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 58 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 64 Byte(s).
+
+		Final Optimized Code Length : 64 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'StrikeBlockMap()'
+		Code Length : 442 Byte(s).
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 432 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 438 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 428 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 434 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 424 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 430 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 420 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 426 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 416 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 422 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 412 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 418 Byte(s).
+
+		Final Optimized Code Length : 418 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'DestroyBlock()'
+		Code Length : 46 Byte(s).
+		Final Optimized Code Length : 46 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'StrikeWall()'
+		Code Length : 342 Byte(s).
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 332 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 338 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 328 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 334 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 324 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 330 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 320 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 326 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 316 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 322 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 312 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 318 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 308 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 314 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 304 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 310 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 300 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 306 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 296 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 302 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 292 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 298 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 288 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 294 Byte(s).
+
+		Final Optimized Code Length : 294 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'ChangeDirection()'
+		Code Length : 164 Byte(s).
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 154 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 160 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 150 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 156 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 146 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 152 Byte(s).
+
+	ldrz		unitBall
+	pushc		2
+	add
+		Step.1 Reduced Original Code Length : 142 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		2
+		Step.2 Optimized Code Length : 148 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 138 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 144 Byte(s).
+
+	ldrz		unitBall
+	pushc		3
+	add
+		Step.1 Reduced Original Code Length : 134 Byte(s).
+
+		==> addldrzc		23 ( unitBall )		3
+		Step.2 Optimized Code Length : 140 Byte(s).
+
+		Final Optimized Code Length : 140 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_START()'
+		Code Length : 22 Byte(s).
+		Final Optimized Code Length : 22 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_TIMEOUT()'
+		Code Length : 10 Byte(s).
+		Final Optimized Code Length : 10 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_KEYPRESS()'
+		Code Length : 14 Byte(s).
+		Final Optimized Code Length : 14 Byte(s).
+-------------------------------------------------
+FUNC COUNT: 25
+Set FUNC ADDRESS : ActAlcanoid [0x00000080]
+Set FUNC ADDRESS : ChangeDirection [0x00000090]
+Set FUNC ADDRESS : ChangeMode [0x0000011C]
+Set FUNC ADDRESS : ControlAlcanoid [0x00000128]
+Set FUNC ADDRESS : DestroyBlock [0x0000034C]
+Set FUNC ADDRESS : DrawAlcanoid [0x0000037A]
+Set FUNC ADDRESS : DrawBall [0x0000041E]
+Set FUNC ADDRESS : DrawBar [0x00000436]
+Set FUNC ADDRESS : DrawBlockMap [0x0000044A]
+Set FUNC ADDRESS : DrawIndex [0x000004EC]
+Set FUNC ADDRESS : DrawMenu [0x00000520]
+Set FUNC ADDRESS : DrawOption [0x00000580]
+Set FUNC ADDRESS : DrawPoint [0x00000594]
+Set FUNC ADDRESS : DrawRecord [0x000005B8]
+Set FUNC ADDRESS : EVENT_KEYPRESS [0x000005CC]
+Set FUNC ADDRESS : EVENT_START [0x000005DA]
+Set FUNC ADDRESS : EVENT_TIMEOUT [0x000005F0]
+Set FUNC ADDRESS : InitAlcanoid [0x000005FA]
+Set FUNC ADDRESS : InitBall [0x00000610]
+Set FUNC ADDRESS : InitBar [0x00000642]
+Set FUNC ADDRESS : InitBlockMap [0x0000065C]
+Set FUNC ADDRESS : MoveBall [0x000006C0]
+Set FUNC ADDRESS : MoveBar [0x00000700]
+Set FUNC ADDRESS : StrikeBlockMap [0x00000794]
+Set FUNC ADDRESS : StrikeWall [0x00000936]
+
+FUNCTION : ActAlcanoid()
+{
+	0x00000080 : nop	// , ActAlcanoid, -1 - SAL : 481
+	0x00000082 : call		0x00000700	// , ActAlcanoid, -1 - SAL : 482
+	0x00000088 : call		0x000006C0	// , ActAlcanoid, -1 - SAL : 483
+	0x0000008E : ret	// , ActAlcanoid, -1 - SAL : 484
+}
+
+
+FUNCTION : ChangeDirection()
+{
+	0x00000090 : nop	// , ChangeDirection, -1 - SAL : 800
+	0x00000092 : popz		42 ( position of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 801
+	0x00000096 : addldrzc		23 ( unitBall )		2	// , ChangeDirection, -1 - SAL : 802
+	0x0000009C : ixa	// , ChangeDirection, -1 - SAL : 805
+	0x0000009E : addldrzc		23 ( unitBall )		3	// , ChangeDirection, -1 - SAL : 806
+	0x000000A4 : ixa	// , ChangeDirection, -1 - SAL : 809
+	0x000000A6 : mult	// , ChangeDirection, -1 - SAL : 810
+	0x000000A8 : popz		43 ( xPerY of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 811
+	0x000000AC : pushz		42 ( position of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 812
+	0x000000B0 : calls		Abs(203)	// , ChangeDirection, -1 - SAL : 813
+	0x000000B4 : pushc		2	// , ChangeDirection, -1 - SAL : 814
+	0x000000B8 : mult	// , ChangeDirection, -1 - SAL : 815
+	0x000000BA : pushc		13	// , ChangeDirection, -1 - SAL : 816
+	0x000000BE : div	// , ChangeDirection, -1 - SAL : 817
+	0x000000C0 : inc	// , ChangeDirection, -1 - SAL : 818
+	0x000000C2 : popz		44 ( xPerYFromPosition of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 819
+	0x000000C6 : pushz		42 ( position of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 820
+	0x000000CA : gejp		0		0x000000E0	// , ChangeDirection, -1 - SAL : 821
+	0x000000D2 : pushz		44 ( xPerYFromPosition of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 822
+	0x000000D6 : pushc		-1	// , ChangeDirection, -1 - SAL : 823
+	0x000000DA : mult	// , ChangeDirection, -1 - SAL : 824
+	0x000000DC : popz		44 ( xPerYFromPosition of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 825
+	0x000000E0 : pushz		43 ( xPerY of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 826
+	0x000000E4 : pushz		44 ( xPerYFromPosition of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 827
+	0x000000E8 : mult	// , ChangeDirection, -1 - SAL : 828
+	0x000000EA : popz		43 ( xPerY of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 829
+	0x000000EE : addldrzc		23 ( unitBall )		2	// , ChangeDirection, -1 - SAL : 830
+	0x000000F4 : addldrzc		23 ( unitBall )		2	// , ChangeDirection, -1 - SAL : 833
+	0x000000FA : ixa	// , ChangeDirection, -1 - SAL : 836
+	0x000000FC : pushz		43 ( xPerY of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 837
+	0x00000100 : mult	// , ChangeDirection, -1 - SAL : 838
+	0x00000102 : sta	// , ChangeDirection, -1 - SAL : 839
+	0x00000104 : addldrzc		23 ( unitBall )		3	// , ChangeDirection, -1 - SAL : 840
+	0x0000010A : addldrzc		23 ( unitBall )		3	// , ChangeDirection, -1 - SAL : 843
+	0x00000110 : ixa	// , ChangeDirection, -1 - SAL : 846
+	0x00000112 : pushz		43 ( xPerY of Function ChangeDirection )	// , ChangeDirection, -1 - SAL : 847
+	0x00000116 : mult	// , ChangeDirection, -1 - SAL : 848
+	0x00000118 : sta	// , ChangeDirection, -1 - SAL : 849
+	0x0000011A : ret	// , ChangeDirection, -1 - SAL : 850
+}
+
+
+FUNCTION : ChangeMode()
+{
+	0x0000011C : nop	// , ChangeMode, -1 - SAL : 138
+	0x0000011E : stnz		31 ( mode of Function ChangeMode )	// , ChangeMode, -1 - SAL : 139
+	0x00000122 : popz		26 ( gameMode )	// , ChangeMode, -1 - SAL : 140
+	0x00000126 : ret	// , ChangeMode, -1 - SAL : 141
+}
+
+
+FUNCTION : ControlAlcanoid()
+{
+	0x00000128 : nop	// , ControlAlcanoid, -1 - SAL : 356
+	0x0000012A : popz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 357
+	0x0000012E : ssp	// , ControlAlcanoid, -1 - SAL : 358
+	0x00000130 : pushz		26 ( gameMode )	// , ControlAlcanoid, -1 - SAL : 359
+	0x00000134 : dup	// , ControlAlcanoid, -1 - SAL : 360
+	0x00000136 : eqjp		0		0x0000016E	// , ControlAlcanoid, -1 - SAL : 361
+	0x0000013E : dup	// , ControlAlcanoid, -1 - SAL : 362
+	0x00000140 : eqjp		1		0x0000019A	// , ControlAlcanoid, -1 - SAL : 363
+	0x00000148 : dup	// , ControlAlcanoid, -1 - SAL : 364
+	0x0000014A : eqjp		2		0x0000028C	// , ControlAlcanoid, -1 - SAL : 365
+	0x00000152 : dup	// , ControlAlcanoid, -1 - SAL : 366
+	0x00000154 : eqjp		3		0x000002E4	// , ControlAlcanoid, -1 - SAL : 367
+	0x0000015C : dup	// , ControlAlcanoid, -1 - SAL : 368
+	0x0000015E : eqjp		4		0x0000031A	// , ControlAlcanoid, -1 - SAL : 369
+	0x00000166 : rsp	// , ControlAlcanoid, -1 - SAL : 370
+	0x00000168 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 371
+	0x0000016E : rsp	// , ControlAlcanoid, -1 - SAL : 372
+	0x00000170 : ssp	// , ControlAlcanoid, -1 - SAL : 373
+	0x00000172 : pushz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 374
+	0x00000176 : dup	// , ControlAlcanoid, -1 - SAL : 375
+	0x00000178 : eqjp		20		0x00000188	// , ControlAlcanoid, -1 - SAL : 376
+	0x00000180 : rsp	// , ControlAlcanoid, -1 - SAL : 377
+	0x00000182 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 378
+	0x00000188 : rsp	// , ControlAlcanoid, -1 - SAL : 379
+	0x0000018A : pushc		1	// , ControlAlcanoid, -1 - SAL : 380
+	0x0000018E : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 381
+	0x00000194 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 382
+	0x0000019A : rsp	// , ControlAlcanoid, -1 - SAL : 383
+	0x0000019C : ssp	// , ControlAlcanoid, -1 - SAL : 384
+	0x0000019E : pushz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 385
+	0x000001A2 : dup	// , ControlAlcanoid, -1 - SAL : 386
+	0x000001A4 : eqjp		18		0x000001DC	// , ControlAlcanoid, -1 - SAL : 387
+	0x000001AC : dup	// , ControlAlcanoid, -1 - SAL : 388
+	0x000001AE : eqjp		16		0x000001DC	// , ControlAlcanoid, -1 - SAL : 389
+	0x000001B6 : dup	// , ControlAlcanoid, -1 - SAL : 390
+	0x000001B8 : eqjp		19		0x00000202	// , ControlAlcanoid, -1 - SAL : 391
+	0x000001C0 : dup	// , ControlAlcanoid, -1 - SAL : 392
+	0x000001C2 : eqjp		17		0x00000202	// , ControlAlcanoid, -1 - SAL : 393
+	0x000001CA : dup	// , ControlAlcanoid, -1 - SAL : 394
+	0x000001CC : eqjp		20		0x00000228	// , ControlAlcanoid, -1 - SAL : 395
+	0x000001D4 : rsp	// , ControlAlcanoid, -1 - SAL : 396
+	0x000001D6 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 397
+	0x000001DC : rsp	// , ControlAlcanoid, -1 - SAL : 398
+	0x000001DE : pushz		29 ( selectedMenu )	// , ControlAlcanoid, -1 - SAL : 399
+	0x000001E2 : lejp		0		0x000001F6	// , ControlAlcanoid, -1 - SAL : 400
+	0x000001EA : incz		29 ( selectedMenu )		-1	// , ControlAlcanoid, -1 - SAL : 401
+	0x000001F0 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 402
+	0x000001F6 : zsetc		29 ( selectedMenu )		2	// , ControlAlcanoid, -1 - SAL : 403
+	0x000001FC : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 404
+	0x00000202 : rsp	// , ControlAlcanoid, -1 - SAL : 405
+	0x00000204 : pushz		29 ( selectedMenu )	// , ControlAlcanoid, -1 - SAL : 406
+	0x00000208 : gejp		2		0x0000021C	// , ControlAlcanoid, -1 - SAL : 407
+	0x00000210 : incz		29 ( selectedMenu )		1	// , ControlAlcanoid, -1 - SAL : 408
+	0x00000216 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 409
+	0x0000021C : zsetc		29 ( selectedMenu )		0	// , ControlAlcanoid, -1 - SAL : 410
+	0x00000222 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 411
+	0x00000228 : rsp	// , ControlAlcanoid, -1 - SAL : 412
+	0x0000022A : ssp	// , ControlAlcanoid, -1 - SAL : 413
+	0x0000022C : pushz		29 ( selectedMenu )	// , ControlAlcanoid, -1 - SAL : 414
+	0x00000230 : dup	// , ControlAlcanoid, -1 - SAL : 415
+	0x00000232 : eqjp		0		0x00000256	// , ControlAlcanoid, -1 - SAL : 416
+	0x0000023A : dup	// , ControlAlcanoid, -1 - SAL : 417
+	0x0000023C : eqjp		1		0x00000268	// , ControlAlcanoid, -1 - SAL : 418
+	0x00000244 : dup	// , ControlAlcanoid, -1 - SAL : 419
+	0x00000246 : eqjp		2		0x0000027A	// , ControlAlcanoid, -1 - SAL : 420
+	0x0000024E : rsp	// , ControlAlcanoid, -1 - SAL : 421
+	0x00000250 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 422
+	0x00000256 : rsp	// , ControlAlcanoid, -1 - SAL : 423
+	0x00000258 : pushc		2	// , ControlAlcanoid, -1 - SAL : 424
+	0x0000025C : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 425
+	0x00000262 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 426
+	0x00000268 : rsp	// , ControlAlcanoid, -1 - SAL : 427
+	0x0000026A : pushc		3	// , ControlAlcanoid, -1 - SAL : 428
+	0x0000026E : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 429
+	0x00000274 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 430
+	0x0000027A : rsp	// , ControlAlcanoid, -1 - SAL : 431
+	0x0000027C : pushc		4	// , ControlAlcanoid, -1 - SAL : 432
+	0x00000280 : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 433
+	0x00000286 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 434
+	0x0000028C : rsp	// , ControlAlcanoid, -1 - SAL : 435
+	0x0000028E : ssp	// , ControlAlcanoid, -1 - SAL : 436
+	0x00000290 : pushz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 437
+	0x00000294 : dup	// , ControlAlcanoid, -1 - SAL : 438
+	0x00000296 : eqjp		16		0x000002C4	// , ControlAlcanoid, -1 - SAL : 439
+	0x0000029E : dup	// , ControlAlcanoid, -1 - SAL : 440
+	0x000002A0 : eqjp		17		0x000002C4	// , ControlAlcanoid, -1 - SAL : 441
+	0x000002A8 : dup	// , ControlAlcanoid, -1 - SAL : 442
+	0x000002AA : eqjp		255		0x000002C4	// , ControlAlcanoid, -1 - SAL : 443
+	0x000002B2 : dup	// , ControlAlcanoid, -1 - SAL : 444
+	0x000002B4 : eqjp		13		0x000002D2	// , ControlAlcanoid, -1 - SAL : 445
+	0x000002BC : rsp	// , ControlAlcanoid, -1 - SAL : 446
+	0x000002BE : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 447
+	0x000002C4 : rsp	// , ControlAlcanoid, -1 - SAL : 448
+	0x000002C6 : zsetz		30 ( nextKey )		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 449
+	0x000002CC : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 450
+	0x000002D2 : rsp	// , ControlAlcanoid, -1 - SAL : 451
+	0x000002D4 : pushc		1	// , ControlAlcanoid, -1 - SAL : 452
+	0x000002D8 : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 453
+	0x000002DE : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 454
+	0x000002E4 : rsp	// , ControlAlcanoid, -1 - SAL : 455
+	0x000002E6 : ssp	// , ControlAlcanoid, -1 - SAL : 456
+	0x000002E8 : pushz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 457
+	0x000002EC : dup	// , ControlAlcanoid, -1 - SAL : 458
+	0x000002EE : eqjp		20		0x00000308	// , ControlAlcanoid, -1 - SAL : 459
+	0x000002F6 : dup	// , ControlAlcanoid, -1 - SAL : 460
+	0x000002F8 : eqjp		13		0x00000308	// , ControlAlcanoid, -1 - SAL : 461
+	0x00000300 : rsp	// , ControlAlcanoid, -1 - SAL : 462
+	0x00000302 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 463
+	0x00000308 : rsp	// , ControlAlcanoid, -1 - SAL : 464
+	0x0000030A : pushc		1	// , ControlAlcanoid, -1 - SAL : 465
+	0x0000030E : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 466
+	0x00000314 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 467
+	0x0000031A : rsp	// , ControlAlcanoid, -1 - SAL : 468
+	0x0000031C : ssp	// , ControlAlcanoid, -1 - SAL : 469
+	0x0000031E : pushz		37 ( swData of Function ControlAlcanoid )	// , ControlAlcanoid, -1 - SAL : 470
+	0x00000322 : dup	// , ControlAlcanoid, -1 - SAL : 471
+	0x00000324 : eqjp		20		0x0000033E	// , ControlAlcanoid, -1 - SAL : 472
+	0x0000032C : dup	// , ControlAlcanoid, -1 - SAL : 473
+	0x0000032E : eqjp		13		0x0000033E	// , ControlAlcanoid, -1 - SAL : 474
+	0x00000336 : rsp	// , ControlAlcanoid, -1 - SAL : 475
+	0x00000338 : ujp		0x0000034A	// , ControlAlcanoid, -1 - SAL : 476
+	0x0000033E : rsp	// , ControlAlcanoid, -1 - SAL : 477
+	0x00000340 : pushc		1	// , ControlAlcanoid, -1 - SAL : 478
+	0x00000344 : call		0x0000011C	// , ControlAlcanoid, -1 - SAL : 479
+	0x0000034A : ret	// , ControlAlcanoid, -1 - SAL : 480
+}
+
+
+FUNCTION : DestroyBlock()
+{
+	0x0000034C : nop	// , DestroyBlock, -1 - SAL : 682
+	0x0000034E : popz		41 ( y of Function DestroyBlock )	// , DestroyBlock, -1 - SAL : 683
+	0x00000352 : popz		40 ( x of Function DestroyBlock )	// , DestroyBlock, -1 - SAL : 684
+	0x00000356 : pushz		41 ( y of Function DestroyBlock )	// , DestroyBlock, -1 - SAL : 685
+	0x0000035A : pushz		40 ( x of Function DestroyBlock )	// , DestroyBlock, -1 - SAL : 686
+	0x0000035E : pushc		10	// , DestroyBlock, -1 - SAL : 687
+	0x00000362 : mult	// , DestroyBlock, -1 - SAL : 688
+	0x00000364 : add	// , DestroyBlock, -1 - SAL : 689
+	0x00000366 : ldrz		25 ( blockMap )	// , DestroyBlock, -1 - SAL : 690
+	0x0000036A : add	// , DestroyBlock, -1 - SAL : 691
+	0x0000036C : pushc		-1	// , DestroyBlock, -1 - SAL : 692
+	0x00000370 : sta	// , DestroyBlock, -1 - SAL : 693
+	0x00000372 : incz		28 ( playPoint )		5	// , DestroyBlock, -1 - SAL : 694
+	0x00000378 : ret	// , DestroyBlock, -1 - SAL : 695
+}
+
+
+FUNCTION : DrawAlcanoid()
+{
+	0x0000037A : nop	// , DrawAlcanoid, -1 - SAL : 198
+	0x0000037C : calls		ClearWhite(58)	// , DrawAlcanoid, -1 - SAL : 199
+	0x00000380 : ssp	// , DrawAlcanoid, -1 - SAL : 200
+	0x00000382 : pushz		26 ( gameMode )	// , DrawAlcanoid, -1 - SAL : 201
+	0x00000386 : dup	// , DrawAlcanoid, -1 - SAL : 202
+	0x00000388 : eqjp		0		0x000003C0	// , DrawAlcanoid, -1 - SAL : 203
+	0x00000390 : dup	// , DrawAlcanoid, -1 - SAL : 204
+	0x00000392 : eqjp		1		0x000003CE	// , DrawAlcanoid, -1 - SAL : 205
+	0x0000039A : dup	// , DrawAlcanoid, -1 - SAL : 206
+	0x0000039C : eqjp		2		0x000003DC	// , DrawAlcanoid, -1 - SAL : 207
+	0x000003A4 : dup	// , DrawAlcanoid, -1 - SAL : 208
+	0x000003A6 : eqjp		3		0x00000402	// , DrawAlcanoid, -1 - SAL : 209
+	0x000003AE : dup	// , DrawAlcanoid, -1 - SAL : 210
+	0x000003B0 : eqjp		4		0x00000410	// , DrawAlcanoid, -1 - SAL : 211
+	0x000003B8 : rsp	// , DrawAlcanoid, -1 - SAL : 212
+	0x000003BA : ujp		0x00000418	// , DrawAlcanoid, -1 - SAL : 213
+	0x000003C0 : rsp	// , DrawAlcanoid, -1 - SAL : 214
+	0x000003C2 : call		0x000004EC	// , DrawAlcanoid, -1 - SAL : 215
+	0x000003C8 : ujp		0x00000418	// , DrawAlcanoid, -1 - SAL : 216
+	0x000003CE : rsp	// , DrawAlcanoid, -1 - SAL : 217
+	0x000003D0 : call		0x00000520	// , DrawAlcanoid, -1 - SAL : 218
+	0x000003D6 : ujp		0x00000418	// , DrawAlcanoid, -1 - SAL : 219
+	0x000003DC : rsp	// , DrawAlcanoid, -1 - SAL : 220
+	0x000003DE : call		0x00000080	// , DrawAlcanoid, -1 - SAL : 221
+	0x000003E4 : call		0x00000594	// , DrawAlcanoid, -1 - SAL : 222
+	0x000003EA : call		0x0000044A	// , DrawAlcanoid, -1 - SAL : 223
+	0x000003F0 : call		0x0000041E	// , DrawAlcanoid, -1 - SAL : 224
+	0x000003F6 : call		0x00000436	// , DrawAlcanoid, -1 - SAL : 225
+	0x000003FC : ujp		0x00000418	// , DrawAlcanoid, -1 - SAL : 226
+	0x00000402 : rsp	// , DrawAlcanoid, -1 - SAL : 227
+	0x00000404 : call		0x000005B8	// , DrawAlcanoid, -1 - SAL : 228
+	0x0000040A : ujp		0x00000418	// , DrawAlcanoid, -1 - SAL : 229
+	0x00000410 : rsp	// , DrawAlcanoid, -1 - SAL : 230
+	0x00000412 : call		0x00000580	// , DrawAlcanoid, -1 - SAL : 231
+	0x00000418 : calls		Flush(95)	// , DrawAlcanoid, -1 - SAL : 232
+	0x0000041C : ret	// , DrawAlcanoid, -1 - SAL : 233
+}
+
+
+FUNCTION : DrawBall()
+{
+	0x0000041E : nop	// , DrawBall, -1 - SAL : 287
+	0x00000420 : ldrz		23 ( unitBall )	// , DrawBall, -1 - SAL : 288
+	0x00000424 : ixa	// , DrawBall, -1 - SAL : 289
+	0x00000426 : ldrz		23 ( unitBall )	// , DrawBall, -1 - SAL : 290
+	0x0000042A : inc	// , DrawBall, -1 - SAL : 291
+	0x0000042C : ixa	// , DrawBall, -1 - SAL : 292
+	0x0000042E : pushc		9	// , DrawBall, -1 - SAL : 293
+	0x00000432 : CopyImage	// , DrawBall, -1 - SAL : 294
+	0x00000434 : ret	// , DrawBall, -1 - SAL : 295
+}
+
+
+FUNCTION : DrawBar()
+{
+	0x00000436 : nop	// , DrawBar, -1 - SAL : 296
+	0x00000438 : ldrz		24 ( unitBar )	// , DrawBar, -1 - SAL : 297
+	0x0000043C : ixa	// , DrawBar, -1 - SAL : 298
+	0x0000043E : pushc		280	// , DrawBar, -1 - SAL : 299
+	0x00000442 : pushc		10	// , DrawBar, -1 - SAL : 300
+	0x00000446 : CopyImage	// , DrawBar, -1 - SAL : 301
+	0x00000448 : ret	// , DrawBar, -1 - SAL : 302
+}
+
+
+FUNCTION : DrawBlockMap()
+{
+	0x0000044A : nop	// , DrawBlockMap, -1 - SAL : 244
+	0x0000044C : zsetc		35 ( i of Function DrawBlockMap )		0	// , DrawBlockMap, -1 - SAL : 245
+	0x00000452 : pushz		35 ( i of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 246
+	0x00000456 : gejp		10		0x000004EA	// , DrawBlockMap, -1 - SAL : 247
+	0x0000045E : zsetc		36 ( j of Function DrawBlockMap )		0	// , DrawBlockMap, -1 - SAL : 248
+	0x00000464 : pushz		36 ( j of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 249
+	0x00000468 : gejp		10		0x000004DE	// , DrawBlockMap, -1 - SAL : 250
+	0x00000470 : pushz		36 ( j of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 251
+	0x00000474 : pushz		35 ( i of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 252
+	0x00000478 : pushc		10	// , DrawBlockMap, -1 - SAL : 253
+	0x0000047C : mult	// , DrawBlockMap, -1 - SAL : 254
+	0x0000047E : add	// , DrawBlockMap, -1 - SAL : 255
+	0x00000480 : ldrz		25 ( blockMap )	// , DrawBlockMap, -1 - SAL : 256
+	0x00000484 : add	// , DrawBlockMap, -1 - SAL : 257
+	0x00000486 : ixa	// , DrawBlockMap, -1 - SAL : 258
+	0x00000488 : lejp		-1		0x000004D2	// , DrawBlockMap, -1 - SAL : 259
+	0x00000490 : pushc		20	// , DrawBlockMap, -1 - SAL : 260
+	0x00000494 : pushc		20	// , DrawBlockMap, -1 - SAL : 261
+	0x00000498 : pushz		35 ( i of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 262
+	0x0000049C : mult	// , DrawBlockMap, -1 - SAL : 263
+	0x0000049E : add	// , DrawBlockMap, -1 - SAL : 264
+	0x000004A0 : pushc		30	// , DrawBlockMap, -1 - SAL : 265
+	0x000004A4 : pushc		10	// , DrawBlockMap, -1 - SAL : 266
+	0x000004A8 : pushz		36 ( j of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 267
+	0x000004AC : mult	// , DrawBlockMap, -1 - SAL : 268
+	0x000004AE : add	// , DrawBlockMap, -1 - SAL : 269
+	0x000004B0 : pushz		36 ( j of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 270
+	0x000004B4 : pushz		35 ( i of Function DrawBlockMap )	// , DrawBlockMap, -1 - SAL : 271
+	0x000004B8 : pushc		10	// , DrawBlockMap, -1 - SAL : 272
+	0x000004BC : mult	// , DrawBlockMap, -1 - SAL : 273
+	0x000004BE : add	// , DrawBlockMap, -1 - SAL : 274
+	0x000004C0 : ldrz		25 ( blockMap )	// , DrawBlockMap, -1 - SAL : 275
+	0x000004C4 : add	// , DrawBlockMap, -1 - SAL : 276
+	0x000004C6 : ixa	// , DrawBlockMap, -1 - SAL : 277
+	0x000004C8 : ldrz		22 ( imgBlock )	// , DrawBlockMap, -1 - SAL : 278
+	0x000004CC : add	// , DrawBlockMap, -1 - SAL : 279
+	0x000004CE : ixa	// , DrawBlockMap, -1 - SAL : 280
+	0x000004D0 : CopyImage	// , DrawBlockMap, -1 - SAL : 281
+	0x000004D2 : incz		36 ( j of Function DrawBlockMap )		1	// , DrawBlockMap, -1 - SAL : 282
+	0x000004D8 : ujp		0x00000464	// , DrawBlockMap, -1 - SAL : 283
+	0x000004DE : incz		35 ( i of Function DrawBlockMap )		1	// , DrawBlockMap, -1 - SAL : 284
+	0x000004E4 : ujp		0x00000452	// , DrawBlockMap, -1 - SAL : 285
+	0x000004EA : ret	// , DrawBlockMap, -1 - SAL : 286
+}
+
+
+FUNCTION : DrawIndex()
+{
+	0x000004EC : nop	// , DrawIndex, -1 - SAL : 303
+	0x000004EE : pushc		10	// , DrawIndex, -1 - SAL : 304
+	0x000004F2 : pushc		10	// , DrawIndex, -1 - SAL : 305
+	0x000004F6 : pushmi		%%1	// , DrawIndex, -1 - SAL : 306
+	0x000004FA : calls		DrawStr(85)	// , DrawIndex, -1 - SAL : 307
+	0x000004FE : pushc		10	// , DrawIndex, -1 - SAL : 308
+	0x00000502 : pushc		50	// , DrawIndex, -1 - SAL : 309
+	0x00000506 : pushmi		%%2	// , DrawIndex, -1 - SAL : 310
+	0x0000050A : calls		DrawStr(85)	// , DrawIndex, -1 - SAL : 311
+	0x0000050E : pushc		10	// , DrawIndex, -1 - SAL : 312
+	0x00000512 : pushc		80	// , DrawIndex, -1 - SAL : 313
+	0x00000516 : pushmi		%%3	// , DrawIndex, -1 - SAL : 314
+	0x0000051A : calls		DrawStr(85)	// , DrawIndex, -1 - SAL : 315
+	0x0000051E : ret	// , DrawIndex, -1 - SAL : 316
+}
+
+
+FUNCTION : DrawMenu()
+{
+	0x00000520 : nop	// , DrawMenu, -1 - SAL : 317
+	0x00000522 : pushc		10	// , DrawMenu, -1 - SAL : 318
+	0x00000526 : pushc		150	// , DrawMenu, -1 - SAL : 319
+	0x0000052A : pushmi		%%4	// , DrawMenu, -1 - SAL : 320
+	0x0000052E : calls		DrawStr(85)	// , DrawMenu, -1 - SAL : 321
+	0x00000532 : pushc		10	// , DrawMenu, -1 - SAL : 322
+	0x00000536 : pushc		170	// , DrawMenu, -1 - SAL : 323
+	0x0000053A : pushmi		%%5	// , DrawMenu, -1 - SAL : 324
+	0x0000053E : calls		DrawStr(85)	// , DrawMenu, -1 - SAL : 325
+	0x00000542 : pushc		10	// , DrawMenu, -1 - SAL : 326
+	0x00000546 : pushc		190	// , DrawMenu, -1 - SAL : 327
+	0x0000054A : pushmi		%%6	// , DrawMenu, -1 - SAL : 328
+	0x0000054E : calls		DrawStr(85)	// , DrawMenu, -1 - SAL : 329
+	0x00000552 : pushc		5	// , DrawMenu, -1 - SAL : 330
+	0x00000556 : pushc		145	// , DrawMenu, -1 - SAL : 331
+	0x0000055A : pushz		29 ( selectedMenu )	// , DrawMenu, -1 - SAL : 332
+	0x0000055E : pushc		20	// , DrawMenu, -1 - SAL : 333
+	0x00000562 : mult	// , DrawMenu, -1 - SAL : 334
+	0x00000564 : add	// , DrawMenu, -1 - SAL : 335
+	0x00000566 : pushc		50	// , DrawMenu, -1 - SAL : 336
+	0x0000056A : pushc		160	// , DrawMenu, -1 - SAL : 337
+	0x0000056E : pushz		29 ( selectedMenu )	// , DrawMenu, -1 - SAL : 338
+	0x00000572 : pushc		20	// , DrawMenu, -1 - SAL : 339
+	0x00000576 : mult	// , DrawMenu, -1 - SAL : 340
+	0x00000578 : add	// , DrawMenu, -1 - SAL : 341
+	0x0000057A : calls		DrawRect(69)	// , DrawMenu, -1 - SAL : 342
+	0x0000057E : ret	// , DrawMenu, -1 - SAL : 343
+}
+
+
+FUNCTION : DrawOption()
+{
+	0x00000580 : nop	// , DrawOption, -1 - SAL : 350
+	0x00000582 : pushc		10	// , DrawOption, -1 - SAL : 351
+	0x00000586 : pushc		10	// , DrawOption, -1 - SAL : 352
+	0x0000058A : pushmi		%%8	// , DrawOption, -1 - SAL : 353
+	0x0000058E : calls		DrawStr(85)	// , DrawOption, -1 - SAL : 354
+	0x00000592 : ret	// , DrawOption, -1 - SAL : 355
+}
+
+
+FUNCTION : DrawPoint()
+{
+	0x00000594 : nop	// , DrawPoint, -1 - SAL : 234
+	0x00000596 : pushz		34 ( strPoint of Function DrawPoint )	// , DrawPoint, -1 - SAL : 235
+	0x0000059A : pushmi		%%0	// , DrawPoint, -1 - SAL : 236
+	0x0000059E : pushz		28 ( playPoint )	// , DrawPoint, -1 - SAL : 237
+	0x000005A2 : calls		MakeStr1(174)	// , DrawPoint, -1 - SAL : 238
+	0x000005A6 : pushc		10	// , DrawPoint, -1 - SAL : 239
+	0x000005AA : pushc		10	// , DrawPoint, -1 - SAL : 240
+	0x000005AE : pushz		34 ( strPoint of Function DrawPoint )	// , DrawPoint, -1 - SAL : 241
+	0x000005B2 : calls		DrawStr(85)	// , DrawPoint, -1 - SAL : 242
+	0x000005B6 : ret	// , DrawPoint, -1 - SAL : 243
+}
+
+
+FUNCTION : DrawRecord()
+{
+	0x000005B8 : nop	// , DrawRecord, -1 - SAL : 344
+	0x000005BA : pushc		10	// , DrawRecord, -1 - SAL : 345
+	0x000005BE : pushc		10	// , DrawRecord, -1 - SAL : 346
+	0x000005C2 : pushmi		%%7	// , DrawRecord, -1 - SAL : 347
+	0x000005C6 : calls		DrawStr(85)	// , DrawRecord, -1 - SAL : 348
+	0x000005CA : ret	// , DrawRecord, -1 - SAL : 349
+}
+
+
+FUNCTION : EVENT_KEYPRESS()
+{
+	0x000005CC : nop	// , EVENT_KEYPRESS, -1 - SAL : 860
+	0x000005CE : pushz		0 ( swData )	// , EVENT_KEYPRESS, -1 - SAL : 861
+	0x000005D2 : call		0x00000128	// , EVENT_KEYPRESS, -1 - SAL : 862
+	0x000005D8 : end	// , EVENT_KEYPRESS, -1 - SAL : 863
+}
+
+
+FUNCTION : EVENT_START()
+{
+	0x000005DA : nop	// , EVENT_START, -1 - SAL : 851
+	0x000005DC : call		0x000005FA	// , EVENT_START, -1 - SAL : 852
+	0x000005E2 : pushc		20	// , EVENT_START, -1 - SAL : 853
+	0x000005E6 : pushc		1	// , EVENT_START, -1 - SAL : 854
+	0x000005EA : calls		SetTimer(149)	// , EVENT_START, -1 - SAL : 855
+	0x000005EE : end	// , EVENT_START, -1 - SAL : 856
+}
+
+
+FUNCTION : EVENT_TIMEOUT()
+{
+	0x000005F0 : nop	// , EVENT_TIMEOUT, -1 - SAL : 857
+	0x000005F2 : call		0x0000037A	// , EVENT_TIMEOUT, -1 - SAL : 858
+	0x000005F8 : end	// , EVENT_TIMEOUT, -1 - SAL : 859
+}
+
+
+FUNCTION : InitAlcanoid()
+{
+	0x000005FA : nop	// , InitAlcanoid, -1 - SAL : 142
+	0x000005FC : call		0x00000610	// , InitAlcanoid, -1 - SAL : 143
+	0x00000602 : call		0x00000642	// , InitAlcanoid, -1 - SAL : 144
+	0x00000608 : call		0x0000065C	// , InitAlcanoid, -1 - SAL : 145
+	0x0000060E : ret	// , InitAlcanoid, -1 - SAL : 146
+}
+
+
+FUNCTION : InitBall()
+{
+	0x00000610 : nop	// , InitBall, -1 - SAL : 147
+	0x00000612 : ldrz		23 ( unitBall )	// , InitBall, -1 - SAL : 148
+	0x00000616 : pushc		120	// , InitBall, -1 - SAL : 149
+	0x0000061A : sta	// , InitBall, -1 - SAL : 150
+	0x0000061C : ldrz		23 ( unitBall )	// , InitBall, -1 - SAL : 151
+	0x00000620 : inc	// , InitBall, -1 - SAL : 152
+	0x00000622 : pushc		200	// , InitBall, -1 - SAL : 153
+	0x00000626 : sta	// , InitBall, -1 - SAL : 154
+	0x00000628 : addldrzc		23 ( unitBall )		2	// , InitBall, -1 - SAL : 155
+	0x0000062E : pushc		3	// , InitBall, -1 - SAL : 158
+	0x00000632 : sta	// , InitBall, -1 - SAL : 159
+	0x00000634 : addldrzc		23 ( unitBall )		3	// , InitBall, -1 - SAL : 160
+	0x0000063A : pushc		-3	// , InitBall, -1 - SAL : 163
+	0x0000063E : sta	// , InitBall, -1 - SAL : 164
+	0x00000640 : ret	// , InitBall, -1 - SAL : 165
+}
+
+
+FUNCTION : InitBar()
+{
+	0x00000642 : nop	// , InitBar, -1 - SAL : 166
+	0x00000644 : ldrz		24 ( unitBar )	// , InitBar, -1 - SAL : 167
+	0x00000648 : pushc		120	// , InitBar, -1 - SAL : 168
+	0x0000064C : sta	// , InitBar, -1 - SAL : 169
+	0x0000064E : ldrz		24 ( unitBar )	// , InitBar, -1 - SAL : 170
+	0x00000652 : inc	// , InitBar, -1 - SAL : 171
+	0x00000654 : pushc		5	// , InitBar, -1 - SAL : 172
+	0x00000658 : sta	// , InitBar, -1 - SAL : 173
+	0x0000065A : ret	// , InitBar, -1 - SAL : 174
+}
+
+
+FUNCTION : InitBlockMap()
+{
+	0x0000065C : nop	// , InitBlockMap, -1 - SAL : 175
+	0x0000065E : zsetc		32 ( i of Function InitBlockMap )		0	// , InitBlockMap, -1 - SAL : 176
+	0x00000664 : pushz		32 ( i of Function InitBlockMap )	// , InitBlockMap, -1 - SAL : 177
+	0x00000668 : gejp		10		0x000006BE	// , InitBlockMap, -1 - SAL : 178
+	0x00000670 : zsetc		33 ( j of Function InitBlockMap )		0	// , InitBlockMap, -1 - SAL : 179
+	0x00000676 : pushz		33 ( j of Function InitBlockMap )	// , InitBlockMap, -1 - SAL : 180
+	0x0000067A : gejp		10		0x000006B2	// , InitBlockMap, -1 - SAL : 181
+	0x00000682 : pushz		33 ( j of Function InitBlockMap )	// , InitBlockMap, -1 - SAL : 182
+	0x00000686 : pushz		32 ( i of Function InitBlockMap )	// , InitBlockMap, -1 - SAL : 183
+	0x0000068A : pushc		10	// , InitBlockMap, -1 - SAL : 184
+	0x0000068E : mult	// , InitBlockMap, -1 - SAL : 185
+	0x00000690 : add	// , InitBlockMap, -1 - SAL : 186
+	0x00000692 : ldrz		25 ( blockMap )	// , InitBlockMap, -1 - SAL : 187
+	0x00000696 : add	// , InitBlockMap, -1 - SAL : 188
+	0x00000698 : pushc		-1	// , InitBlockMap, -1 - SAL : 189
+	0x0000069C : pushc		2	// , InitBlockMap, -1 - SAL : 190
+	0x000006A0 : calls		Rand(201)	// , InitBlockMap, -1 - SAL : 191
+	0x000006A4 : sta	// , InitBlockMap, -1 - SAL : 192
+	0x000006A6 : incz		33 ( j of Function InitBlockMap )		1	// , InitBlockMap, -1 - SAL : 193
+	0x000006AC : ujp		0x00000676	// , InitBlockMap, -1 - SAL : 194
+	0x000006B2 : incz		32 ( i of Function InitBlockMap )		1	// , InitBlockMap, -1 - SAL : 195
+	0x000006B8 : ujp		0x00000664	// , InitBlockMap, -1 - SAL : 196
+	0x000006BE : ret	// , InitBlockMap, -1 - SAL : 197
+}
+
+
+FUNCTION : MoveBall()
+{
+	0x000006C0 : nop	// , MoveBall, -1 - SAL : 532
+	0x000006C2 : call		0x00000936	// , MoveBall, -1 - SAL : 533
+	0x000006C8 : call		0x00000794	// , MoveBall, -1 - SAL : 534
+	0x000006CE : ldrz		23 ( unitBall )	// , MoveBall, -1 - SAL : 535
+	0x000006D2 : ldrz		23 ( unitBall )	// , MoveBall, -1 - SAL : 536
+	0x000006D6 : ixa	// , MoveBall, -1 - SAL : 537
+	0x000006D8 : addldrzc		23 ( unitBall )		2	// , MoveBall, -1 - SAL : 538
+	0x000006DE : ixa	// , MoveBall, -1 - SAL : 541
+	0x000006E0 : add	// , MoveBall, -1 - SAL : 542
+	0x000006E2 : sta	// , MoveBall, -1 - SAL : 543
+	0x000006E4 : ldrz		23 ( unitBall )	// , MoveBall, -1 - SAL : 544
+	0x000006E8 : inc	// , MoveBall, -1 - SAL : 545
+	0x000006EA : ldrz		23 ( unitBall )	// , MoveBall, -1 - SAL : 546
+	0x000006EE : inc	// , MoveBall, -1 - SAL : 547
+	0x000006F0 : ixa	// , MoveBall, -1 - SAL : 548
+	0x000006F2 : addldrzc		23 ( unitBall )		3	// , MoveBall, -1 - SAL : 549
+	0x000006F8 : ixa	// , MoveBall, -1 - SAL : 552
+	0x000006FA : add	// , MoveBall, -1 - SAL : 553
+	0x000006FC : sta	// , MoveBall, -1 - SAL : 554
+	0x000006FE : ret	// , MoveBall, -1 - SAL : 555
+}
+
+
+FUNCTION : MoveBar()
+{
+	0x00000700 : nop	// , MoveBar, -1 - SAL : 485
+	0x00000702 : ssp	// , MoveBar, -1 - SAL : 486
+	0x00000704 : pushz		30 ( nextKey )	// , MoveBar, -1 - SAL : 487
+	0x00000708 : dup	// , MoveBar, -1 - SAL : 488
+	0x0000070A : eqjp		16		0x00000724	// , MoveBar, -1 - SAL : 489
+	0x00000712 : dup	// , MoveBar, -1 - SAL : 490
+	0x00000714 : eqjp		17		0x0000075E	// , MoveBar, -1 - SAL : 491
+	0x0000071C : rsp	// , MoveBar, -1 - SAL : 492
+	0x0000071E : ujp		0x00000792	// , MoveBar, -1 - SAL : 493
+	0x00000724 : rsp	// , MoveBar, -1 - SAL : 494
+	0x00000726 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 495
+	0x0000072A : ixa	// , MoveBar, -1 - SAL : 496
+	0x0000072C : pushc		13	// , MoveBar, -1 - SAL : 497
+	0x00000730 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 498
+	0x00000734 : inc	// , MoveBar, -1 - SAL : 499
+	0x00000736 : ixa	// , MoveBar, -1 - SAL : 500
+	0x00000738 : add	// , MoveBar, -1 - SAL : 501
+	0x0000073A : gt	// , MoveBar, -1 - SAL : 502
+	0x0000073C : fjp		0x00000792	// , MoveBar, -1 - SAL : 503
+	0x00000742 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 504
+	0x00000746 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 505
+	0x0000074A : ixa	// , MoveBar, -1 - SAL : 506
+	0x0000074C : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 507
+	0x00000750 : inc	// , MoveBar, -1 - SAL : 508
+	0x00000752 : ixa	// , MoveBar, -1 - SAL : 509
+	0x00000754 : sub	// , MoveBar, -1 - SAL : 510
+	0x00000756 : sta	// , MoveBar, -1 - SAL : 511
+	0x00000758 : ujp		0x00000792	// , MoveBar, -1 - SAL : 512
+	0x0000075E : rsp	// , MoveBar, -1 - SAL : 513
+	0x00000760 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 514
+	0x00000764 : ixa	// , MoveBar, -1 - SAL : 515
+	0x00000766 : pushc		227	// , MoveBar, -1 - SAL : 516
+	0x0000076A : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 517
+	0x0000076E : inc	// , MoveBar, -1 - SAL : 518
+	0x00000770 : ixa	// , MoveBar, -1 - SAL : 519
+	0x00000772 : sub	// , MoveBar, -1 - SAL : 520
+	0x00000774 : lt	// , MoveBar, -1 - SAL : 521
+	0x00000776 : fjp		0x00000792	// , MoveBar, -1 - SAL : 522
+	0x0000077C : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 523
+	0x00000780 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 524
+	0x00000784 : ixa	// , MoveBar, -1 - SAL : 525
+	0x00000786 : ldrz		24 ( unitBar )	// , MoveBar, -1 - SAL : 526
+	0x0000078A : inc	// , MoveBar, -1 - SAL : 527
+	0x0000078C : ixa	// , MoveBar, -1 - SAL : 528
+	0x0000078E : add	// , MoveBar, -1 - SAL : 529
+	0x00000790 : sta	// , MoveBar, -1 - SAL : 530
+	0x00000792 : ret	// , MoveBar, -1 - SAL : 531
+}
+
+
+FUNCTION : StrikeBlockMap()
+{
+	0x00000794 : nop	// , StrikeBlockMap, -1 - SAL : 556
+	0x00000796 : zsetc		38 ( i of Function StrikeBlockMap )		0	// , StrikeBlockMap, -1 - SAL : 557
+	0x0000079C : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 558
+	0x000007A0 : gejp		10		0x00000934	// , StrikeBlockMap, -1 - SAL : 559
+	0x000007A8 : zsetc		39 ( j of Function StrikeBlockMap )		0	// , StrikeBlockMap, -1 - SAL : 560
+	0x000007AE : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 561
+	0x000007B2 : gejp		10		0x00000928	// , StrikeBlockMap, -1 - SAL : 562
+	0x000007BA : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 563
+	0x000007BE : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 564
+	0x000007C2 : pushc		10	// , StrikeBlockMap, -1 - SAL : 565
+	0x000007C6 : mult	// , StrikeBlockMap, -1 - SAL : 566
+	0x000007C8 : add	// , StrikeBlockMap, -1 - SAL : 567
+	0x000007CA : ldrz		25 ( blockMap )	// , StrikeBlockMap, -1 - SAL : 568
+	0x000007CE : add	// , StrikeBlockMap, -1 - SAL : 569
+	0x000007D0 : ixa	// , StrikeBlockMap, -1 - SAL : 570
+	0x000007D2 : lejp		-1		0x0000091C	// , StrikeBlockMap, -1 - SAL : 571
+	0x000007DA : pushc		20	// , StrikeBlockMap, -1 - SAL : 572
+	0x000007DE : pushc		20	// , StrikeBlockMap, -1 - SAL : 573
+	0x000007E2 : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 574
+	0x000007E6 : mult	// , StrikeBlockMap, -1 - SAL : 575
+	0x000007E8 : add	// , StrikeBlockMap, -1 - SAL : 576
+	0x000007EA : pushc		10	// , StrikeBlockMap, -1 - SAL : 577
+	0x000007EE : add	// , StrikeBlockMap, -1 - SAL : 578
+	0x000007F0 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 579
+	0x000007F4 : ixa	// , StrikeBlockMap, -1 - SAL : 580
+	0x000007F6 : gt	// , StrikeBlockMap, -1 - SAL : 581
+	0x000007F8 : fjp		0x0000087A	// , StrikeBlockMap, -1 - SAL : 582
+	0x000007FE : pushc		20	// , StrikeBlockMap, -1 - SAL : 583
+	0x00000802 : pushc		20	// , StrikeBlockMap, -1 - SAL : 584
+	0x00000806 : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 585
+	0x0000080A : mult	// , StrikeBlockMap, -1 - SAL : 586
+	0x0000080C : add	// , StrikeBlockMap, -1 - SAL : 587
+	0x0000080E : pushc		10	// , StrikeBlockMap, -1 - SAL : 588
+	0x00000812 : sub	// , StrikeBlockMap, -1 - SAL : 589
+	0x00000814 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 590
+	0x00000818 : ixa	// , StrikeBlockMap, -1 - SAL : 591
+	0x0000081A : lt	// , StrikeBlockMap, -1 - SAL : 592
+	0x0000081C : fjp		0x0000087A	// , StrikeBlockMap, -1 - SAL : 593
+	0x00000822 : pushc		30	// , StrikeBlockMap, -1 - SAL : 594
+	0x00000826 : pushc		10	// , StrikeBlockMap, -1 - SAL : 595
+	0x0000082A : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 596
+	0x0000082E : mult	// , StrikeBlockMap, -1 - SAL : 597
+	0x00000830 : add	// , StrikeBlockMap, -1 - SAL : 598
+	0x00000832 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 599
+	0x00000836 : inc	// , StrikeBlockMap, -1 - SAL : 600
+	0x00000838 : ixa	// , StrikeBlockMap, -1 - SAL : 601
+	0x0000083A : pushc		7	// , StrikeBlockMap, -1 - SAL : 602
+	0x0000083E : addldrzc		23 ( unitBall )		3	// , StrikeBlockMap, -1 - SAL : 603
+	0x00000844 : ixa	// , StrikeBlockMap, -1 - SAL : 606
+	0x00000846 : calls		Abs(203)	// , StrikeBlockMap, -1 - SAL : 607
+	0x0000084A : add	// , StrikeBlockMap, -1 - SAL : 608
+	0x0000084C : calls		HitCheck(224)	// , StrikeBlockMap, -1 - SAL : 609
+	0x00000850 : fjp		0x0000087A	// , StrikeBlockMap, -1 - SAL : 610
+	0x00000856 : addldrzc		23 ( unitBall )		3	// , StrikeBlockMap, -1 - SAL : 611
+	0x0000085C : addldrzc		23 ( unitBall )		3	// , StrikeBlockMap, -1 - SAL : 614
+	0x00000862 : ixa	// , StrikeBlockMap, -1 - SAL : 617
+	0x00000864 : pushc		-1	// , StrikeBlockMap, -1 - SAL : 618
+	0x00000868 : mult	// , StrikeBlockMap, -1 - SAL : 619
+	0x0000086A : sta	// , StrikeBlockMap, -1 - SAL : 620
+	0x0000086C : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 621
+	0x00000870 : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 622
+	0x00000874 : call		0x0000034C	// , StrikeBlockMap, -1 - SAL : 623
+	0x0000087A : pushc		30	// , StrikeBlockMap, -1 - SAL : 624
+	0x0000087E : pushc		10	// , StrikeBlockMap, -1 - SAL : 625
+	0x00000882 : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 626
+	0x00000886 : mult	// , StrikeBlockMap, -1 - SAL : 627
+	0x00000888 : add	// , StrikeBlockMap, -1 - SAL : 628
+	0x0000088A : pushc		5	// , StrikeBlockMap, -1 - SAL : 629
+	0x0000088E : add	// , StrikeBlockMap, -1 - SAL : 630
+	0x00000890 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 631
+	0x00000894 : inc	// , StrikeBlockMap, -1 - SAL : 632
+	0x00000896 : ixa	// , StrikeBlockMap, -1 - SAL : 633
+	0x00000898 : gt	// , StrikeBlockMap, -1 - SAL : 634
+	0x0000089A : fjp		0x0000091C	// , StrikeBlockMap, -1 - SAL : 635
+	0x000008A0 : pushc		30	// , StrikeBlockMap, -1 - SAL : 636
+	0x000008A4 : pushc		10	// , StrikeBlockMap, -1 - SAL : 637
+	0x000008A8 : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 638
+	0x000008AC : mult	// , StrikeBlockMap, -1 - SAL : 639
+	0x000008AE : add	// , StrikeBlockMap, -1 - SAL : 640
+	0x000008B0 : pushc		5	// , StrikeBlockMap, -1 - SAL : 641
+	0x000008B4 : sub	// , StrikeBlockMap, -1 - SAL : 642
+	0x000008B6 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 643
+	0x000008BA : inc	// , StrikeBlockMap, -1 - SAL : 644
+	0x000008BC : ixa	// , StrikeBlockMap, -1 - SAL : 645
+	0x000008BE : lt	// , StrikeBlockMap, -1 - SAL : 646
+	0x000008C0 : fjp		0x0000091C	// , StrikeBlockMap, -1 - SAL : 647
+	0x000008C6 : pushc		20	// , StrikeBlockMap, -1 - SAL : 648
+	0x000008CA : pushc		20	// , StrikeBlockMap, -1 - SAL : 649
+	0x000008CE : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 650
+	0x000008D2 : mult	// , StrikeBlockMap, -1 - SAL : 651
+	0x000008D4 : add	// , StrikeBlockMap, -1 - SAL : 652
+	0x000008D6 : ldrz		23 ( unitBall )	// , StrikeBlockMap, -1 - SAL : 653
+	0x000008DA : ixa	// , StrikeBlockMap, -1 - SAL : 654
+	0x000008DC : pushc		12	// , StrikeBlockMap, -1 - SAL : 655
+	0x000008E0 : addldrzc		23 ( unitBall )		2	// , StrikeBlockMap, -1 - SAL : 656
+	0x000008E6 : ixa	// , StrikeBlockMap, -1 - SAL : 659
+	0x000008E8 : calls		Abs(203)	// , StrikeBlockMap, -1 - SAL : 660
+	0x000008EC : add	// , StrikeBlockMap, -1 - SAL : 661
+	0x000008EE : calls		HitCheck(224)	// , StrikeBlockMap, -1 - SAL : 662
+	0x000008F2 : fjp		0x0000091C	// , StrikeBlockMap, -1 - SAL : 663
+	0x000008F8 : addldrzc		23 ( unitBall )		2	// , StrikeBlockMap, -1 - SAL : 664
+	0x000008FE : addldrzc		23 ( unitBall )		2	// , StrikeBlockMap, -1 - SAL : 667
+	0x00000904 : ixa	// , StrikeBlockMap, -1 - SAL : 670
+	0x00000906 : pushc		-1	// , StrikeBlockMap, -1 - SAL : 671
+	0x0000090A : mult	// , StrikeBlockMap, -1 - SAL : 672
+	0x0000090C : sta	// , StrikeBlockMap, -1 - SAL : 673
+	0x0000090E : pushz		38 ( i of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 674
+	0x00000912 : pushz		39 ( j of Function StrikeBlockMap )	// , StrikeBlockMap, -1 - SAL : 675
+	0x00000916 : call		0x0000034C	// , StrikeBlockMap, -1 - SAL : 676
+	0x0000091C : incz		39 ( j of Function StrikeBlockMap )		1	// , StrikeBlockMap, -1 - SAL : 677
+	0x00000922 : ujp		0x000007AE	// , StrikeBlockMap, -1 - SAL : 678
+	0x00000928 : incz		38 ( i of Function StrikeBlockMap )		1	// , StrikeBlockMap, -1 - SAL : 679
+	0x0000092E : ujp		0x0000079C	// , StrikeBlockMap, -1 - SAL : 680
+	0x00000934 : ret	// , StrikeBlockMap, -1 - SAL : 681
+}
+
+
+FUNCTION : StrikeWall()
+{
+	0x00000936 : nop	// , StrikeWall, -1 - SAL : 696
+	0x00000938 : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 697
+	0x0000093C : inc	// , StrikeWall, -1 - SAL : 698
+	0x0000093E : ixa	// , StrikeWall, -1 - SAL : 699
+	0x00000940 : pushc		2	// , StrikeWall, -1 - SAL : 700
+	0x00000944 : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 701
+	0x0000094A : ixa	// , StrikeWall, -1 - SAL : 704
+	0x0000094C : calls		Abs(203)	// , StrikeWall, -1 - SAL : 705
+	0x00000950 : add	// , StrikeWall, -1 - SAL : 706
+	0x00000952 : lt	// , StrikeWall, -1 - SAL : 707
+	0x00000954 : fjp		0x00000976	// , StrikeWall, -1 - SAL : 708
+	0x0000095A : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 709
+	0x00000960 : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 712
+	0x00000966 : ixa	// , StrikeWall, -1 - SAL : 715
+	0x00000968 : pushc		-1	// , StrikeWall, -1 - SAL : 716
+	0x0000096C : mult	// , StrikeWall, -1 - SAL : 717
+	0x0000096E : sta	// , StrikeWall, -1 - SAL : 718
+	0x00000970 : ujp		0x000009E8	// , StrikeWall, -1 - SAL : 719
+	0x00000976 : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 720
+	0x0000097A : inc	// , StrikeWall, -1 - SAL : 721
+	0x0000097C : ixa	// , StrikeWall, -1 - SAL : 722
+	0x0000097E : pushc		278	// , StrikeWall, -1 - SAL : 723
+	0x00000982 : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 724
+	0x00000988 : ixa	// , StrikeWall, -1 - SAL : 727
+	0x0000098A : calls		Abs(203)	// , StrikeWall, -1 - SAL : 728
+	0x0000098E : sub	// , StrikeWall, -1 - SAL : 729
+	0x00000990 : gt	// , StrikeWall, -1 - SAL : 730
+	0x00000992 : fjp		0x000009E8	// , StrikeWall, -1 - SAL : 731
+	0x00000998 : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 732
+	0x0000099C : inc	// , StrikeWall, -1 - SAL : 733
+	0x0000099E : ixa	// , StrikeWall, -1 - SAL : 734
+	0x000009A0 : gejp		280		0x000009DE	// , StrikeWall, -1 - SAL : 735
+	0x000009A8 : ldrz		24 ( unitBar )	// , StrikeWall, -1 - SAL : 736
+	0x000009AC : ixa	// , StrikeWall, -1 - SAL : 737
+	0x000009AE : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 738
+	0x000009B2 : ixa	// , StrikeWall, -1 - SAL : 739
+	0x000009B4 : sub	// , StrikeWall, -1 - SAL : 740
+	0x000009B6 : calls		Abs(203)	// , StrikeWall, -1 - SAL : 741
+	0x000009BA : gejp		13		0x000009E8	// , StrikeWall, -1 - SAL : 742
+	0x000009C2 : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 743
+	0x000009C8 : addldrzc		23 ( unitBall )		3	// , StrikeWall, -1 - SAL : 746
+	0x000009CE : ixa	// , StrikeWall, -1 - SAL : 749
+	0x000009D0 : pushc		-1	// , StrikeWall, -1 - SAL : 750
+	0x000009D4 : mult	// , StrikeWall, -1 - SAL : 751
+	0x000009D6 : sta	// , StrikeWall, -1 - SAL : 752
+	0x000009D8 : ujp		0x000009E8	// , StrikeWall, -1 - SAL : 753
+	0x000009DE : pushc		3	// , StrikeWall, -1 - SAL : 754
+	0x000009E2 : call		0x0000011C	// , StrikeWall, -1 - SAL : 755
+	0x000009E8 : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 756
+	0x000009EC : ixa	// , StrikeWall, -1 - SAL : 757
+	0x000009EE : pushc		2	// , StrikeWall, -1 - SAL : 758
+	0x000009F2 : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 759
+	0x000009F8 : ixa	// , StrikeWall, -1 - SAL : 762
+	0x000009FA : calls		Abs(203)	// , StrikeWall, -1 - SAL : 763
+	0x000009FE : add	// , StrikeWall, -1 - SAL : 764
+	0x00000A00 : lt	// , StrikeWall, -1 - SAL : 765
+	0x00000A02 : fjp		0x00000A24	// , StrikeWall, -1 - SAL : 766
+	0x00000A08 : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 767
+	0x00000A0E : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 770
+	0x00000A14 : ixa	// , StrikeWall, -1 - SAL : 773
+	0x00000A16 : pushc		-1	// , StrikeWall, -1 - SAL : 774
+	0x00000A1A : mult	// , StrikeWall, -1 - SAL : 775
+	0x00000A1C : sta	// , StrikeWall, -1 - SAL : 776
+	0x00000A1E : ujp		0x00000A5A	// , StrikeWall, -1 - SAL : 777
+	0x00000A24 : ldrz		23 ( unitBall )	// , StrikeWall, -1 - SAL : 778
+	0x00000A28 : ixa	// , StrikeWall, -1 - SAL : 779
+	0x00000A2A : pushc		238	// , StrikeWall, -1 - SAL : 780
+	0x00000A2E : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 781
+	0x00000A34 : ixa	// , StrikeWall, -1 - SAL : 784
+	0x00000A36 : calls		Abs(203)	// , StrikeWall, -1 - SAL : 785
+	0x00000A3A : sub	// , StrikeWall, -1 - SAL : 786
+	0x00000A3C : gt	// , StrikeWall, -1 - SAL : 787
+	0x00000A3E : fjp		0x00000A5A	// , StrikeWall, -1 - SAL : 788
+	0x00000A44 : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 789
+	0x00000A4A : addldrzc		23 ( unitBall )		2	// , StrikeWall, -1 - SAL : 792
+	0x00000A50 : ixa	// , StrikeWall, -1 - SAL : 795
+	0x00000A52 : pushc		-1	// , StrikeWall, -1 - SAL : 796
+	0x00000A56 : mult	// , StrikeWall, -1 - SAL : 797
+	0x00000A58 : sta	// , StrikeWall, -1 - SAL : 798
+	0x00000A5A : ret	// , StrikeWall, -1 - SAL : 799
+}
+
+====================== SYMBOL TABLE =====================
+
+========================================================
+			SYMBOL TABLE
+
+--------------------------------------------------------
+	  VALID VAR(STATIC) : 0 - ().swData
+	  VALID VAR(STATIC) : 1 - ().swData2
+	  VALID VAR(STATIC) : 2 - ().swData3
+	  VALID VAR(STATIC) : 3 - ().swData4
+	  VALID VAR(STATIC) : 4 - ().swWidth
+	  VALID VAR(STATIC) : 5 - ().swHeight
+	  VALID VAR(STATIC) : 6 - ().swFrame
+	  VALID VAR(STATIC) : 7 - ().swFrame2
+	  VALID VAR(STATIC) : 8 - ().swFrame3
+	  VALID VAR(STATIC) : 9 - ().swFrame6
+	  VALID VAR(STATIC) : 10 - ().swVMver
+	  VALID VAR(STATIC) : 11 - ().swModel
+	  VALID VAR(STATIC) : 12 - ().swSmsRcvBuf
+	  VALID VAR(STATIC) : 13 - ().swRsRcvBuf
+	  VALID VAR(STATIC) : 14 - ().swRcvBuf
+	  VALID VAR(STATIC) : 15 - ().swReserved1
+	  VALID VAR(STATIC) : 16 - ().swReserved2
+	  VALID VAR(STATIC) : 17 - ().swReserved3
+	  VALID VAR(STATIC) : 18 - ().swReserved4
+	  VALID VAR(STATIC) : 19 - ().swSbuf
+	  VALID VAR(STATIC) : 20 - ().imgBall
+	  VALID VAR(STATIC) : 21 - ().imgBar
+	  VALID VAR(STATIC) : 22 - ().imgBlock
+	  VALID VAR(STATIC) : 23 - ().unitBall
+	  VALID VAR(STATIC) : 24 - ().unitBar
+	  VALID VAR(STATIC) : 25 - ().blockMap
+	  VALID VAR(STATIC) : 26 - ().gameMode
+	  VALID VAR(STATIC) : 27 - ().playStage
+	  VALID VAR(STATIC) : 28 - ().playPoint
+	  VALID VAR(STATIC) : 29 - ().selectedMenu
+	  VALID VAR(STATIC) : 30 - ().nextKey
+	  VALID VAR(STATIC) : 31 - ChangeMode().mode
+	  VALID VAR(STATIC) : 32 - InitBlockMap().i
+	  VALID VAR(STATIC) : 33 - InitBlockMap().j
+	  VALID VAR(STATIC) : 34 - DrawPoint().strPoint
+	  VALID VAR(STATIC) : 35 - DrawBlockMap().i
+	  VALID VAR(STATIC) : 36 - DrawBlockMap().j
+	  VALID VAR(STATIC) : 37 - ControlAlcanoid().swData
+	  VALID VAR(STATIC) : 38 - StrikeBlockMap().i
+	  VALID VAR(STATIC) : 39 - StrikeBlockMap().j
+	  VALID VAR(STATIC) : 40 - DestroyBlock().x
+	  VALID VAR(STATIC) : 41 - DestroyBlock().y
+	  VALID VAR(STATIC) : 42 - ChangeDirection().position
+	  VALID VAR(STATIC) : 43 - ChangeDirection().xPerY
+	  VALID VAR(STATIC) : 44 - ChangeDirection().xPerYFromPosition
+========================================================
+
+============================== SYMBOL POOL ==============================
+0  th SYMBOL POOL[0x00000BC8] : Real Offset 0x00000BC4
+1  th SYMBOL POOL[0x00000BCC] : Real Offset 0x00000BC8
+2  th SYMBOL POOL[0x00000BD0] : Real Offset 0x00000BCC
+3  th SYMBOL POOL[0x00000BD4] : Real Offset 0x00000BD0
+4  th SYMBOL POOL[0x00000BD8] : Real Offset 0x00000BD4
+5  th SYMBOL POOL[0x00000BDC] : Real Offset 0x00000BD8
+6  th SYMBOL POOL[0x00000BE0] : Real Offset 0x00000BDC
+7  th SYMBOL POOL[0x00000BE4] : Real Offset 0x00000BE0
+8  th SYMBOL POOL[0x00000BE8] : Real Offset 0x00000BE4
+9  th SYMBOL POOL[0x00000BEC] : Real Offset 0x00000BE8
+10 th SYMBOL POOL[0x00000BF0] : Real Offset 0x00000BEC
+11 th SYMBOL POOL[0x00000BFC] : Real Offset 0x00000BF8
+12 th SYMBOL POOL[0x00000C1C] : Real Offset 0x00000C18
+13 th SYMBOL POOL[0x00000CC0] : Real Offset 0x00000CBC
+14 th SYMBOL POOL[0x00000EC0] : Real Offset 0x00000EBC
+15 th SYMBOL POOL[0x000012C0] : Real Offset 0x000012BC
+16 th SYMBOL POOL[0x000012C4] : Real Offset 0x000012C0
+17 th SYMBOL POOL[0x000012C8] : Real Offset 0x000012C4
+18 th SYMBOL POOL[0x000012CC] : Real Offset 0x000012C8
+19 th SYMBOL POOL[0x000012D0] : Real Offset 0x000012CC
+20 th SYMBOL POOL[0x000012D4] : Real Offset 0x000012D0
+21 th SYMBOL POOL[0x000012D8] : Real Offset 0x000012D4
+22 th SYMBOL POOL[0x000012DC] : Real Offset 0x000012D8
+23 th SYMBOL POOL[0x000012E4] : Real Offset 0x000012E0
+24 th SYMBOL POOL[0x000012F4] : Real Offset 0x000012F0
+25 th SYMBOL POOL[0x000012FC] : Real Offset 0x000012F8
+26 th SYMBOL POOL[0x0000148C] : Real Offset 0x00001488
+27 th SYMBOL POOL[0x00001490] : Real Offset 0x0000148C
+28 th SYMBOL POOL[0x00001494] : Real Offset 0x00001490
+29 th SYMBOL POOL[0x00001498] : Real Offset 0x00001494
+30 th SYMBOL POOL[0x0000149C] : Real Offset 0x00001498
+31 th SYMBOL POOL[0x000014A0] : Real Offset 0x0000149C
+32 th SYMBOL POOL[0x000014A4] : Real Offset 0x000014A0
+33 th SYMBOL POOL[0x000014A8] : Real Offset 0x000014A4
+34 th SYMBOL POOL[0x000014AC] : Real Offset 0x000014A8
+35 th SYMBOL POOL[0x000014B0] : Real Offset 0x000014AC
+36 th SYMBOL POOL[0x000014B4] : Real Offset 0x000014B0
+37 th SYMBOL POOL[0x000014B8] : Real Offset 0x000014B4
+38 th SYMBOL POOL[0x000014BC] : Real Offset 0x000014B8
+39 th SYMBOL POOL[0x000014C0] : Real Offset 0x000014BC
+40 th SYMBOL POOL[0x000014C4] : Real Offset 0x000014C0
+41 th SYMBOL POOL[0x000014C8] : Real Offset 0x000014C4
+42 th SYMBOL POOL[0x000014CC] : Real Offset 0x000014C8
+43 th SYMBOL POOL[0x000014D0] : Real Offset 0x000014CC
+44 th SYMBOL POOL[0x000014D4] : Real Offset 0x000014D0

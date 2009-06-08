@@ -1,0 +1,863 @@
+@HEADER_SECTION
+	#DEFINE PLAYERVER	4
+	#DEFINE LCDCLASS	255
+	#DEFINE IMAGETYPE	255
+	#DEFINE AUDIOTYPE	255
+	#DEFINE APPTYPE		1
+	#DEFINE APPCPID		60000
+	#DEFINE APPID		1
+	#DEFINE APPNAME		"Alcanoid GNEX App"
+	#DEFINE COMPTYPE	0
+	#DEFINE AGENTTYPE	0
+	#DEFINE VALIDCOUNT	255
+	#DEFINE VALIDTERM	255
+	#DEFINE DIRECTRUN	0
+	#DEFINE APPVER		1
+@DATA_SECTION
+@GLOBAL_INTSYMBOL_TABLE
+.sym 	&swData 	    0     1
+.sym 	&swData2 	    1     1
+.sym 	&swData3 	    2     1
+.sym 	&swData4 	    3     1
+.sym 	&swWidth 	    4     1
+.sym 	&swHeight 	    5     1
+.sym 	&swFrame 	    6     1
+.sym 	&swFrame2 	    7     1
+.sym 	&swFrame3 	    8     1
+.sym 	&swFrame6 	    9     1
+.syma 	&swVMver 	   10     3     0
+.syma 	&swModel 	   11     8     0
+.syma 	&swSmsRcvBuf 	   12    41     0
+.syma 	&swRsRcvBuf 	   13   128     0
+.syma 	&swRcvBuf 	   14   256     0
+.sym 	&swReserved1 	   15     1
+.sym 	&swReserved2 	   16     1
+.sym 	&swReserved3 	   17     1
+.sym 	&swReserved4 	   18     1
+.sym 	&swSbuf 	   19     1
+.equ 	&imgBall 	   20   %%9     1
+.equ 	&imgBar 	   21   %%10     1
+.equa 	&imgBlock 	   22     2
+ %%11 %%12
+.syma 	&unitBall 	   23     4     0
+.syma 	&unitBar 	   24     2     0
+.syma 	&blockMap 	   25   100     0
+.equ 	&gameMode 	   26     2     0
+.equ 	&playStage 	   27     0     0
+.equ 	&playPoint 	   28     0     0
+.equ 	&selectedMenu 	   29     0     0
+.equ 	&nextKey 	   30   255     0
+.sym 	ChangeMode&mode 	   31     1
+.sym 	InitBlockMap&i 	   32     1
+.sym 	InitBlockMap&j 	   33     1
+.equ 	DrawPoint&strPoint 	   34   %%13     1
+.sym 	DrawBlockMap&i 	   35     1
+.sym 	DrawBlockMap&j 	   36     1
+.sym 	ControlAlcanoid&swData 	   37     1
+.sym 	StrikeBlockMap&i 	   38     1
+.sym 	StrikeBlockMap&j 	   39     1
+.sym 	DestroyBlock&x 	   40     1
+.sym 	DestroyBlock&y 	   41     1
+.sym 	ChangeDirection&position 	   42     1
+.sym 	ChangeDirection&xPerY 	   43     1
+.sym 	ChangeDirection&xPerYFromPosition 	   44     1
+@EXTERN_INTSYMBOL_TABLE
+@STATIC_FUNC_TABLE
+.func     ChangeMode 	1	
+.func     InitAlcanoid 	0	
+.func     InitBall 	0	
+.func     InitBar 	0	
+.func     InitBlockMap 	0	
+.func     DrawAlcanoid 	0	
+.func     DrawPoint 	0	
+.func     DrawBlockMap 	0	
+.func     DrawBall 	0	
+.func     DrawBar 	0	
+.func     DrawIndex 	0	
+.func     DrawMenu 	0	
+.func     DrawRecord 	0	
+.func     DrawOption 	0	
+.func     ControlAlcanoid 	1	
+.func     ActAlcanoid 	0	
+.func     MoveBar 	0	
+.func     MoveBall 	0	
+.func     StrikeBlockMap 	0	
+.func     DestroyBlock 	2	
+.func     StrikeWall 	0	
+.func     ChangeDirection 	1	
+.func     EVENT_START 	0	
+.func     EVENT_TIMEOUT 	0	
+.func     EVENT_KEYPRESS 	0	
+@EXTERN_FUNC_TABLE
+@IMPORT_FUNC_TABLE
+@EXPORT_FUNC_TABLE
+@MEDIA_SYMBOL_TABLE
+.equm 	%%0 	    0     0    11
+// string form = "POINT = %d"
+    0x50 0x4f 0x49 0x4e 0x54 0x20 0x3d 0x20 0x25 0x64 0x00
+.equm 	%%1 	    1     0    18
+// string form = "벽돌깨기 - 고수열"
+    0xba 0xae 0xb5 0xb9 0xb1 0xfa 0xb1 0xe2 0x20 0x2d 0x20 0xb0 
+    0xed 0xbc 0xf6 0xbf 0xad 0x00
+.equm 	%%2 	    2     0    18
+// string form = "ahyane@ahyane.net"
+    0x61 0x68 0x79 0x61 0x6e 0x65 0x40 0x61 0x68 0x79 0x61 0x6e 
+    0x65 0x2e 0x6e 0x65 0x74 0x00
+.equm 	%%3 	    3     0    14
+// string form = "010-2839-4096"
+    0x30 0x31 0x30 0x2d 0x32 0x38 0x33 0x39 0x2d 0x34 0x30 0x39 
+    0x36 0x00
+.equm 	%%4 	    4     0    10
+// string form = "시작 하기"
+    0xbd 0xc3 0xc0 0xdb 0x20 0xc7 0xcf 0xb1 0xe2 0x00
+.equm 	%%5 	    5     0    10
+// string form = "성적 보기"
+    0xbc 0xba 0xc0 0xfb 0x20 0xba 0xb8 0xb1 0xe2 0x00
+.equm 	%%6 	    6     0    10
+// string form = "환경 설정"
+    0xc8 0xaf 0xb0 0xe6 0x20 0xbc 0xb3 0xc1 0xa4 0x00
+.equm 	%%7 	    7     0    36
+// string form = "게임 오버 -> 성적보여주기 코드 삽입"
+    0xb0 0xd4 0xc0 0xd3 0x20 0xbf 0xc0 0xb9 0xf6 0x20 0x2d 0x3e 
+    0x20 0xbc 0xba 0xc0 0xfb 0xba 0xb8 0xbf 0xa9 0xc1 0xd6 0xb1 
+    0xe2 0x20 0xc4 0xda 0xb5 0xe5 0x20 0xbb 0xf0 0xc0 0xd4 0x00
+.equm 	%%8 	    8     0     5
+// string form = "옵션"
+    0xbf 0xc9 0xbc 0xc7 0x00
+.equm 	%%9 	    9     1     5
+    0x0b 0x05 0x05 0x02 0x02 
+.equm 	%%10 	   10     1     5
+    0x0b 0x1b 0x05 0x0d 0x02 
+.equm 	%%11 	   11     1     5
+    0x0b 0x13 0x09 0x00 0x00 
+.equm 	%%12 	   12     1     5
+    0x0b 0x13 0x09 0x00 0x00 
+.symm 	%%13 	   13     0     0
+@CODE_SECTION
+           ret      
+ChangeMode: nop     
+           stnz     ChangeMode&mode   
+           popz     &gameMode   
+           ret      
+InitAlcanoid: nop   
+           call     InitBall:
+           call     InitBar:
+           call     InitBlockMap:
+           ret      
+InitBall:  nop      
+           ldrz     &unitBall   
+           pushc    120   
+           sta      
+           ldrz     &unitBall   
+           inc      
+           pushc    200   
+           sta      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           pushc    3   
+           sta      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           pushc    -3   
+           sta      
+           ret      
+InitBar:   nop      
+           ldrz     &unitBar   
+           pushc    120   
+           sta      
+           ldrz     &unitBar   
+           inc      
+           pushc    5   
+           sta      
+           ret      
+InitBlockMap: nop   
+           zsetc    InitBlockMap&i   0   
+$$0:       pushz    InitBlockMap&i   
+           gejp     10   $$1:
+           zsetc    InitBlockMap&j   0   
+$$3:       pushz    InitBlockMap&j   
+           gejp     10   $$2:
+           pushz    InitBlockMap&j   
+           pushz    InitBlockMap&i   
+           pushc    10   
+           mult     
+           add      
+           ldrz     &blockMap   
+           add      
+           pushc    -1   
+           pushc    2   
+           calls    Rand
+           sta      
+           incz     InitBlockMap&j   1   
+           ujp      $$3:
+$$2:       incz     InitBlockMap&i   1   
+           ujp      $$0:
+$$1:       ret      
+DrawAlcanoid: nop   
+           calls    ClearWhite
+           ssp      
+           pushz    &gameMode   
+           dup      
+           eqjp     0   $$7:
+           dup      
+           eqjp     1   $$8:
+           dup      
+           eqjp     2   $$9:
+           dup      
+           eqjp     3   $$10:
+           dup      
+           eqjp     4   $$11:
+           rsp      
+           ujp      $$6:
+$$7:       rsp      
+           call     DrawIndex:
+           ujp      $$6:
+$$8:       rsp      
+           call     DrawMenu:
+           ujp      $$6:
+$$9:       rsp      
+           call     ActAlcanoid:
+           call     DrawPoint:
+           call     DrawBlockMap:
+           call     DrawBall:
+           call     DrawBar:
+           ujp      $$6:
+$$10:      rsp      
+           call     DrawRecord:
+           ujp      $$6:
+$$11:      rsp      
+           call     DrawOption:
+$$6:       calls    Flush
+           ret      
+DrawPoint: nop      
+           pushz    DrawPoint&strPoint   
+           pushmi   %%0   
+           pushz    &playPoint   
+           calls    MakeStr1
+           pushc    10   
+           pushc    10   
+           pushz    DrawPoint&strPoint   
+           calls    DrawStr
+           ret      
+DrawBlockMap: nop   
+           zsetc    DrawBlockMap&i   0   
+$$12:      pushz    DrawBlockMap&i   
+           gejp     10   $$13:
+           zsetc    DrawBlockMap&j   0   
+$$15:      pushz    DrawBlockMap&j   
+           gejp     10   $$14:
+           pushz    DrawBlockMap&j   
+           pushz    DrawBlockMap&i   
+           pushc    10   
+           mult     
+           add      
+           ldrz     &blockMap   
+           add      
+           ixa      
+           lejp     -1   $$17:
+           pushc    20   
+           pushc    20   
+           pushz    DrawBlockMap&i   
+           mult     
+           add      
+           pushc    30   
+           pushc    10   
+           pushz    DrawBlockMap&j   
+           mult     
+           add      
+           pushz    DrawBlockMap&j   
+           pushz    DrawBlockMap&i   
+           pushc    10   
+           mult     
+           add      
+           ldrz     &blockMap   
+           add      
+           ixa      
+           ldrz     &imgBlock   
+           add      
+           ixa      
+           CopyImage 
+$$17:      incz     DrawBlockMap&j   1   
+           ujp      $$15:
+$$14:      incz     DrawBlockMap&i   1   
+           ujp      $$12:
+$$13:      ret      
+DrawBall:  nop      
+           ldrz     &unitBall   
+           ixa      
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           pushc    9   
+           CopyImage 
+           ret      
+DrawBar:   nop      
+           ldrz     &unitBar   
+           ixa      
+           pushc    280   
+           pushc    10   
+           CopyImage 
+           ret      
+DrawIndex: nop      
+           pushc    10   
+           pushc    10   
+           pushmi   %%1   
+           calls    DrawStr
+           pushc    10   
+           pushc    50   
+           pushmi   %%2   
+           calls    DrawStr
+           pushc    10   
+           pushc    80   
+           pushmi   %%3   
+           calls    DrawStr
+           ret      
+DrawMenu:  nop      
+           pushc    10   
+           pushc    150   
+           pushmi   %%4   
+           calls    DrawStr
+           pushc    10   
+           pushc    170   
+           pushmi   %%5   
+           calls    DrawStr
+           pushc    10   
+           pushc    190   
+           pushmi   %%6   
+           calls    DrawStr
+           pushc    5   
+           pushc    145   
+           pushz    &selectedMenu   
+           pushc    20   
+           mult     
+           add      
+           pushc    50   
+           pushc    160   
+           pushz    &selectedMenu   
+           pushc    20   
+           mult     
+           add      
+           calls    DrawRect
+           ret      
+DrawRecord: nop     
+           pushc    10   
+           pushc    10   
+           pushmi   %%7   
+           calls    DrawStr
+           ret      
+DrawOption: nop     
+           pushc    10   
+           pushc    10   
+           pushmi   %%8   
+           calls    DrawStr
+           ret      
+ControlAlcanoid: nop 
+           popz     ControlAlcanoid&swData   
+           ssp      
+           pushz    &gameMode   
+           dup      
+           eqjp     0   $$20:
+           dup      
+           eqjp     1   $$21:
+           dup      
+           eqjp     2   $$22:
+           dup      
+           eqjp     3   $$23:
+           dup      
+           eqjp     4   $$24:
+           rsp      
+           ujp      $$19:
+$$20:      rsp      
+           ssp      
+           pushz    ControlAlcanoid&swData   
+           dup      
+           eqjp     20   $$26:
+           rsp      
+           ujp      $$19:
+$$26:      rsp      
+           pushc    1   
+           call     ChangeMode:
+           ujp      $$19:
+$$21:      rsp      
+           ssp      
+           pushz    ControlAlcanoid&swData   
+           dup      
+           eqjp     18   $$28:
+           dup      
+           eqjp     16   $$28:
+           dup      
+           eqjp     19   $$29:
+           dup      
+           eqjp     17   $$29:
+           dup      
+           eqjp     20   $$30:
+           rsp      
+           ujp      $$19:
+$$28:      rsp      
+           pushz    &selectedMenu   
+           lejp     0   $$31:
+           incz     &selectedMenu   -1   
+           ujp      $$19:
+$$31:      zsetc    &selectedMenu   2   
+           ujp      $$19:
+$$29:      rsp      
+           pushz    &selectedMenu   
+           gejp     2   $$33:
+           incz     &selectedMenu   1   
+           ujp      $$19:
+$$33:      zsetc    &selectedMenu   0   
+           ujp      $$19:
+$$30:      rsp      
+           ssp      
+           pushz    &selectedMenu   
+           dup      
+           eqjp     0   $$36:
+           dup      
+           eqjp     1   $$37:
+           dup      
+           eqjp     2   $$38:
+           rsp      
+           ujp      $$19:
+$$36:      rsp      
+           pushc    2   
+           call     ChangeMode:
+           ujp      $$19:
+$$37:      rsp      
+           pushc    3   
+           call     ChangeMode:
+           ujp      $$19:
+$$38:      rsp      
+           pushc    4   
+           call     ChangeMode:
+           ujp      $$19:
+$$22:      rsp      
+           ssp      
+           pushz    ControlAlcanoid&swData   
+           dup      
+           eqjp     16   $$40:
+           dup      
+           eqjp     17   $$40:
+           dup      
+           eqjp     255   $$40:
+           dup      
+           eqjp     13   $$41:
+           rsp      
+           ujp      $$19:
+$$40:      rsp      
+           zsetz    &nextKey   ControlAlcanoid&swData   
+           ujp      $$19:
+$$41:      rsp      
+           pushc    1   
+           call     ChangeMode:
+           ujp      $$19:
+$$23:      rsp      
+           ssp      
+           pushz    ControlAlcanoid&swData   
+           dup      
+           eqjp     20   $$43:
+           dup      
+           eqjp     13   $$43:
+           rsp      
+           ujp      $$19:
+$$43:      rsp      
+           pushc    1   
+           call     ChangeMode:
+           ujp      $$19:
+$$24:      rsp      
+           ssp      
+           pushz    ControlAlcanoid&swData   
+           dup      
+           eqjp     20   $$45:
+           dup      
+           eqjp     13   $$45:
+           rsp      
+           ujp      $$19:
+$$45:      rsp      
+           pushc    1   
+           call     ChangeMode:
+$$19:      ret      
+ActAlcanoid: nop    
+           call     MoveBar:
+           call     MoveBall:
+           ret      
+MoveBar:   nop      
+           ssp      
+           pushz    &nextKey   
+           dup      
+           eqjp     16   $$47:
+           dup      
+           eqjp     17   $$48:
+           rsp      
+           ujp      $$46:
+$$47:      rsp      
+           ldrz     &unitBar   
+           ixa      
+           pushc    13   
+           ldrz     &unitBar   
+           inc      
+           ixa      
+           add      
+           gt       
+           fjp      $$46:
+           ldrz     &unitBar   
+           ldrz     &unitBar   
+           ixa      
+           ldrz     &unitBar   
+           inc      
+           ixa      
+           sub      
+           sta      
+           ujp      $$46:
+$$48:      rsp      
+           ldrz     &unitBar   
+           ixa      
+           pushc    227   
+           ldrz     &unitBar   
+           inc      
+           ixa      
+           sub      
+           lt       
+           fjp      $$46:
+           ldrz     &unitBar   
+           ldrz     &unitBar   
+           ixa      
+           ldrz     &unitBar   
+           inc      
+           ixa      
+           add      
+           sta      
+$$46:      ret      
+MoveBall:  nop      
+           call     StrikeWall:
+           call     StrikeBlockMap:
+           ldrz     &unitBall   
+           ldrz     &unitBall   
+           ixa      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           add      
+           sta      
+           ldrz     &unitBall   
+           inc      
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           add      
+           sta      
+           ret      
+StrikeBlockMap: nop 
+           zsetc    StrikeBlockMap&i   0   
+$$51:      pushz    StrikeBlockMap&i   
+           gejp     10   $$52:
+           zsetc    StrikeBlockMap&j   0   
+$$54:      pushz    StrikeBlockMap&j   
+           gejp     10   $$53:
+           pushz    StrikeBlockMap&j   
+           pushz    StrikeBlockMap&i   
+           pushc    10   
+           mult     
+           add      
+           ldrz     &blockMap   
+           add      
+           ixa      
+           lejp     -1   $$56:
+           pushc    20   
+           pushc    20   
+           pushz    StrikeBlockMap&i   
+           mult     
+           add      
+           pushc    10   
+           add      
+           ldrz     &unitBall   
+           ixa      
+           gt       
+           fjp      $$58:
+           pushc    20   
+           pushc    20   
+           pushz    StrikeBlockMap&i   
+           mult     
+           add      
+           pushc    10   
+           sub      
+           ldrz     &unitBall   
+           ixa      
+           lt       
+           fjp      $$58:
+           pushc    30   
+           pushc    10   
+           pushz    StrikeBlockMap&j   
+           mult     
+           add      
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           pushc    7   
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           calls    Abs
+           add      
+           calls    HitCheck
+           fjp      $$58:
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           pushz    StrikeBlockMap&i   
+           pushz    StrikeBlockMap&j   
+           call     DestroyBlock:
+$$58:      pushc    30   
+           pushc    10   
+           pushz    StrikeBlockMap&j   
+           mult     
+           add      
+           pushc    5   
+           add      
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           gt       
+           fjp      $$56:
+           pushc    30   
+           pushc    10   
+           pushz    StrikeBlockMap&j   
+           mult     
+           add      
+           pushc    5   
+           sub      
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           lt       
+           fjp      $$56:
+           pushc    20   
+           pushc    20   
+           pushz    StrikeBlockMap&i   
+           mult     
+           add      
+           ldrz     &unitBall   
+           ixa      
+           pushc    12   
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           calls    Abs
+           add      
+           calls    HitCheck
+           fjp      $$56:
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           pushz    StrikeBlockMap&i   
+           pushz    StrikeBlockMap&j   
+           call     DestroyBlock:
+$$56:      incz     StrikeBlockMap&j   1   
+           ujp      $$54:
+$$53:      incz     StrikeBlockMap&i   1   
+           ujp      $$51:
+$$52:      ret      
+DestroyBlock: nop   
+           popz     DestroyBlock&y   
+           popz     DestroyBlock&x   
+           pushz    DestroyBlock&y   
+           pushz    DestroyBlock&x   
+           pushc    10   
+           mult     
+           add      
+           ldrz     &blockMap   
+           add      
+           pushc    -1   
+           sta      
+           incz     &playPoint   5   
+           ret      
+StrikeWall: nop     
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           pushc    2   
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           calls    Abs
+           add      
+           lt       
+           fjp      $$64:
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           ujp      $$65:
+$$64:      ldrz     &unitBall   
+           inc      
+           ixa      
+           pushc    278   
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           calls    Abs
+           sub      
+           gt       
+           fjp      $$65:
+           ldrz     &unitBall   
+           inc      
+           ixa      
+           gejp     280   $$67:
+           ldrz     &unitBar   
+           ixa      
+           ldrz     &unitBall   
+           ixa      
+           sub      
+           calls    Abs
+           gejp     13   $$65:
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           ujp      $$65:
+$$67:      pushc    3   
+           call     ChangeMode:
+$$65:      ldrz     &unitBall   
+           ixa      
+           pushc    2   
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           calls    Abs
+           add      
+           lt       
+           fjp      $$70:
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+           ujp      $$71:
+$$70:      ldrz     &unitBall   
+           ixa      
+           pushc    238   
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           calls    Abs
+           sub      
+           gt       
+           fjp      $$71:
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           pushc    -1   
+           mult     
+           sta      
+$$71:      ret      
+ChangeDirection: nop 
+           popz     ChangeDirection&position   
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           mult     
+           popz     ChangeDirection&xPerY   
+           pushz    ChangeDirection&position   
+           calls    Abs
+           pushc    2   
+           mult     
+           pushc    13   
+           div      
+           inc      
+           popz     ChangeDirection&xPerYFromPosition   
+           pushz    ChangeDirection&position   
+           gejp     0   $$73:
+           pushz    ChangeDirection&xPerYFromPosition   
+           pushc    -1   
+           mult     
+           popz     ChangeDirection&xPerYFromPosition   
+$$73:      pushz    ChangeDirection&xPerY   
+           pushz    ChangeDirection&xPerYFromPosition   
+           mult     
+           popz     ChangeDirection&xPerY   
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ldrz     &unitBall   
+           pushc    2   
+           add      
+           ixa      
+           pushz    ChangeDirection&xPerY   
+           mult     
+           sta      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ldrz     &unitBall   
+           pushc    3   
+           add      
+           ixa      
+           pushz    ChangeDirection&xPerY   
+           mult     
+           sta      
+           ret      
+EVENT_START: nop    
+           call     InitAlcanoid:
+           pushc    20   
+           pushc    1   
+           calls    SetTimer
+           end      
+EVENT_TIMEOUT: nop  
+           call     DrawAlcanoid:
+           end      
+EVENT_KEYPRESS: nop 
+           pushz    &swData   
+           call     ControlAlcanoid:
+           end      

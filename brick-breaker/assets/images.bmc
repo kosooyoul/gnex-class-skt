@@ -1,0 +1,22 @@
+/*****************************************************************************/
+/* GNEX Image Master v3.20 Map Output for Mobile C						 */
+/*                                                                           */
+/* Output file : E:\GNEX\GNEX_Projects\Alcanoid\images.smc					*/
+/*    IDF file  : E:\GNEX\GNEX_Projects\Alcanoid\images.idf					*/
+/*                                                                           */
+/* First written : Saturday, June 06, 1998 10:55:54			     */
+/* Last modified : Saturday, June 06, 1998 14:00:50			     */
+/*                                                                           */
+/* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
+/*****************************************************************************/
+
+// 전체 블럭에 대해 지정한 속성 배열 저장
+binary images_BlockInfo={0, 0, 0, 0};
+int images_BlockName[4]; // 전체 블럭에 대한 블럭 포인터 배열 저장
+void images_BlockNameInit()
+{
+	images_BlockName[0]=imgBall;
+	images_BlockName[1]=imgBar;
+	images_BlockName[2]=imgBlock[0];
+	images_BlockName[3]=imgBlock[1];
+}

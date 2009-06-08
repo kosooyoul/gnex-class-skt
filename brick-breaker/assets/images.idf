@@ -1,0 +1,22 @@
+/*****************************************************************************/
+/* GNEX Image Master v3.20 Image Description File			     */
+/*                                                                           */
+/* Image Contents                                                            */
+/* 	 - Flags : Flag(X,Y)                                                 */
+/*	 - Blocks : Block name, Type, Start X, Start Y, Width, Height	     */
+/*		, Hotspot X, Hotspot Y, BlockInfo, BlockIdx, Transparent, Transparent Color       */
+/*                                                                           */
+/* First written : Saturday, June 06, 1998 10:55:54			     */
+/* Last modified : Saturday, June 06, 1998 14:01:53			     */
+/*                                                                           */
+/* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
+/*****************************************************************************/
+
+IDF3
+BlockSizeExtension=0
+Image=images.bmp
+imgBall,11,1,1,5,5,2,2,0,1,1,16711935
+imgBar,11,7,1,27,5,13,2,0,2,0,2134048
+imgBlock[000],11,7,7,19,9,0,0,0,3,1,16777215
+imgBlock[001],11,27,7,19,9,0,0,0,4,1,16777215
+
